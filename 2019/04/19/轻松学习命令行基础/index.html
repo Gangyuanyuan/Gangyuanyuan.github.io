@@ -119,7 +119,7 @@ Windows 系统中，Git Bash 可以兼容Linux的命令，而 cmd ">
 </ol>
 <h2 id="命令浅析"><a href="#命令浅析" class="headerlink" title="命令浅析"></a>命令浅析</h2><h3 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h3><ul>
 <li><p><code>ls</code> 是 list 的缩写，即罗列。<br>用来查看当前目录下的路径，包括目录和文件（不包括隐藏文件，即以 <code>.</code> 和 <code>..</code> 开头的文件不显示）。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  ls</span><br></pre></td></tr></table></figure>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span> ls</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><strong>ls命令的选项</strong><br><code>ls -a</code>：查看当前目录下的所有路径，包括隐藏文件<br><code>ls -l</code>：查看当前目录下所有路径的详细信息<br><code>ls -al</code>：即 <code>ls -a</code> 和选项 <code>ls -l</code> 的集合，查看当前目录下所有路径（包括隐藏文件）的详细信息</p>
 </li>
@@ -135,21 +135,21 @@ Windows 系统中，Git Bash 可以兼容Linux的命令，而 cmd ">
 </ol>
 <ul>
 <li><p><code>cat</code> 是 catch 的缩写，表示在标准输出上打印（即查看文件内容）或连接文件。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$  cat 文件名</span><br><span class="line">$  cat 文件名1 文件名2 &gt; 文件名3</span><br></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$  cat 文件名</span><br><span class="line">$  cat 文件名<span class="number">1</span> 文件名<span class="number">2</span> &gt; 文件名<span class="number">3</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p><strong>用法</strong><br>假设文件 1.txt 内容为 Hello；文件 2.txt 内容为 World；<br><code>cat 1.txt</code>：显示文件 1.txt 里的内容，会输出 Hello。<br><code>cat 1.txt 2.txt &gt; 3.txt</code>：将文件 1.txt 和 2.txt 的内容合并起来放入 3.txt 中，3.txt 原先的内容被替代（若 3.txt 不存在则先创建一个）。这时 <code>cat 3.txt</code>，会输出 Hello World。</p>
 </li>
 </ul>
 <h3 id="mv"><a href="#mv" class="headerlink" title="mv"></a>mv</h3><ul>
 <li><p><code>mv</code> 是 move 的缩写，用来移动、覆盖或重命名文件。<br>后缀可以随意改变。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  move 源文件 目标文件</span><br></pre></td></tr></table></figure>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  <span class="built_in">move</span> 源文件 目标文件</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><strong>用法</strong><br>默认命令中所用到的文件 1.txt 和 2.txt，文件夹 demo 都已存在。例：<br><code>mv 1.txt demo</code>：将文件 1.txt 移动到文件夹 demo 中<br><code>mv 1.txt 11.txt</code>：将文件 1.txt 重命名为 11.txt<br><code>mv 1.txt 2.txt</code>：文件 1.txt 被文件 2.txt 覆盖，即 1.txt 名字变为 2.txt，之前的 2.txt 消失</p>
 </li>
 </ul>
 <h3 id="touch"><a href="#touch" class="headerlink" title="touch"></a>touch</h3><ul>
 <li><p><code>touch</code>：创建文件/改变文件最后更新时间</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  touch 文件名</span><br></pre></td></tr></table></figure>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span> touch 文件名</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><strong>使用情况</strong><br>例：<code>touch a.txt</code></p>
 </li>
