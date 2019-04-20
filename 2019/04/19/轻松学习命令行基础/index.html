@@ -13,9 +13,9 @@
     <meta name="author" content="Gangyuanyuan">
     
     <meta name="description" content="Git Bash 和 cmd 都提供了命令行，操作方便非常实用，我们以 Git Bash 为例来总结一下几个常用的命令。
-一、基础知识
+基础知识
 绝对路径与相对路径的区别：以 / 开头的路径就是绝对路径，不是这种开头的就是相对路径。
-Windows 系统中，Git Bash 可以兼容Linux的命令，而 cm">
+Windows 系统中，Git Bash 可以兼容Linux的命令，而 cmd ">
     
     
     
@@ -46,7 +46,7 @@ Windows 系统中，Git Bash 可以兼容Linux的命令，而 cm">
       <div>
 		
 			<div id="imglogo">
-				<a href="/"><img src="/img/logo.svg" alt="养乐多&#39;s Blog" title="养乐多&#39;s Blog"></a>
+				<a href="/"><img src="/img/logo2.png" alt="养乐多&#39;s Blog" title="养乐多&#39;s Blog"></a>
 			</div>
 			
 			<div id="textlogo">
@@ -67,7 +67,7 @@ Windows 系统中，Git Bash 可以兼容Linux的命令，而 cm">
 					
 						<li><a href="/tags">标签</a></li>
 					
-						<li><a href="/About">关于</a></li>
+						<li><a href="/about">关于</a></li>
 					
 					<li>
 					
@@ -95,7 +95,7 @@ Windows 系统中，Git Bash 可以兼容Linux的命令，而 cm">
     </p>
   <p class="article-time">
     <time datetime="2019-04-19T12:40:16.000Z" itemprop="datePublished">2019-04-19</time>
-    Updated:<time datetime="2019-04-19T13:14:32.494Z" itemprop="dateModified">2019-04-19</time>
+    Updated:<time datetime="2019-04-20T06:43:04.163Z" itemprop="dateModified">2019-04-20</time>
     
   </p>
 </header>
@@ -104,11 +104,11 @@ Windows 系统中，Git Bash 可以兼容Linux的命令，而 cm">
 		
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
-		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、基础知识"><span class="toc-number">1.</span> <span class="toc-text">一、基础知识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、命令浅析"><span class="toc-number">2.</span> <span class="toc-text">二、命令浅析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-ls"><span class="toc-number">2.0.1.</span> <span class="toc-text">1. ls</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-cat"><span class="toc-number">2.0.2.</span> <span class="toc-text">2. cat</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-mv"><span class="toc-number">2.0.3.</span> <span class="toc-text">3. mv</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-touch"><span class="toc-number">2.0.4.</span> <span class="toc-text">4. touch</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-mkdir"><span class="toc-number">2.0.5.</span> <span class="toc-text">5. mkdir</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-echo"><span class="toc-number">2.0.6.</span> <span class="toc-text">6. echo</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-cp"><span class="toc-number">2.0.7.</span> <span class="toc-text">7. cp</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-rm"><span class="toc-number">2.0.8.</span> <span class="toc-text">8. rm</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-其他命令"><span class="toc-number">2.0.9.</span> <span class="toc-text">9. 其他命令</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#三、explainshell-网站用法"><span class="toc-number">3.</span> <span class="toc-text">三、explainshell 网站用法</span></a></li>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基础知识"><span class="toc-number">1.</span> <span class="toc-text">基础知识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#命令浅析"><span class="toc-number">2.</span> <span class="toc-text">命令浅析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ls"><span class="toc-number">2.1.</span> <span class="toc-text">ls</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cat"><span class="toc-number">2.2.</span> <span class="toc-text">cat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mv"><span class="toc-number">2.3.</span> <span class="toc-text">mv</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#touch"><span class="toc-number">2.4.</span> <span class="toc-text">touch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mkdir"><span class="toc-number">2.5.</span> <span class="toc-text">mkdir</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#echo"><span class="toc-number">2.6.</span> <span class="toc-text">echo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cp"><span class="toc-number">2.7.</span> <span class="toc-text">cp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rm"><span class="toc-number">2.8.</span> <span class="toc-text">rm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他命令"><span class="toc-number">2.9.</span> <span class="toc-text">其他命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#explainshell-网站用法"><span class="toc-number">3.</span> <span class="toc-text">explainshell 网站用法</span></a></li></ol>
 		</div>
 		
 		<p>Git Bash 和 cmd 都提供了命令行，操作方便非常实用，我们以 Git Bash 为例来总结一下几个常用的命令。</p>
-<h2 id="一、基础知识"><a href="#一、基础知识" class="headerlink" title="一、基础知识"></a>一、基础知识</h2><ol>
+<h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><ol>
 <li><strong>绝对路径</strong>与<strong>相对路径</strong>的区别：<br>以 <code>/</code> 开头的路径就是绝对路径，不是这种开头的就是相对路径。</li>
 <li>Windows 系统中，Git Bash 可以兼容Linux的命令，而 cmd 不可以兼容。因此有些命令在 cmd 中无法运行。</li>
 <li>一些基本的符号含义：<ul>
@@ -121,7 +121,7 @@ Windows 系统中，Git Bash 可以兼容Linux的命令，而 cm">
 </li>
 <li><code>tab键</code> —— 补全命令<br><code>回车键</code> —— 执行命令</li>
 </ol>
-<h2 id="二、命令浅析"><a href="#二、命令浅析" class="headerlink" title="二、命令浅析"></a>二、命令浅析</h2><h4 id="1-ls"><a href="#1-ls" class="headerlink" title="1. ls"></a>1. ls</h4><ul>
+<h2 id="命令浅析"><a href="#命令浅析" class="headerlink" title="命令浅析"></a>命令浅析</h2><h3 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h3><ul>
 <li><p><code>ls</code> 是 list 的缩写，即罗列。<br>用来查看当前目录下的路径，包括目录和文件（不包括隐藏文件，即以 <code>.</code> 和 <code>..</code> 开头的文件不显示）。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  ls</span><br></pre></td></tr></table></figure>
 </li>
@@ -135,7 +135,7 @@ Windows 系统中，Git Bash 可以兼容Linux的命令，而 cm">
 <li>直接用 <code>ls 目录名</code> 的方式查看。</li>
 </ul>
 </li>
-<li>运行 <code>ls</code> 命令查看详细信息的结果：<br>管理员的权限、用户所在组的权限、其他人的权限<br><code>d</code>：目录，<code>-</code>：文件，<code>r</code>：是否可读，<code>w</code>：是否可写，<code>x</code>：是否可执行<h4 id="2-cat"><a href="#2-cat" class="headerlink" title="2. cat"></a>2. cat</h4></li>
+<li>运行 <code>ls</code> 命令查看详细信息的结果：<br>管理员的权限、用户所在组的权限、其他人的权限<br><code>d</code>：目录，<code>-</code>：文件，<code>r</code>：是否可读，<code>w</code>：是否可写，<code>x</code>：是否可执行<h3 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h3></li>
 </ol>
 <ul>
 <li><p><code>cat</code> 是 catch 的缩写，表示在标准输出上打印（即查看文件内容）或连接文件。</p>
@@ -144,14 +144,14 @@ Windows 系统中，Git Bash 可以兼容Linux的命令，而 cm">
 <li><p><strong>用法</strong><br>假设文件 1.txt 内容为 Hello；文件 2.txt 内容为 World；<br><code>cat 1.txt</code>：显示文件 1.txt 里的内容，会输出 Hello。<br><code>cat 1.txt 2.txt &gt; 3.txt</code>：将文件 1.txt 和 2.txt 的内容合并起来放入 3.txt 中，3.txt 原先的内容被替代（若 3.txt 不存在则先创建一个）。这时 <code>cat 3.txt</code>，会输出 Hello World。</p>
 </li>
 </ul>
-<h4 id="3-mv"><a href="#3-mv" class="headerlink" title="3. mv"></a>3. mv</h4><ul>
+<h3 id="mv"><a href="#mv" class="headerlink" title="mv"></a>mv</h3><ul>
 <li><p><code>mv</code> 是 move 的缩写，用来移动、覆盖或重命名文件。<br>后缀可以随意改变。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  move 源文件 目标文件</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><strong>用法</strong><br>默认命令中所用到的文件 1.txt 和 2.txt，文件夹 demo 都已存在。例：<br><code>mv 1.txt demo</code>：将文件 1.txt 移动到文件夹 demo 中<br><code>mv 1.txt 11.txt</code>：将文件 1.txt 重命名为 11.txt<br><code>mv 1.txt 2.txt</code>：文件 1.txt 被文件 2.txt 覆盖，即 1.txt 名字变为 2.txt，之前的 2.txt 消失</p>
 </li>
 </ul>
-<h4 id="4-touch"><a href="#4-touch" class="headerlink" title="4. touch"></a>4. touch</h4><ul>
+<h3 id="touch"><a href="#touch" class="headerlink" title="touch"></a>touch</h3><ul>
 <li><p><code>touch</code>：创建文件/改变文件最后更新时间</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  touch 文件名</span><br></pre></td></tr></table></figure>
 </li>
@@ -162,21 +162,21 @@ Windows 系统中，Git Bash 可以兼容Linux的命令，而 cm">
 <li>如果之前没有这个文件，则创建这个文件。</li>
 <li>若之前这个文件已存在，则改变文件的最后更新时间。</li>
 </ol>
-<h4 id="5-mkdir"><a href="#5-mkdir" class="headerlink" title="5. mkdir"></a>5. mkdir</h4><ul>
+<h3 id="mkdir"><a href="#mkdir" class="headerlink" title="mkdir"></a>mkdir</h3><ul>
 <li><code>mkdir 目录名</code>：创建目录</li>
 <li><code>mkdir -p 目录路径</code>：一次创建多个嵌套目录<br>例：<code>mkdir -p &quot;demo-1/demo-2/demo-3&quot;</code><br>引号加不加都可以，如果命令里有特殊字符（如空格），必须加引号，把它标记为一个整体。</li>
 </ul>
-<h4 id="6-echo"><a href="#6-echo" class="headerlink" title="6. echo"></a>6. echo</h4><ul>
+<h3 id="echo"><a href="#echo" class="headerlink" title="echo"></a>echo</h3><ul>
 <li><code>echo &#39;内容&#39; &gt; 文件路径</code>：用重定向创建文件        </li>
 <li><code>echo &#39;内容&#39; &gt;&gt; 文件路径</code>：追加文件内容    </li>
 <li><code>echo &#39;内容&#39; &gt;! 文件路径</code>：强制创建文件</li>
 </ul>
 <p>例：<br><code>echo &quot;hello&quot; &gt; 1.txt</code> / 初次创建文件 1.txt。<br> <code>echo &quot;hi&quot; &gt; 1.txt</code> / Windows 直接用新内容替换掉之前的内容，Linux 会报错文件已存在。<br><code>echo &quot;haha&quot; &gt;&gt; 1.txt</code> / 追加文件内容<br><code>echo &quot;world&quot; &gt;! 1.txt</code> / Window 不可以用，会创建一个以“！”命名的文件；Linux 强制重定向，覆盖之前的内容。</p>
-<h4 id="7-cp"><a href="#7-cp" class="headerlink" title="7. cp"></a>7. cp</h4><ul>
+<h3 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h3><ul>
 <li><code>cp 源路径 目标路径</code>：复制文件（若目标路径已存在，直接覆盖）。</li>
 <li><code>cp -r 源路径 目标路径</code>：复制目录（<code>-r</code>：递归）</li>
 </ul>
-<h4 id="8-rm"><a href="#8-rm" class="headerlink" title="8. rm"></a>8. rm</h4><ul>
+<h3 id="rm"><a href="#rm" class="headerlink" title="rm"></a>rm</h3><ul>
 <li><code>rm 文件路径</code>：删除文件    </li>
 <li><code>rm -f 文件路径</code>：强制删除文件（<code>-f</code>：强制）</li>
 </ul>
@@ -184,7 +184,7 @@ Windows 系统中，Git Bash 可以兼容Linux的命令，而 cm">
 <li><code>rm -r 目录路径</code>：删除目录（<code>-r</code>：递归）</li>
 <li><code>rm -rf 目录路径</code>：强制删除目录    （<code>-f</code>：强制）<br><strong>注意</strong>：目录只能递归地删除，不加 <code>-r</code>，则目录删不掉；不加 <code>-f</code>，则会一遍遍地询问是否删除</li>
 </ul>
-<h4 id="9-其他命令"><a href="#9-其他命令" class="headerlink" title="9. 其他命令"></a>9. 其他命令</h4><ul>
+<h3 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h3><ul>
 <li><code>cd 目录名</code>：进入目录<br> 例：<code>cd..</code> 或 <code>cd../</code>：进入上级目录</li>
 <li><code>pwd</code>：快速查看当前路径    </li>
 <li><code>whoami</code>：快速查看用户名</li>
@@ -201,7 +201,7 @@ Windows 系统中，Git Bash 可以兼容Linux的命令，而 cm">
 <li><code>clear</code>：清屏</li>
 <li><code>history</code>：查看操作历史</li>
 </ul>
-<h2 id="三、explainshell-网站用法"><a href="#三、explainshell-网站用法" class="headerlink" title="三、explainshell 网站用法"></a>三、explainshell 网站用法</h2><p>我们在学习命令行的过程中，会经常遇到不会用的命令，或不清楚一些命令参数的用法等问题，向大家推荐网站<a href="http://explainshell.com" target="_blank" rel="noopener">explainshell.com</a>来学习。</p>
+<h2 id="explainshell-网站用法"><a href="#explainshell-网站用法" class="headerlink" title="explainshell 网站用法"></a>explainshell 网站用法</h2><p>我们在学习命令行的过程中，会经常遇到不会用的命令，或不清楚一些命令参数的用法等问题，向大家推荐网站<a href="http://explainshell.com" target="_blank" rel="noopener">explainshell.com</a>来学习。</p>
 <ol>
 <li>进入网站，在搜索框输入要查询的命令，以<code>ls -a</code>为例，并点击EXPLAIN键查询。<img src="https://upload-images.jianshu.io/upload_images/13038962-1c1cc8c5e4bb9423.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="搜索框输入查询命令"></li>
 <li>网站给出所查询命令的解释：<img src="https://upload-images.jianshu.io/upload_images/13038962-e58a3050dea56fb9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="查询到的结果"></li>
@@ -267,7 +267,7 @@ Windows 系统中，Git Bash 可以兼容Linux的命令，而 cm">
 
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、基础知识"><span class="toc-number">1.</span> <span class="toc-text">一、基础知识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、命令浅析"><span class="toc-number">2.</span> <span class="toc-text">二、命令浅析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-ls"><span class="toc-number">2.0.1.</span> <span class="toc-text">1. ls</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-cat"><span class="toc-number">2.0.2.</span> <span class="toc-text">2. cat</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-mv"><span class="toc-number">2.0.3.</span> <span class="toc-text">3. mv</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-touch"><span class="toc-number">2.0.4.</span> <span class="toc-text">4. touch</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-mkdir"><span class="toc-number">2.0.5.</span> <span class="toc-text">5. mkdir</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-echo"><span class="toc-number">2.0.6.</span> <span class="toc-text">6. echo</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-cp"><span class="toc-number">2.0.7.</span> <span class="toc-text">7. cp</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-rm"><span class="toc-number">2.0.8.</span> <span class="toc-text">8. rm</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-其他命令"><span class="toc-number">2.0.9.</span> <span class="toc-text">9. 其他命令</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#三、explainshell-网站用法"><span class="toc-number">3.</span> <span class="toc-text">三、explainshell 网站用法</span></a></li>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基础知识"><span class="toc-number">1.</span> <span class="toc-text">基础知识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#命令浅析"><span class="toc-number">2.</span> <span class="toc-text">命令浅析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ls"><span class="toc-number">2.1.</span> <span class="toc-text">ls</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cat"><span class="toc-number">2.2.</span> <span class="toc-text">cat</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mv"><span class="toc-number">2.3.</span> <span class="toc-text">mv</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#touch"><span class="toc-number">2.4.</span> <span class="toc-text">touch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mkdir"><span class="toc-number">2.5.</span> <span class="toc-text">mkdir</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#echo"><span class="toc-number">2.6.</span> <span class="toc-text">echo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cp"><span class="toc-number">2.7.</span> <span class="toc-text">cp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rm"><span class="toc-number">2.8.</span> <span class="toc-text">rm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他命令"><span class="toc-number">2.9.</span> <span class="toc-text">其他命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#explainshell-网站用法"><span class="toc-number">3.</span> <span class="toc-text">explainshell 网站用法</span></a></li></ol>
   </div>
 
 <div id="asidepart">
