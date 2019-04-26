@@ -1,0 +1,486 @@
+
+ <!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  
+    <title>关于 CSS | 养乐多&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Gangyuanyuan">
+    
+
+    
+    <meta name="description" content="一、概论CSS：层叠样式表（Cascading Style Sheets）CSS2.1 目前是世界上支持内容最广泛的 CSS（最通用），IE 从 5.5 开始是支持 CSS2.1 的；我们现在学前段从 IE8 开始兼容，低于 IE8 就不看不管不测试；其他主流浏览器都是支持 CSS3 的。 CSS引入的四种方式： 内联样式：即 style 属性，把样式直接写在标签上。 style 标签：把 sty">
+<meta name="keywords" content="CSS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于 CSS">
+<meta property="og:url" content="http://yoursite.com/2019/04/26/关于-CSS/index.html">
+<meta property="og:site_name" content="养乐多&#39;s Blog">
+<meta property="og:description" content="一、概论CSS：层叠样式表（Cascading Style Sheets）CSS2.1 目前是世界上支持内容最广泛的 CSS（最通用），IE 从 5.5 开始是支持 CSS2.1 的；我们现在学前段从 IE8 开始兼容，低于 IE8 就不看不管不测试；其他主流浏览器都是支持 CSS3 的。 CSS引入的四种方式： 内联样式：即 style 属性，把样式直接写在标签上。 style 标签：把 sty">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-26T00:59:19.828Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于 CSS">
+<meta name="twitter:description" content="一、概论CSS：层叠样式表（Cascading Style Sheets）CSS2.1 目前是世界上支持内容最广泛的 CSS（最通用），IE 从 5.5 开始是支持 CSS2.1 的；我们现在学前段从 IE8 开始兼容，低于 IE8 就不看不管不测试；其他主流浏览器都是支持 CSS3 的。 CSS引入的四种方式： 内联样式：即 style 属性，把样式直接写在标签上。 style 标签：把 sty">
+
+    
+    <link rel="alternative" href="atom.xml" title="养乐多&#39;s Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/profile2.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/profile2.png">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="养乐多&#39;s Blog">养乐多&#39;s Blog</a></h1>
+				<h2 class="blog-motto">不要拖泥又带水， 不要懒惰又浪费。</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/categories">Categories</a></li>
+					
+						<li><a href="/tags">Tags</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search">
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</ul></nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2019/04/26/关于-CSS/" title="关于 CSS" itemprop="url">关于 CSS</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Gangyuanyuan" target="_blank" itemprop="author">Gangyuanyuan</a>
+		
+  </p><p class="article-time">
+    <time datetime="2019-04-26T00:40:58.000Z" itemprop="datePublished"> Published 2019-04-26</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、概论"><span class="toc-number">1.</span> <span class="toc-text">一、概论</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS：层叠样式表（Cascading-Style-Sheets）"><span class="toc-number">1.1.</span> <span class="toc-text">CSS：层叠样式表（Cascading Style Sheets）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS引入的四种方式："><span class="toc-number">1.2.</span> <span class="toc-text">CSS引入的四种方式：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、知识点"><span class="toc-number">2.</span> <span class="toc-text">二、知识点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#div-高度"><span class="toc-number">2.1.</span> <span class="toc-text">div 高度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#span-高度"><span class="toc-number">2.2.</span> <span class="toc-text">span 高度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#文档流（Normal-Flow）"><span class="toc-number">2.3.</span> <span class="toc-text">文档流（Normal Flow）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS-position-定位"><span class="toc-number">2.4.</span> <span class="toc-text">CSS position 定位</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<h2 id="一、概论"><a href="#一、概论" class="headerlink" title="一、概论"></a>一、概论</h2><h3 id="CSS：层叠样式表（Cascading-Style-Sheets）"><a href="#CSS：层叠样式表（Cascading-Style-Sheets）" class="headerlink" title="CSS：层叠样式表（Cascading Style Sheets）"></a>CSS：层叠样式表（Cascading Style Sheets）</h3><p>CSS2.1 目前是世界上支持内容最广泛的 CSS（最通用），IE 从 5.5 开始是支持 CSS2.1 的；我们现在学前段从 IE8 开始兼容，低于 IE8 就不看不管不测试；其他主流浏览器都是支持 CSS3 的。</p>
+<h3 id="CSS引入的四种方式："><a href="#CSS引入的四种方式：" class="headerlink" title="CSS引入的四种方式："></a>CSS引入的四种方式：</h3><ul>
+<li>内联样式：即 <code>style</code> 属性，把样式直接写在标签上。</li>
+<li><code>style</code> 标签：把 <code>style</code> 标签放在 <code>head</code> 里。</li>
+<li><code>link</code> 标签引入外部文件：<code>&lt;link rel=&quot;stylesheet&quot; href=&quot;./a.css&quot;&gt;</code>.</li>
+<li>在 CSS 文件里再引入一个 CSS 文件：<code>@import url(./b.css);</code>.</li>
+</ul>
+<h2 id="二、知识点"><a href="#二、知识点" class="headerlink" title="二、知识点"></a>二、知识点</h2><h3 id="div-高度"><a href="#div-高度" class="headerlink" title="div 高度"></a>div 高度</h3><p>div 的高度由其 内部文档流元素 的高度总和决定。</p>
+<p><strong>文档流</strong>：即文档内元素的流动方向<br>内联元素（如 <code>span</code>）从左到右流动，如果流动遇到阻碍，就换行继续流动。<br>块状元素（如 <code>div</code>）从上往下流动，每个块都独占一行。</p>
+<ul>
+<li>如果一个 <code>span</code> 有 <code>border</code>，在流动过程中被断行截断了，<code>border</code> 也呈被分开状态，不会出现两个 <code>border</code>.</li>
+<li>英文单词默认不会换行，可用<code>word-break</code>控制换行。<br><code>word-break:break all</code> 在任意位置打断<br><code>word-break:break word</code> 只在单词连接处打断（默认状态）</li>
+<li>块状元素并排展示的方法：<br>（1）用 <code>float:left</code><br>（2）用 <code>display:inline-block</code></li>
+</ul>
+<h3 id="span-高度"><a href="#span-高度" class="headerlink" title="span 高度"></a>span 高度</h3><p><code>span</code> 高度由字体，以及设计师设计的与字体样式相关的参数决定。</p>
+<ul>
+<li>文字是基线对齐，不是中线对齐。</li>
+<li>除了字体本身高度外，不同样式的字体还会有一个“建议行高”，浏览器默认取这个建议行高。</li>
+<li>可以用 <code>line-height</code> 指定内联元素的高度。</li>
+</ul>
+<h3 id="文档流（Normal-Flow）"><a href="#文档流（Normal-Flow）" class="headerlink" title="文档流（Normal Flow）"></a>文档流（Normal Flow）</h3><ul>
+<li><strong>文档流</strong>：将窗体自上而下分成一行一行，并在每行中按从左至右的顺序依次排放元素，即为文档流，也称为普通流。</li>
+<li><strong>脱离文档流</strong>：元素脱离文档流之后，将不再在文档流中占据空间，而是处于浮动状态。</li>
+<li><strong>脱离文档流的三种方法</strong>：<br>  （1）<code>float: left;</code><br>  （2）<code>position: fixed;</code><br>  （3）<code>position: absolute;</code></li>
+</ul>
+<h3 id="CSS-position-定位"><a href="#CSS-position-定位" class="headerlink" title="CSS position 定位"></a>CSS position 定位</h3><ul>
+<li><strong>fixed 定位</strong><br>元素的位置相对于浏览器窗口是固定位置，即使窗口是滚动的它也不会移动。<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.topNavBar</span>&#123;</span><br><span class="line">  <span class="attribute">position</span>: fixed;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>（1）<strong>脱离文档流</strong>：使元素的位置与文档流无关，即不再在文档流中占据空间。<br>（2）<code>fixed</code> 定位的元素和其它元素重叠（会影响父元素高度）。<br>（3）用 <code>fixed</code> 定位之后，扩张的文字会缩回去，可用 <code>width:100%</code> 修正。（<code>width</code> 标签也容易出现 bug，能不用就不用）</p>
+<ul>
+<li><strong>relative 定位</strong>：相对定位<br>相对元素的定位是相对其正常位置。<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h2</span><span class="selector-class">.pos-left</span>&#123;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">left</span>: -<span class="number">20px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>相对定位元素经常被用来作为绝对定位元素的容器块。</p>
+<ul>
+<li><strong>absolute 定位</strong>：绝对定位<br>绝对定位的元素的位置相对于最近的已定位父元素，若没有已定位的父元素，那么它的位置相对于 <code>&lt;html&gt;</code>.<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h2</span>&#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">150px</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>（1）<strong>脱离文档流</strong>：使元素的位置与文档流无关，因此不占据空间。<br>（2）<code>absolute</code> 定位的元素和其它元素重叠。</p>
+<ul>
+<li><strong>static 定位</strong>：静态定位</li>
+<li><strong>sticky 定位</strong>：粘性定位</li>
+</ul>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/前端探索/">前端探索</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/CSS/">CSS</a>
+  </div>
+
+</div>
+
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2019/04/22/HTML-常用标签/" title="HTML 常用标签">
+ <span>HTML 常用标签
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+<div id="authorInfo">
+	
+		<div class="author-img"></div>		
+	
+	<div class="social-info">
+		
+		<a href="http://weibo.com/5174431150" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/Gangyuanyuan" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:gang.gy@qq.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+
+	</div>
+</div>
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/前端探索/" title="前端探索">前端探索<sup>5</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/git/" title="git">git<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTML标签/" title="HTML标签">HTML标签<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/命令行/" title="命令行">命令行<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTTP/" title="HTTP">HTTP<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://github.com/Gangyuanyuan" target="_blank" title="My GitHub">My GitHub</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://www.jianshu.com/u/9f534f79952c" target="_blank" title="My JianShu">My JianShu</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer">
+		
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/hsihohuang/kiddochan" target="_blank" title="Kiddochan">Kiddochan</a> © 2019 
+		
+		<a href="/about" target="_blank" title="Gangyuanyuan">Gangyuanyuan</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
