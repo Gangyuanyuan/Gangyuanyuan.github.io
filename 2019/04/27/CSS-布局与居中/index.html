@@ -1,0 +1,507 @@
+
+ <!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  
+    <title>CSS 布局与居中 | 养乐多&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Gangyuanyuan">
+    
+
+    
+    <meta name="description" content="常见布局浮动布局可以通过盒模型的 float 属性实现浮动布局，使元素脱离文档流，浮动起来。（1）使所有子元素浮动起来：float: left; 或 float: right;（2）给父元素添加 clearfix 类清除浮动（加在类名后面，与类名用空格隔开），例：123&amp;lt;div class=&quot;picture clearfix&quot;&amp;gt;  ······&amp;lt;div&amp;gt; （3）在 css">
+<meta name="keywords" content="CSS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS 布局与居中">
+<meta property="og:url" content="http://yoursite.com/2019/04/27/CSS-布局与居中/index.html">
+<meta property="og:site_name" content="养乐多&#39;s Blog">
+<meta property="og:description" content="常见布局浮动布局可以通过盒模型的 float 属性实现浮动布局，使元素脱离文档流，浮动起来。（1）使所有子元素浮动起来：float: left; 或 float: right;（2）给父元素添加 clearfix 类清除浮动（加在类名后面，与类名用空格隔开），例：123&amp;lt;div class=&quot;picture clearfix&quot;&amp;gt;  ······&amp;lt;div&amp;gt; （3）在 css">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-04-27T01:14:59.319Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS 布局与居中">
+<meta name="twitter:description" content="常见布局浮动布局可以通过盒模型的 float 属性实现浮动布局，使元素脱离文档流，浮动起来。（1）使所有子元素浮动起来：float: left; 或 float: right;（2）给父元素添加 clearfix 类清除浮动（加在类名后面，与类名用空格隔开），例：123&amp;lt;div class=&quot;picture clearfix&quot;&amp;gt;  ······&amp;lt;div&amp;gt; （3）在 css">
+
+    
+    <link rel="alternative" href="atom.xml" title="养乐多&#39;s Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/profile2.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/profile2.png">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="养乐多&#39;s Blog">养乐多&#39;s Blog</a></h1>
+				<h2 class="blog-motto">不要拖泥又带水， 不要懒惰又浪费。</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/categories">Categories</a></li>
+					
+						<li><a href="/tags">Tags</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search">
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</ul></nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2019/04/27/CSS-布局与居中/" title="CSS 布局与居中" itemprop="url">CSS 布局与居中</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Gangyuanyuan" target="_blank" itemprop="author">Gangyuanyuan</a>
+		
+  </p><p class="article-time">
+    <time datetime="2019-04-27T01:04:59.000Z" itemprop="datePublished"> Published 2019-04-27</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#常见布局"><span class="toc-number">1.</span> <span class="toc-text">常见布局</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#浮动布局"><span class="toc-number">1.1.</span> <span class="toc-text">浮动布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#定位布局"><span class="toc-number">1.2.</span> <span class="toc-text">定位布局</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#两种布局的应用"><span class="toc-number">2.</span> <span class="toc-text">两种布局的应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#左右布局"><span class="toc-number">2.1.</span> <span class="toc-text">左右布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#左中右布局"><span class="toc-number">2.2.</span> <span class="toc-text">左中右布局</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置居中"><span class="toc-number">3.</span> <span class="toc-text">设置居中</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#垂直居中"><span class="toc-number">3.1.</span> <span class="toc-text">垂直居中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#水平居中"><span class="toc-number">3.2.</span> <span class="toc-text">水平居中</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他"><span class="toc-number">4.</span> <span class="toc-text">其他</span></a></li></ol>
+		
+		</div>
+		
+		<h2 id="常见布局"><a href="#常见布局" class="headerlink" title="常见布局"></a>常见布局</h2><h3 id="浮动布局"><a href="#浮动布局" class="headerlink" title="浮动布局"></a>浮动布局</h3><p>可以通过盒模型的 <code>float</code> 属性实现浮动布局，使元素脱离文档流，浮动起来。<br>（1）使所有子元素浮动起来：<code>float: left;</code> 或 <code>float: right;</code><br>（2）给父元素添加 <code>clearfix</code> 类清除浮动（加在类名后面，与类名用空格隔开），例：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"picture clearfix"</span>&gt;</span><br><span class="line">  ······</span><br><span class="line">&lt;<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<p>（3）在 css 文件中添加以下代码：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">::after</span>&#123;           </span><br><span class="line">  <span class="attribute">content</span>: <span class="string">''</span>;             </span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">clear</span>: both;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="定位布局"><a href="#定位布局" class="headerlink" title="定位布局"></a>定位布局</h3><p>通过 <code>position</code> 属性来进行定位，确定盒模型的位置。</p>
+<ul>
+<li><strong>relative 定位</strong>：相对定位<br>相对元素的定位是相对其正常位置。<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h2</span><span class="selector-class">.pos-left</span>&#123;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">left</span>: -<span class="number">20px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>相对定位元素经常被用来作为绝对定位元素的容器块。</p>
+<ul>
+<li><strong>absolute 定位</strong>：绝对定位<br>绝对定位的元素的位置相对于最近的已定位父元素，若没有已定位的父元素，那么它的位置相对于<html>.<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h2</span>&#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">150px</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</html></li>
+</ul>
+<p>（1）<strong>脱离文档流</strong>：使元素的位置与文档流无关，因此不占据空间。<br>（2）<code>absolute</code> 定位的元素和其它元素重叠。</p>
+<h2 id="两种布局的应用"><a href="#两种布局的应用" class="headerlink" title="两种布局的应用"></a>两种布局的应用</h2><h3 id="左右布局"><a href="#左右布局" class="headerlink" title="左右布局"></a>左右布局</h3><ul>
+<li><p><code>float</code>+<code>margin</code><br>一个父 div 包裹两个子 div，并用 <code>float</code> 属性使两个子 div 浮动起来；子 div 宽度可以设置为固定值如 <code>width: 100px;</code>，也可以写为父 div 宽度的百分比形式如 <code>width: 50%;</code>。可以给两个子 div 设置一定的 <code>margin</code> 值，确定其间距。</p>
+</li>
+<li><p><code>position</code> 绝对定位<br>父 div 用 <code>position: relative;</code> 相对定位，两个子 div 用 <code>position: absolute;</code> 使其对父元素绝对定位，并用 <code>left</code> 或 <code>right</code> 调整其左右位置。</p>
+</li>
+</ul>
+<h3 id="左中右布局"><a href="#左中右布局" class="headerlink" title="左中右布局"></a>左中右布局</h3><ul>
+<li><p><code>float</code>+<code>margin</code><br>一个父 div 包裹三个子 div，并用 <code>float</code> 属性使三个子 div 都浮动起来；可以设置其中两个子 div 的宽度，使第三个宽度自适应；也可以根据需要分别设置三个子 div 的宽度。再用 <code>margin</code> 调整位置。</p>
+</li>
+<li><p><code>position</code> 绝对定位<br>与左右布局类似，父 div 用 <code>position: relative;</code> 相对定位，三个子 div 用 <code>position: absolute;</code> 绝对定位，并根据需要用 <code>left</code> 或 <code>right</code> 调整其左右位置。</p>
+</li>
+</ul>
+<h2 id="设置居中"><a href="#设置居中" class="headerlink" title="设置居中"></a>设置居中</h2><h3 id="垂直居中"><a href="#垂直居中" class="headerlink" title="垂直居中"></a>垂直居中</h3><ul>
+<li>内联元素垂直居中：使 <code>height</code> 和 <code>line-height</code> 高度相同：<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.a</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">50px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>块状元素垂直居中：用 <code>position</code> 定位实现：<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span>&#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.a</span>&#123;</span><br><span class="line">    <span class="attribute">heihght</span>: <span class="number">1000px</span>;</span><br><span class="line">    <span class="attribute">margin-top</span>: -<span class="number">50px</span>;    </span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a>水平居中</h3><ul>
+<li><p>内联元素水平居中：通过父元素实现：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span>&#123;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>块状元素水平居中：宽度确定，用 <code>margin</code> 属性：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span>.&#123;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>宽度未知或多个块状元素水平居中：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span>&#123;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.a</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ol>
+<li>若外面父 div 高度是固定的，里面的子 div 高度可写为 <code>height:100%;</code></li>
+<li><p>CSS 中相同的代码段，可以通过 “<code>inherit</code>“ 继承关系，使其继承父元素的定义：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">	<span class="attribute">color</span>: red; </span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">div</span> <span class="selector-tag">a</span>&#123;</span><br><span class="line">    <span class="attribute">color</span>: inherit; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>content-box</code> 与 <code>border-box</code> 的区别：</p>
+</li>
+</ol>
+<ul>
+<li><code>content-box</code> 的 <code>width</code> 不包括 <code>padding</code> 和 <code>border</code>.</li>
+<li><code>border-box</code> 的 <code>width</code> 包括 <code>padding</code> 和 <code>border</code>.</li>
+</ul>
+<ol start="4">
+<li><p>给 div 加 <code>padding</code> 会使 div 变大，所以应该把 div 里面的内容另外打包成一个新的 div，然后给它加 <code>padding</code>.</p>
+</li>
+<li><p>若 <code>li</code> 标签不能包裹住 <code>a</code> 标签，给 <code>a</code> 标签一个 <code>display:block</code> 就可以消除 bug。</p>
+</li>
+<li><p>块状元素显示为内联元素时，最好用 <code>vertical-align</code> 防止其产生 bug：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.a</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: inline-block;  </span><br><span class="line">    <span class="attribute">vertical-align</span>: top; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/前端探索/">前端探索</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/CSS/">CSS</a>
+  </div>
+
+</div>
+
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2019/04/26/关于-CSS/" title="关于 CSS">
+ <span>关于 CSS
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+<div id="authorInfo">
+	
+		<div class="author-img"></div>		
+	
+	<div class="social-info">
+		
+		<a href="http://weibo.com/5174431150" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/Gangyuanyuan" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:gang.gy@qq.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+
+	</div>
+</div>
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/前端探索/" title="前端探索">前端探索<sup>6</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/CSS/" title="CSS">CSS<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTML标签/" title="HTML标签">HTML标签<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/git/" title="git">git<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTTP/" title="HTTP">HTTP<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/命令行/" title="命令行">命令行<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://github.com/Gangyuanyuan" target="_blank" title="My GitHub">My GitHub</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://www.jianshu.com/u/9f534f79952c" target="_blank" title="My JianShu">My JianShu</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer">
+		
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/hsihohuang/kiddochan" target="_blank" title="Kiddochan">Kiddochan</a> © 2019 
+		
+		<a href="/about" target="_blank" title="Gangyuanyuan">Gangyuanyuan</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
