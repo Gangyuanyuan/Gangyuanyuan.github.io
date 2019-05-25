@@ -11,20 +11,20 @@
     
 
     
-    <meta name="description" content="什么是 HTTPHTTP（HyperText Transfer Protocol），即超文本传输协议。HTTP 协议用于浏览器和服务器建立连接，并指导浏览器和服务器如何进行沟通的。服务器与浏览器的交互过程如下：  浏览器发起请求 服务器在 80 端口接收请求 服务器返回响应内容 浏览器下载响应内容  HTTP 请求请求的格式123456789101112第1部分 动词 路径 协议/版本第2部分 K">
+    <meta name="description" content="什么是 HTTPHTTP（HyperText Transfer Protocol），即超文本传输协议。HTTP 协议用于浏览器和服务器建立连接，并指导浏览器和服务器如何进行沟通的。服务器与浏览器的交互过程如下：  浏览器发起请求 服务器在 80 端口接收请求 服务器返回响应内容 浏览器下载响应内容  HTTP 请求请求的格式123456789101112第1部分 请求方法 路径 协议/版本第2部分">
 <meta name="keywords" content="HTTP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HTTP 初入门">
 <meta property="og:url" content="http://yoursite.com/2019/04/21/HTTP-初入门/index.html">
 <meta property="og:site_name" content="养乐多&#39;s Blog">
-<meta property="og:description" content="什么是 HTTPHTTP（HyperText Transfer Protocol），即超文本传输协议。HTTP 协议用于浏览器和服务器建立连接，并指导浏览器和服务器如何进行沟通的。服务器与浏览器的交互过程如下：  浏览器发起请求 服务器在 80 端口接收请求 服务器返回响应内容 浏览器下载响应内容  HTTP 请求请求的格式123456789101112第1部分 动词 路径 协议/版本第2部分 K">
+<meta property="og:description" content="什么是 HTTPHTTP（HyperText Transfer Protocol），即超文本传输协议。HTTP 协议用于浏览器和服务器建立连接，并指导浏览器和服务器如何进行沟通的。服务器与浏览器的交互过程如下：  浏览器发起请求 服务器在 80 端口接收请求 服务器返回响应内容 浏览器下载响应内容  HTTP 请求请求的格式123456789101112第1部分 请求方法 路径 协议/版本第2部分">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/13038962-b053f21889824234.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/13038962-a08294355a9ea48e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-04-21T07:39:18.803Z">
+<meta property="og:updated_time" content="2019-05-25T05:59:17.404Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTTP 初入门">
-<meta name="twitter:description" content="什么是 HTTPHTTP（HyperText Transfer Protocol），即超文本传输协议。HTTP 协议用于浏览器和服务器建立连接，并指导浏览器和服务器如何进行沟通的。服务器与浏览器的交互过程如下：  浏览器发起请求 服务器在 80 端口接收请求 服务器返回响应内容 浏览器下载响应内容  HTTP 请求请求的格式123456789101112第1部分 动词 路径 协议/版本第2部分 K">
+<meta name="twitter:description" content="什么是 HTTPHTTP（HyperText Transfer Protocol），即超文本传输协议。HTTP 协议用于浏览器和服务器建立连接，并指导浏览器和服务器如何进行沟通的。服务器与浏览器的交互过程如下：  浏览器发起请求 服务器在 80 端口接收请求 服务器返回响应内容 浏览器下载响应内容  HTTP 请求请求的格式123456789101112第1部分 请求方法 路径 协议/版本第2部分">
 <meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/13038962-b053f21889824234.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
     
@@ -112,7 +112,7 @@
 <li>服务器返回响应内容</li>
 <li>浏览器下载响应内容<br><img src="https://upload-images.jianshu.io/upload_images/13038962-b053f21889824234.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="服务器与浏览器的交互"></li>
 </ul>
-<h2 id="HTTP-请求"><a href="#HTTP-请求" class="headerlink" title="HTTP 请求"></a>HTTP 请求</h2><h3 id="请求的格式"><a href="#请求的格式" class="headerlink" title="请求的格式"></a>请求的格式</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">第<span class="number">1</span>部分 动词 路径 协议/版本</span><br><span class="line"></span><br><span class="line">第<span class="number">2</span>部分 <span class="string">Key1:</span> value1</span><br><span class="line">第<span class="number">2</span>部分 <span class="string">Key2:</span> value2</span><br><span class="line">第<span class="number">2</span>部分 <span class="string">Key3:</span> value3</span><br><span class="line">第<span class="number">2</span>部分 Content-<span class="string">Type:</span> application/x-www-form-urlencoded</span><br><span class="line">第<span class="number">2</span>部分 <span class="string">Host:</span> www.baidu.com</span><br><span class="line">第<span class="number">2</span>部分 User-<span class="string">Agent:</span> curl/<span class="number">7.54</span><span class="number">.0</span></span><br><span class="line"></span><br><span class="line">第<span class="number">3</span>部分 </span><br><span class="line"></span><br><span class="line">第<span class="number">4</span>部分 要上传的数据</span><br></pre></td></tr></table></figure>
+<h2 id="HTTP-请求"><a href="#HTTP-请求" class="headerlink" title="HTTP 请求"></a>HTTP 请求</h2><h3 id="请求的格式"><a href="#请求的格式" class="headerlink" title="请求的格式"></a>请求的格式</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">第<span class="number">1</span>部分 请求方法 路径 协议/版本</span><br><span class="line"></span><br><span class="line">第<span class="number">2</span>部分 <span class="string">Key1:</span> value1</span><br><span class="line">第<span class="number">2</span>部分 <span class="string">Key2:</span> value2</span><br><span class="line">第<span class="number">2</span>部分 <span class="string">Key3:</span> value3</span><br><span class="line">第<span class="number">2</span>部分 Content-<span class="string">Type:</span> application/x-www-form-urlencoded</span><br><span class="line">第<span class="number">2</span>部分 <span class="string">Host:</span> www.baidu.com</span><br><span class="line">第<span class="number">2</span>部分 User-<span class="string">Agent:</span> curl/<span class="number">7.54</span><span class="number">.0</span></span><br><span class="line"></span><br><span class="line">第<span class="number">3</span>部分 </span><br><span class="line"></span><br><span class="line">第<span class="number">4</span>部分 要上传的数据</span><br></pre></td></tr></table></figure>
 <ul>
 <li>请求最多包含四部分，最少包含三部分，即第四部分可以为空</li>
 <li>第三部分永远都是一个回车（<code>\n</code>）</li>
@@ -131,11 +131,11 @@
 <ul>
 <li>响应也包含四部分。</li>
 <li>状态码是服务器对浏览器的回应：<ul>
-<li>1xx — 不常用</li>
-<li>2xx — 表示成功<br>例：<code>200</code>响应正常、成功获取资源 ；<code>204</code>创建成功</li>
-<li>3xx — 表示不存在<br>例：<code>301</code>请求的页面永久不存在（域名已更换）；<code>302</code>请求的页面临时不存在；<code>304</code>这次内容和上次内容是一样的</li>
-<li>4xx — 表示访问者错了<br>例：<code>403</code>服务器理解客户的请求，但拒绝处理它，通常由于服务器上文件或目录的权限设置导致的WEB访问错误；<code>404</code>链接指向的网页不存在，即原始网页的URL失效</li>
-<li>5xx — 表示服务器有问题<br>例：<code>500</code>服务器内部错误，无法完成请求；<code>502</code>网关错误</li>
+<li>1xx —- 消息（不常用）</li>
+<li>2xx —- 成功<br><code>200</code> 响应正常、成功获取资源；<br><code>204</code> 请求成功，但没有返回任何内容；</li>
+<li>3xx —- 重定向<br><code>301</code> 请求的资源已永久移动到新位置，URL已更新；<br><code>302</code> 请求的资源被临时分配了新的 URL；<br><code>304</code> 资源未曾被修改，不需要重新传输资源；</li>
+<li>4xx —- 客户端错误<br><code>403</code> 服务器已经理解请求，但是拒绝执行它；<br><code>404</code> 请求失败，请求的资源未被在服务器上发现；</li>
+<li>5xx —- 服务器错误<br><code>500</code> 服务器内部错误，无法完成请求；<br><code>502</code> 网关错误；</li>
 </ul>
 </li>
 <li>第 2 部分中的 Content-Type 标注了第 4 部分的格式</li>
@@ -250,7 +250,7 @@
 		<ul>
 		
 		  
-			<li><a href="/categories/前端探索/" title="前端探索">前端探索<sup>8</sup></a></li>
+			<li><a href="/categories/前端探索/" title="前端探索">前端探索<sup>9</sup></a></li>
 		  
 		
 		</ul>
@@ -263,11 +263,11 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/CSS/" title="CSS">CSS<sup>2</sup></a></li>
+				<li><a href="/tags/JS/" title="JS">JS<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/数据类型/" title="数据类型">数据类型<sup>1</sup></a></li>
+				<li><a href="/tags/CSS/" title="CSS">CSS<sup>2</sup></a></li>
 			
 		
 			
@@ -275,7 +275,7 @@
 			
 		
 			
-				<li><a href="/tags/HTTP/" title="HTTP">HTTP<sup>1</sup></a></li>
+				<li><a href="/tags/HTML标签/" title="HTML标签">HTML标签<sup>1</sup></a></li>
 			
 		
 			
@@ -283,11 +283,13 @@
 			
 		
 			
-				<li><a href="/tags/HTML标签/" title="HTML标签">HTML标签<sup>1</sup></a></li>
+				<li><a href="/tags/命令行/" title="命令行">命令行<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/命令行/" title="命令行">命令行<sup>1</sup></a></li>
+				<li><a href="/tags/HTTP/" title="HTTP">HTTP<sup>1</sup></a></li>
+			
+		
 			
 		
 		</ul>
