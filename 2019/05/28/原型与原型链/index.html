@@ -25,7 +25,7 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/13038962-74e0361124091d21.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/13038962-1707784aa17dec85.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/13038962-bb2fd2a8bb7d9dad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-05-28T15:53:43.539Z">
+<meta property="og:updated_time" content="2019-07-05T06:38:35.854Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="原型与原型链">
 <meta name="twitter:description" content="公用属性（原型）公用属性意义：不重复声明一样的属性，不浪费内存。 理解公用属性（1）以对象为例： var o = new Object()，对象只存自己的 key（属性），共有的属性不存，而是用 __proto__ 去指向共有属性。内存图展示：代码展示：（2）以 Number 为例：var n = new Number(1) ，以下几个属性是只有 Number 类才共有的属性：  toFixed：">
@@ -129,13 +129,13 @@
 <li><p>函数的 prototype 是个简单的对象，是由 Object 构造出来的：</p>
 <figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">函数.proto<span class="keyword">type</span>.__proto__ === <span class="type">Object</span>.prototype</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>函数作为一个对象，是由 Function 构造出来的：</p>
+<li><p>函数作为一个对象（不是普通对象），是由 Function 构造出来的：</p>
 <figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">函数.__proto__ === <span class="type">Function</span>.proto<span class="keyword">type</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>function 优先是个函数（也是对象），函数是由 Function 构造出来的：</p>
 <figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">Function</span>.<span class="title">__proto__</span></span> === <span class="function"><span class="keyword">Function</span>.<span class="title">prototype</span></span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Function 作为一个函数，它有 <code>prototype</code>：</p>
+<li><p>Function 作为一个函数，它有 <code>prototype</code>，Function.protoype 是个对象：</p>
 <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.protoype.__proto__ === <span class="built_in">Object</span>.prototype</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>另外：<br>Function 是 Object 的构造函数，所以：<br><code>Object.__proto__ === Function.prototype</code><br>Object 的公用属性是所有函数公用属性的根节点，它指向 null.<br><code>Object.prototype.__proto__ === null</code></p>
@@ -168,6 +168,13 @@
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev">
+ <a href="/2019/07/12/JS-基础之数组/" title="JS 基础之数组">
+  <span>
+  JS 基础之数组</span>
+</a>
+</div>
+
 
 <div class="next">
 <a href="/2019/05/25/JS-里的数据类型转换/" title="JS 里的数据类型转换">
@@ -218,7 +225,7 @@
 		<ul>
 		
 		  
-			<li><a href="/categories/前端探索/" title="前端探索">前端探索<sup>10</sup></a></li>
+			<li><a href="/categories/前端探索/" title="前端探索">前端探索<sup>11</sup></a></li>
 		  
 		
 		</ul>
@@ -231,11 +238,15 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/JS/" title="JS">JS<sup>3</sup></a></li>
+				<li><a href="/tags/JS/" title="JS">JS<sup>4</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/CSS/" title="CSS">CSS<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTML标签/" title="HTML标签">HTML标签<sup>1</sup></a></li>
 			
 		
 			
@@ -244,10 +255,6 @@
 		
 			
 				<li><a href="/tags/git/" title="git">git<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/HTML标签/" title="HTML标签">HTML标签<sup>1</sup></a></li>
 			
 		
 			
