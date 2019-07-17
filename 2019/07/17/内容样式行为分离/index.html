@@ -4,24 +4,25 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
   
-    <title>开博大吉 | 养乐多&#39;s Blog</title>
+    <title>内容样式行为分离 | 养乐多&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Gangyuanyuan">
     
 
     
-    <meta name="description" content="你好我的博客开通啦！我将在这里分享我的学习心得，欢迎关注~">
+    <meta name="description" content="内容样式行为分离一般情况下，我们用 html 来控制内容，用 css 来控制样式，用 js 来控制行为，将内容、样式和行为三者分离开来。如果不分别控制，则代码可读取性降低，而且很容易出现 bug。 举例说明 若用 html 控制样式使得 html 中既有表示内容的标签标签的逻辑结构不清晰，不容易区分。  若用 css 控制的内容用户无法选中，js 也无法读取。  若用 css 控制行为即 css">
+<meta name="keywords" content="JS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="开博大吉">
-<meta property="og:url" content="http://yoursite.com/2019/04/10/开博大吉/index.html">
+<meta property="og:title" content="内容样式行为分离">
+<meta property="og:url" content="http://yoursite.com/2019/07/17/内容样式行为分离/index.html">
 <meta property="og:site_name" content="养乐多&#39;s Blog">
-<meta property="og:description" content="你好我的博客开通啦！我将在这里分享我的学习心得，欢迎关注~">
+<meta property="og:description" content="内容样式行为分离一般情况下，我们用 html 来控制内容，用 css 来控制样式，用 js 来控制行为，将内容、样式和行为三者分离开来。如果不分别控制，则代码可读取性降低，而且很容易出现 bug。 举例说明 若用 html 控制样式使得 html 中既有表示内容的标签标签的逻辑结构不清晰，不容易区分。  若用 css 控制的内容用户无法选中，js 也无法读取。  若用 css 控制行为即 css">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-10T09:17:15.437Z">
+<meta property="og:updated_time" content="2019-07-17T10:48:08.309Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="开博大吉">
-<meta name="twitter:description" content="你好我的博客开通啦！我将在这里分享我的学习心得，欢迎关注~">
+<meta name="twitter:title" content="内容样式行为分离">
+<meta name="twitter:description" content="内容样式行为分离一般情况下，我们用 html 来控制内容，用 css 来控制样式，用 js 来控制行为，将内容、样式和行为三者分离开来。如果不分别控制，则代码可读取性降低，而且很容易出现 bug。 举例说明 若用 html 控制样式使得 html 中既有表示内容的标签标签的逻辑结构不清晰，不容易区分。  若用 css 控制的内容用户无法选中，js 也无法读取。  若用 css 控制行为即 css">
 
     
     <link rel="alternative" href="atom.xml" title="养乐多&#39;s Blog" type="application/atom+xml">
@@ -81,14 +82,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2019/04/10/开博大吉/" title="开博大吉" itemprop="url">开博大吉</a>
+      <a href="/2019/07/17/内容样式行为分离/" title="内容样式行为分离" itemprop="url">内容样式行为分离</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Gangyuanyuan" target="_blank" itemprop="author">Gangyuanyuan</a>
 		
   </p><p class="article-time">
-    <time datetime="2019-04-10T08:45:40.000Z" itemprop="datePublished"> Published 2019-04-10</time>
+    <time datetime="2019-07-17T10:46:29.000Z" itemprop="datePublished"> Published 2019-07-17</time>
     
   </p>
 </header>
@@ -97,16 +98,36 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#你好"><span class="toc-number">1.</span> <span class="toc-text">你好</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#内容样式行为分离"><span class="toc-number">1.</span> <span class="toc-text">内容样式行为分离</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#举例说明"><span class="toc-number">2.</span> <span class="toc-text">举例说明</span></a></li></ol>
 		
 		</div>
 		
-		<h1 id="你好"><a href="#你好" class="headerlink" title="你好"></a>你好</h1><p>我的博客开通啦！<br>我将在这里分享我的学习心得，欢迎关注~</p>
+		<h2 id="内容样式行为分离"><a href="#内容样式行为分离" class="headerlink" title="内容样式行为分离"></a>内容样式行为分离</h2><p>一般情况下，我们用 html 来控制内容，用 css 来控制样式，用 js 来控制行为，将内容、样式和行为三者分离开来。如果不分别控制，则代码可读取性降低，而且很容易出现 bug。</p>
+<h2 id="举例说明"><a href="#举例说明" class="headerlink" title="举例说明"></a>举例说明</h2><ol>
+<li><p>若用 html 控制样式<br>使得 html 中既有表示内容的标签标签的逻辑结构不清晰，不容易区分。</p>
+</li>
+<li><p>若用 css 控制的内容<br>用户无法选中，js 也无法读取。</p>
+</li>
+<li><p>若用 css 控制行为<br>即 css 不仅要负责样式还要负责逻辑，会使 css内容变得很多，加载速度变慢，进而导致页面加载速度很慢。</p>
+</li>
+<li><p>若用 js 控制样式<br>例如 <code>$div.hide()</code> 和 <code>$div.show()</code>，若 \$div 之前的样式为 <code>display: none;</code>，则隐藏再显示之后的样式会变为 <code>display: block;</code>，造成前后不一致。最好通过添加类 <code>$div.addClass(&#39;active&#39;)</code> 和 <code>$div.addClass(&#39;disable&#39;)</code> 来切换状态。</p>
+</li>
+</ol>
   
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/前端探索/">前端探索</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/JS/">JS</a>
+  </div>
 
 </div>
 
@@ -119,17 +140,10 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev">
- <a href="/2019/04/19/轻松学习命令行基础/" title="轻松学习命令行基础">
-  <span>
-  轻松学习命令行基础</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2019/04/10/hello-world/" title="Hello World">
- <span>Hello World
+<a href="/2019/07/16/自己写一个-jQuery/" title="自己写一个 jQuery">
+ <span>自己写一个 jQuery
 </span>
 </a>
 </div>
