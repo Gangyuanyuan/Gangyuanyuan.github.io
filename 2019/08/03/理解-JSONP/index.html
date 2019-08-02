@@ -4,27 +4,25 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
   
-    <title>计数排序 | 养乐多&#39;s Blog</title>
+    <title>理解 JSONP | 养乐多&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Gangyuanyuan">
     
 
     
-    <meta name="description" content="计数排序伪代码：123456789101112131415161718192021222324252627282930313233a &amp;lt;- &amp;#123;  &apos;0&apos;:0,  &apos;1&apos;:2,   &apos;2&apos;:1,  &apos;3&apos;:56,  &apos;4&apos;:3,  &apos;5&apos;:67,  &apos;6&apos;:3,  &apos;length:7&apos;&amp;#125;hash &amp;lt;- &amp;#123;&amp;#125;                   //">
-<meta name="keywords" content="算法">
+    <meta name="description" content="前置知识 页面与服务器的交互在 AJAX 出现之前，页面与服务器的交互是怎么完成的呢？   通过提交 form 表单，但页面会被刷新，用户体验不好； 通过嵌入 iframe 页面，实现只在 iframe 窗口刷新。 用 img 发请求，但 img 只能知道成功或失败，不能获得更多的数据。 用 script 发请求，通过 SRJ（Server rendered javascript），即服务器返回的">
+<meta name="keywords" content="Vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="计数排序">
-<meta property="og:url" content="http://yoursite.com/2019/05/09/计数排序/index.html">
+<meta property="og:title" content="理解 JSONP">
+<meta property="og:url" content="http://yoursite.com/2019/08/03/理解-JSONP/index.html">
 <meta property="og:site_name" content="养乐多&#39;s Blog">
-<meta property="og:description" content="计数排序伪代码：123456789101112131415161718192021222324252627282930313233a &amp;lt;- &amp;#123;  &apos;0&apos;:0,  &apos;1&apos;:2,   &apos;2&apos;:1,  &apos;3&apos;:56,  &apos;4&apos;:3,  &apos;5&apos;:67,  &apos;6&apos;:3,  &apos;length:7&apos;&amp;#125;hash &amp;lt;- &amp;#123;&amp;#125;                   //">
+<meta property="og:description" content="前置知识 页面与服务器的交互在 AJAX 出现之前，页面与服务器的交互是怎么完成的呢？   通过提交 form 表单，但页面会被刷新，用户体验不好； 通过嵌入 iframe 页面，实现只在 iframe 窗口刷新。 用 img 发请求，但 img 只能知道成功或失败，不能获得更多的数据。 用 script 发请求，通过 SRJ（Server rendered javascript），即服务器返回的">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/13038962-0ba118bcb3d2c1b5.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-05-25T07:20:28.171Z">
+<meta property="og:updated_time" content="2019-08-02T22:36:11.177Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="计数排序">
-<meta name="twitter:description" content="计数排序伪代码：123456789101112131415161718192021222324252627282930313233a &amp;lt;- &amp;#123;  &apos;0&apos;:0,  &apos;1&apos;:2,   &apos;2&apos;:1,  &apos;3&apos;:56,  &apos;4&apos;:3,  &apos;5&apos;:67,  &apos;6&apos;:3,  &apos;length:7&apos;&amp;#125;hash &amp;lt;- &amp;#123;&amp;#125;                   //">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/13038962-0ba118bcb3d2c1b5.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="理解 JSONP">
+<meta name="twitter:description" content="前置知识 页面与服务器的交互在 AJAX 出现之前，页面与服务器的交互是怎么完成的呢？   通过提交 form 表单，但页面会被刷新，用户体验不好； 通过嵌入 iframe 页面，实现只在 iframe 窗口刷新。 用 img 发请求，但 img 只能知道成功或失败，不能获得更多的数据。 用 script 发请求，通过 SRJ（Server rendered javascript），即服务器返回的">
 
     
     <link rel="alternative" href="atom.xml" title="养乐多&#39;s Blog" type="application/atom+xml">
@@ -84,14 +82,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2019/05/09/计数排序/" title="计数排序" itemprop="url">计数排序</a>
+      <a href="/2019/08/03/理解-JSONP/" title="理解 JSONP" itemprop="url">理解 JSONP</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Gangyuanyuan" target="_blank" itemprop="author">Gangyuanyuan</a>
 		
   </p><p class="article-time">
-    <time datetime="2019-05-09T01:47:43.000Z" itemprop="datePublished"> Published 2019-05-09</time>
+    <time datetime="2019-08-02T22:23:28.000Z" itemprop="datePublished"> Published 2019-08-03</time>
     
   </p>
 </header>
@@ -100,12 +98,38 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#计数排序伪代码："><span class="toc-number">1.</span> <span class="toc-text">计数排序伪代码：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#计数排序流程图："><span class="toc-number">2.</span> <span class="toc-text">计数排序流程图：</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前置知识"><span class="toc-number">1.</span> <span class="toc-text">前置知识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSONP"><span class="toc-number">2.</span> <span class="toc-text">JSONP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#自己理解-JSONP"><span class="toc-number">2.1.</span> <span class="toc-text">自己理解 JSONP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JSONP-定义"><span class="toc-number">2.2.</span> <span class="toc-text">JSONP 定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JSONP-为什么不支持-POST-请求"><span class="toc-number">2.3.</span> <span class="toc-text">JSONP 为什么不支持 POST 请求</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h2 id="计数排序伪代码："><a href="#计数排序伪代码：" class="headerlink" title="计数排序伪代码："></a>计数排序伪代码：</h2><figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">a &lt;- &#123;</span><br><span class="line">  <span class="string">'0'</span>:<span class="number">0</span>,  <span class="string">'1'</span>:<span class="number">2</span>,   <span class="string">'2'</span>:<span class="number">1</span>,  <span class="string">'3'</span>:<span class="number">56</span>,  <span class="string">'4'</span>:<span class="number">3</span>,  <span class="string">'5'</span>:<span class="number">67</span>,  <span class="string">'6'</span>:<span class="number">3</span>,  <span class="string">'length:7'</span></span><br><span class="line">&#125;</span><br><span class="line">hash &lt;- &#123;&#125;                   <span class="comment">// 定义一个空的 hash </span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 入桶</span></span><br><span class="line">index &lt;- <span class="number">0</span></span><br><span class="line">while index &lt; a[<span class="string">'length'</span>]      <span class="comment">// index可取到的值0、1、2、3、4、5、6</span></span><br><span class="line">    number &lt;- a[index]         <span class="comment">// number可取到的值0、2、1、56、3、67</span></span><br><span class="line">    <span class="keyword">if</span> hash[number] == undefined           <span class="comment">// hash[number] 不存在时</span></span><br><span class="line">        hash[number] = <span class="number">1</span>            <span class="comment">// hash[number] 对应的计数为1</span></span><br><span class="line">    else</span><br><span class="line">        hash[number] &lt;- hash[number] + <span class="number">1</span>      <span class="comment">// 若此数已存在，计数加1</span></span><br><span class="line">    end</span><br><span class="line">    index &lt;- index + <span class="number">1</span></span><br><span class="line">end        <span class="comment">// hash=&#123;‘0’:1，‘1’:1，‘2’:1，‘3’:2，‘56’:1，‘67’:1&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 出桶，遍历 hash</span></span><br><span class="line">index2 &lt;- <span class="number">0</span></span><br><span class="line">max &lt;- findMax(a)   <span class="comment">// 用函数findMax找出数组a的最大值67，赋值给max</span></span><br><span class="line">newArr &lt;- &#123;&#125;       <span class="comment">// 声明一个新的数组</span></span><br><span class="line">while index2 &lt;= max   <span class="comment">// 或写为 index2&lt;max+1，index2可从0取到max</span></span><br><span class="line">    count &lt;- hash[index2]       <span class="comment">// 此数值的个数</span></span><br><span class="line">    <span class="keyword">if</span> count != undefined         <span class="comment">// 如果 count 存在</span></span><br><span class="line">        countIndex &lt;- <span class="number">0</span></span><br><span class="line">        while countIndex &lt; count     <span class="comment">// count 等于几就把这个数 push 几次</span></span><br><span class="line">            newArr.push(index2)</span><br><span class="line">            countIndex &lt;- countIndex + <span class="number">1</span></span><br><span class="line">        end</span><br><span class="line">    end</span><br><span class="line">    index2 &lt;- index2 + <span class="number">1</span></span><br><span class="line">end</span><br><span class="line">print newArr</span><br></pre></td></tr></table></figure>
-<h2 id="计数排序流程图："><a href="#计数排序流程图：" class="headerlink" title="计数排序流程图："></a>计数排序流程图：</h2><p><img src="https://upload-images.jianshu.io/upload_images/13038962-0ba118bcb3d2c1b5.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="计数排序流程图"></p>
+		<h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><ol>
+<li>页面与服务器的交互<br>在 AJAX 出现之前，页面与服务器的交互是怎么完成的呢？</li>
+</ol>
+<ul>
+<li>通过提交 <code>form</code> 表单，但页面会被刷新，用户体验不好；</li>
+<li>通过嵌入 <code>iframe</code> 页面，实现只在 iframe 窗口刷新。</li>
+<li>用 <code>img</code> 发请求，但 img 只能知道成功或失败，不能获得更多的数据。</li>
+<li>用 <code>script</code> 发请求，通过 SRJ（Server rendered javascript），即服务器返回的 javascript，实现无刷新 局部更新页面内容。</li>
+</ul>
+<ol start="2">
+<li><p><code>a</code>、<code>img</code>、<code>link</code>、<code>script</code> 等都可以发请求；<br><code>script</code> 标签只有放在 <code>body</code> 或 <code>head</code> 里才会发请求，且只能发 <code>get</code> 请求。</p>
+</li>
+<li><p><code>script</code> 是不受域名限制的，任何一个网站都可以使用另一个网站的 JS。</p>
+</li>
+</ol>
+<h2 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h2><h3 id="自己理解-JSONP"><a href="#自己理解-JSONP" class="headerlink" title="自己理解 JSONP"></a>自己理解 JSONP</h3><ul>
+<li>JSONP 要解决的问题是两个网站之间如何交流。</li>
+<li><p>因为 script 标签不受域名限制，所以 JSONP 用 <code>script</code> 标签发请求（跨域 SRJ）。</p>
+<blockquote>
+<p><strong>JSONP</strong><br>请求方：frank.com 的前端（浏览器）<br>响应方：jack.com 的后端（服务器）<br>1、请求方创建 <code>script</code> 标签，<code>src</code> 指向响应方，同时传一个查询参数<br><code>?callbackName===xxx</code>。<br>2、响应方根据查询参数 <code>callbackName</code>，构造形如 <code>xxx.call(undefined, &#39;需要的数据&#39;)</code> / <code>xxx(&#39;需要的数据&#39;)</code> 的函数调用的响应。<br>3、浏览器接收到响应，就会执行 <code>xxx.call(undefined, &#39;需要的数据&#39;)</code>。<br>4、那么请求方就得到了需要的数据。<br>这就是 JSONP。</p>
+<p><strong>约定</strong>：<br>callbackName –&gt; callback<br>xxx –&gt; 随机数</p>
+</blockquote>
+</li>
+<li><p>JSONP <strong>核心</strong>：script + callback 参数</p>
+</li>
+</ul>
+<h3 id="JSONP-定义"><a href="#JSONP-定义" class="headerlink" title="JSONP 定义"></a>JSONP 定义</h3><p>JSONP（JSON with Padding）是 JSON 的一种“使用模式”，可用于解决主流浏览器的跨域数据访问的问题。其核心思想是利用 JS 标签里面的跨域特性进行跨域数据访问，在 JS 标签里存在的是一个跨域的 URL，实际执行的时候通过这个 URL 获得一段字符串，这段返回的字符串必须是一个合法的 JS 调用，通过 EVAL 这个字符串来完成对获得数据的处理。</p>
+<h3 id="JSONP-为什么不支持-POST-请求"><a href="#JSONP-为什么不支持-POST-请求" class="headerlink" title="JSONP 为什么不支持 POST 请求"></a>JSONP 为什么不支持 POST 请求</h3><p>因为 JSONP 是通过动态创建 <code>script</code> 标签实现的，而 <code>script</code> 的 <code>src</code> 指定的 <code>url</code> 只能通过 <code>get</code> 方式获取，所以不支持 <code>post</code> 请求。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -119,7 +143,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/算法/">算法</a>
+  <span></span> <a href="/tags/Vue/">Vue</a>
   </div>
 
 </div>
@@ -133,17 +157,10 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev">
- <a href="/2019/05/23/JavaScript-数据类型/" title="JavaScript 数据类型">
-  <span>
-  JavaScript 数据类型</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2019/04/27/CSS-布局与居中/" title="CSS 布局与居中">
- <span>CSS 布局与居中
+<a href="/2019/07/31/删除-commit-的三种方法/" title="删除 commit 的三种方法">
+ <span>删除 commit 的三种方法
 </span>
 </a>
 </div>
