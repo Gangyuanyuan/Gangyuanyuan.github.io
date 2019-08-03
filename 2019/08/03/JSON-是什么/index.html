@@ -4,25 +4,25 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
   
-    <title>理解 JSONP | 养乐多&#39;s Blog</title>
+    <title>JSON 是什么 | 养乐多&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Gangyuanyuan">
     
 
     
-    <meta name="description" content="前置知识 页面与服务器的交互在 AJAX 出现之前，页面与服务器的交互是怎么完成的呢？   通过提交 form 表单，但页面会被刷新，用户体验不好； 通过嵌入 iframe 页面，实现只在 iframe 窗口刷新。 用 img 发请求，但 img 只能知道成功或失败，不能获得更多的数据。 用 script 发请求，通过 SRJ（Server rendered javascript），即服务器返回的">
-<meta name="keywords" content="JSONP">
+    <meta name="description" content="JSON 定义 JSON（JavaScript Object Notation）是由道格拉斯构想和设计的一种轻量级的数据交换格式， 易于人阅读和编写，同时也易于机器解析和生成。 JSON 数据格式与语言无关，它脱胎自 Javascript，但当前很多编程语言都支持 JSON 格式数据的生成和解析。JSON 的官方 MIME 类型是 application/json，文件扩展名是 .json。  J">
+<meta name="keywords" content="JSON">
 <meta property="og:type" content="article">
-<meta property="og:title" content="理解 JSONP">
-<meta property="og:url" content="http://yoursite.com/2019/08/03/理解-JSONP/index.html">
+<meta property="og:title" content="JSON 是什么">
+<meta property="og:url" content="http://yoursite.com/2019/08/03/JSON-是什么/index.html">
 <meta property="og:site_name" content="养乐多&#39;s Blog">
-<meta property="og:description" content="前置知识 页面与服务器的交互在 AJAX 出现之前，页面与服务器的交互是怎么完成的呢？   通过提交 form 表单，但页面会被刷新，用户体验不好； 通过嵌入 iframe 页面，实现只在 iframe 窗口刷新。 用 img 发请求，但 img 只能知道成功或失败，不能获得更多的数据。 用 script 发请求，通过 SRJ（Server rendered javascript），即服务器返回的">
+<meta property="og:description" content="JSON 定义 JSON（JavaScript Object Notation）是由道格拉斯构想和设计的一种轻量级的数据交换格式， 易于人阅读和编写，同时也易于机器解析和生成。 JSON 数据格式与语言无关，它脱胎自 Javascript，但当前很多编程语言都支持 JSON 格式数据的生成和解析。JSON 的官方 MIME 类型是 application/json，文件扩展名是 .json。  J">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-03T01:52:59.596Z">
+<meta property="og:updated_time" content="2019-08-03T15:42:08.369Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="理解 JSONP">
-<meta name="twitter:description" content="前置知识 页面与服务器的交互在 AJAX 出现之前，页面与服务器的交互是怎么完成的呢？   通过提交 form 表单，但页面会被刷新，用户体验不好； 通过嵌入 iframe 页面，实现只在 iframe 窗口刷新。 用 img 发请求，但 img 只能知道成功或失败，不能获得更多的数据。 用 script 发请求，通过 SRJ（Server rendered javascript），即服务器返回的">
+<meta name="twitter:title" content="JSON 是什么">
+<meta name="twitter:description" content="JSON 定义 JSON（JavaScript Object Notation）是由道格拉斯构想和设计的一种轻量级的数据交换格式， 易于人阅读和编写，同时也易于机器解析和生成。 JSON 数据格式与语言无关，它脱胎自 Javascript，但当前很多编程语言都支持 JSON 格式数据的生成和解析。JSON 的官方 MIME 类型是 application/json，文件扩展名是 .json。  J">
 
     
     <link rel="alternative" href="atom.xml" title="养乐多&#39;s Blog" type="application/atom+xml">
@@ -82,14 +82,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2019/08/03/理解-JSONP/" title="理解 JSONP" itemprop="url">理解 JSONP</a>
+      <a href="/2019/08/03/JSON-是什么/" title="JSON 是什么" itemprop="url">JSON 是什么</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Gangyuanyuan" target="_blank" itemprop="author">Gangyuanyuan</a>
 		
   </p><p class="article-time">
-    <time datetime="2019-08-02T22:23:28.000Z" itemprop="datePublished"> Published 2019-08-03</time>
+    <time datetime="2019-08-03T15:20:20.000Z" itemprop="datePublished"> Published 2019-08-03</time>
     
   </p>
 </header>
@@ -98,38 +98,19 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前置知识"><span class="toc-number">1.</span> <span class="toc-text">前置知识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSONP"><span class="toc-number">2.</span> <span class="toc-text">JSONP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#自己理解-JSONP"><span class="toc-number">2.1.</span> <span class="toc-text">自己理解 JSONP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JSONP-定义"><span class="toc-number">2.2.</span> <span class="toc-text">JSONP 定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JSONP-为什么不支持-POST-请求"><span class="toc-number">2.3.</span> <span class="toc-text">JSONP 为什么不支持 POST 请求</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JSON-定义"><span class="toc-number">1.</span> <span class="toc-text">JSON 定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSON-与-JavaScript-的区别"><span class="toc-number">2.</span> <span class="toc-text">JSON 与 JavaScript 的区别</span></a></li></ol>
 		
 		</div>
 		
-		<h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><ol>
-<li>页面与服务器的交互<br>在 AJAX 出现之前，页面与服务器的交互是怎么完成的呢？</li>
-</ol>
-<ul>
-<li>通过提交 <code>form</code> 表单，但页面会被刷新，用户体验不好；</li>
-<li>通过嵌入 <code>iframe</code> 页面，实现只在 iframe 窗口刷新。</li>
-<li>用 <code>img</code> 发请求，但 img 只能知道成功或失败，不能获得更多的数据。</li>
-<li>用 <code>script</code> 发请求，通过 SRJ（Server rendered javascript），即服务器返回的 javascript，实现无刷新 局部更新页面内容。</li>
+		<h2 id="JSON-定义"><a href="#JSON-定义" class="headerlink" title="JSON 定义"></a>JSON 定义</h2><ul>
+<li>JSON（JavaScript Object Notation）是由道格拉斯构想和设计的一种轻量级的数据交换格式， 易于人阅读和编写，同时也易于机器解析和生成。</li>
+<li>JSON 数据格式与语言无关，它脱胎自 Javascript，但当前很多编程语言都支持 JSON 格式数据的生成和解析。JSON 的官方 MIME 类型是 <code>application/json</code>，文件扩展名是 <code>.json</code>。</li>
 </ul>
-<ol start="2">
-<li><p><code>a</code>、<code>img</code>、<code>link</code>、<code>script</code> 等都可以发请求；<br><code>script</code> 标签只有放在 <code>body</code> 或 <code>head</code> 里才会发请求，且只能发 <code>get</code> 请求。</p>
-</li>
-<li><p><code>script</code> 是不受域名限制的，任何一个网站都可以使用另一个网站的 JS。</p>
-</li>
-</ol>
-<h2 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h2><h3 id="自己理解-JSONP"><a href="#自己理解-JSONP" class="headerlink" title="自己理解 JSONP"></a>自己理解 JSONP</h3><ul>
-<li>JSONP 要解决的问题是两个网站之间如何交流。</li>
-<li><p>因为 script 标签不受域名限制，所以 JSONP 用 <code>script</code> 标签发请求（跨域 SRJ）。</p>
-<blockquote>
-<p><strong>JSONP</strong><br>请求方：frank.com 的前端（浏览器）<br>响应方：jack.com 的后端（服务器）<br>1、请求方创建 <code>script</code> 标签，<code>src</code> 指向响应方，同时传一个查询参数<br><code>?callbackName===xxx</code>。<br>2、响应方根据查询参数 <code>callbackName</code>，构造形如 <code>xxx.call(undefined, &#39;需要的数据&#39;)</code> / <code>xxx(&#39;需要的数据&#39;)</code> 的函数调用的响应。<br>3、浏览器接收到响应，就会执行 <code>xxx.call(undefined, &#39;需要的数据&#39;)</code>。<br>4、那么请求方就得到了需要的数据。<br>这就是 JSONP。</p>
-<p><strong>约定</strong>：<br>callbackName –&gt; callback<br>xxx –&gt; 随机数</p>
-</blockquote>
-</li>
-<li><p>JSONP <strong>核心</strong>：script + callback 参数</p>
-</li>
+<h2 id="JSON-与-JavaScript-的区别"><a href="#JSON-与-JavaScript-的区别" class="headerlink" title="JSON 与 JavaScript 的区别"></a>JSON 与 JavaScript 的区别</h2><ul>
+<li>JSON 没有 <code>undefined</code> 和 <code>function</code>。</li>
+<li>JSON 的字符串首尾必须是双引号 <code>&quot;</code>。</li>
+<li>JSON 没有变量。</li>
 </ul>
-<h3 id="JSONP-定义"><a href="#JSONP-定义" class="headerlink" title="JSONP 定义"></a>JSONP 定义</h3><p>JSONP（JSON with Padding）是 JSON 的一种“使用模式”，可用于解决主流浏览器的跨域数据访问的问题。其核心思想是利用 JS 标签里面的跨域特性进行跨域数据访问，在 JS 标签里存在的是一个跨域的 URL，实际执行的时候通过这个 URL 获得一段字符串，这段返回的字符串必须是一个合法的 JS 调用，通过 EVAL 这个字符串来完成对获得数据的处理。</p>
-<h3 id="JSONP-为什么不支持-POST-请求"><a href="#JSONP-为什么不支持-POST-请求" class="headerlink" title="JSONP 为什么不支持 POST 请求"></a>JSONP 为什么不支持 POST 请求</h3><p>因为 JSONP 是通过动态创建 <code>script</code> 标签实现的，而 <code>script</code> 的 <code>src</code> 指定的 <code>url</code> 只能通过 <code>get</code> 方式获取，所以不支持 <code>post</code> 请求。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -143,7 +124,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/JSONP/">JSONP</a>
+  <span></span> <a href="/tags/JSON/">JSON</a>
   </div>
 
 </div>
@@ -157,17 +138,10 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev">
- <a href="/2019/08/03/实现-AJAX/" title="实现 AJAX">
-  <span>
-  实现 AJAX</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2019/07/31/删除-commit-的三种方法/" title="删除 commit 的三种方法">
- <span>删除 commit 的三种方法
+<a href="/2019/08/03/实现-AJAX/" title="实现 AJAX">
+ <span>实现 AJAX
 </span>
 </a>
 </div>
