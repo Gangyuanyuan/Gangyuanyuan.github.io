@@ -4,24 +4,25 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
   
-    <title>开博大吉 | 养乐多&#39;s Blog</title>
+    <title>实现 AJAX | 养乐多&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Gangyuanyuan">
     
 
     
-    <meta name="description" content="你好我的博客开通啦！我将在这里分享我的学习心得，欢迎关注~">
+    <meta name="description" content="AJAX定义AJAX（Asynchronous JavaScript and XML），即“异步的 Javascript 和 XML”。它通过 JavaScript 的异步通信，从服务器获取 XML 文档从中提取数据，再更新当前网页的对应部分，而不用刷新整个网页（后来，只要用 JavaScript 脚本发起 HTTP 通信，都可以叫做 AJAX 通信）。 AJAX 包括以下几个步骤： 创建 XML">
+<meta name="keywords" content="AJAX">
 <meta property="og:type" content="article">
-<meta property="og:title" content="开博大吉">
-<meta property="og:url" content="http://yoursite.com/2019/04/10/开博大吉/index.html">
+<meta property="og:title" content="实现 AJAX">
+<meta property="og:url" content="http://yoursite.com/2019/08/03/实现-AJAX/index.html">
 <meta property="og:site_name" content="养乐多&#39;s Blog">
-<meta property="og:description" content="你好我的博客开通啦！我将在这里分享我的学习心得，欢迎关注~">
+<meta property="og:description" content="AJAX定义AJAX（Asynchronous JavaScript and XML），即“异步的 Javascript 和 XML”。它通过 JavaScript 的异步通信，从服务器获取 XML 文档从中提取数据，再更新当前网页的对应部分，而不用刷新整个网页（后来，只要用 JavaScript 脚本发起 HTTP 通信，都可以叫做 AJAX 通信）。 AJAX 包括以下几个步骤： 创建 XML">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-10T09:17:15.437Z">
+<meta property="og:updated_time" content="2019-08-03T02:04:03.265Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="开博大吉">
-<meta name="twitter:description" content="你好我的博客开通啦！我将在这里分享我的学习心得，欢迎关注~">
+<meta name="twitter:title" content="实现 AJAX">
+<meta name="twitter:description" content="AJAX定义AJAX（Asynchronous JavaScript and XML），即“异步的 Javascript 和 XML”。它通过 JavaScript 的异步通信，从服务器获取 XML 文档从中提取数据，再更新当前网页的对应部分，而不用刷新整个网页（后来，只要用 JavaScript 脚本发起 HTTP 通信，都可以叫做 AJAX 通信）。 AJAX 包括以下几个步骤： 创建 XML">
 
     
     <link rel="alternative" href="atom.xml" title="养乐多&#39;s Blog" type="application/atom+xml">
@@ -81,14 +82,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2019/04/10/开博大吉/" title="开博大吉" itemprop="url">开博大吉</a>
+      <a href="/2019/08/03/实现-AJAX/" title="实现 AJAX" itemprop="url">实现 AJAX</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Gangyuanyuan" target="_blank" itemprop="author">Gangyuanyuan</a>
 		
   </p><p class="article-time">
-    <time datetime="2019-04-10T08:45:40.000Z" itemprop="datePublished"> Published 2019-04-10</time>
+    <time datetime="2019-08-03T00:42:25.000Z" itemprop="datePublished"> Published 2019-08-03</time>
     
   </p>
 </header>
@@ -97,16 +98,58 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#你好"><span class="toc-number">1.</span> <span class="toc-text">你好</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#AJAX"><span class="toc-number">1.</span> <span class="toc-text">AJAX</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#定义"><span class="toc-number">1.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AJAX-包括以下几个步骤："><span class="toc-number">1.2.</span> <span class="toc-text">AJAX 包括以下几个步骤：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用原生-JS-写-AJAX-请求"><span class="toc-number">2.</span> <span class="toc-text">用原生 JS 写 AJAX 请求</span></a></li></ol>
 		
 		</div>
 		
-		<h1 id="你好"><a href="#你好" class="headerlink" title="你好"></a>你好</h1><p>我的博客开通啦！<br>我将在这里分享我的学习心得，欢迎关注~</p>
+		<h2 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a>AJAX</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>AJAX（Asynchronous JavaScript and XML），即“异步的 Javascript 和 XML”。它通过 JavaScript 的异步通信，从服务器获取 XML 文档从中提取数据，再更新当前网页的对应部分，而不用刷新整个网页（后来，只要用 JavaScript 脚本发起 HTTP 通信，都可以叫做 AJAX 通信）。</p>
+<h3 id="AJAX-包括以下几个步骤："><a href="#AJAX-包括以下几个步骤：" class="headerlink" title="AJAX 包括以下几个步骤："></a>AJAX 包括以下几个步骤：</h3><ul>
+<li>创建 XMLHttpRequest 实例，发出 HTTP 请求</li>
+<li>接收服务器返回的数据（XML 格式的字符串）</li>
+<li>JS 解析 XML，并更新局部页面</li>
+</ul>
+<p>即 AJAX 通过原生的 XMLHttpRequest 对象发出 HTTP 请求，得到服务器返回的数据后，再进行处理。现在服务器返回的都是 JSON 格式的数据，XML 格式已经过时了。</p>
+<h2 id="用原生-JS-写-AJAX-请求"><a href="#用原生-JS-写-AJAX-请求" class="headerlink" title="用原生 JS 写 AJAX 请求"></a>用原生 JS 写 AJAX 请求</h2><ol>
+<li>为了更好地理解 AJAX，我们可以尝试用原生 JS 构造一个 AJAX 请求。</li>
+</ol>
+<ul>
+<li><p>XMLHttpRequest 是 window 下的一个构造函数（全局对象），没有参数。用 <code>new</code> 命令生成对象：</p>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> request = <span class="keyword">new</span> <span class="type">XMLHttpRequest</span>()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>用 <code>open()</code> 方法初始化 request 对象，指定请求方式和服务器网址：</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">request.<span class="built_in">open</span>(<span class="string">'GET'</span>, <span class="string">'http://www.baidu.com/xxx'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>用 <code>send()</code> 方法发出 HTTP 请求：</p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">request.<span class="built_in">send</span>()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>监听通信状态（readyState属性）的变化并指定函数：</p>
+<figure class="highlight qml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">request.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="comment">// 监听request的状态变化</span></span><br><span class="line">  <span class="keyword">if</span> (request.readyState === <span class="number">4</span>)&#123; <span class="comment">// 请求和响应都已完毕</span></span><br><span class="line">    <span class="keyword">if</span>(request.status &gt;= <span class="number">200</span> &amp;&amp; request.status &lt; <span class="number">300</span>)&#123; <span class="comment">// 请求成功</span></span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'请求成功'</span>)</span><br><span class="line">      <span class="keyword">let</span> <span class="built_in">string</span> = request.responseText <span class="comment">// 把符合JSON语法的字符串转换成JS对应的值</span></span><br><span class="line">      <span class="keyword">let</span> object = <span class="built_in">window</span>.JSON.parse(<span class="built_in">string</span>) <span class="comment">// JSON.parse是浏览器提供的</span></span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(request.status &gt;= <span class="number">400</span>)&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'请求失败'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>上面代码中，一旦 XMLHttpRequest 实例的状态发生变化，就会执行函数内容。<br>如果拿到服务器返回的数据，AJAX 不会刷新整个网页，而是只更新网页里面的相关部分，从而不打断用户正在做的事情。</p>
+<ol start="2">
+<li><strong>注意</strong><br>在使用开发者工具时，需注意：</li>
+</ol>
+<ul>
+<li>查看请求和响应，记得点一下 view source！</li>
+<li>查看响应的内容，点一下 response！</li>
+<li>响应的第四部分返回的永远是字符串！<br>即使符合别的格式，它本质上还是字符串。</li>
+</ul>
   
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/前端探索/">前端探索</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/AJAX/">AJAX</a>
+  </div>
 
 </div>
 
@@ -119,17 +162,10 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev">
- <a href="/2019/04/19/轻松学习命令行基础/" title="轻松学习命令行基础">
-  <span>
-  轻松学习命令行基础</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2019/04/10/hello-world/" title="Hello World">
- <span>Hello World
+<a href="/2019/08/03/理解-JSONP/" title="理解 JSONP">
+ <span>理解 JSONP
 </span>
 </a>
 </div>
