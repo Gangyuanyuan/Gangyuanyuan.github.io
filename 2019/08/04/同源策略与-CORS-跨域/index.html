@@ -11,17 +11,17 @@
     
 
     
-    <meta name="description" content="同源策略同源策略：浏览器出于安全方面的考虑，只允许与本域下的接口交互。不同源的客户端脚本在没有明确授权的情况下，不能读写对方的资源。简单来说，同源策略就是：AJAX 只能向同源网址发出 HTTP 请求，同源网址即协议、域名和端口都相同；如果发出跨域请求，则会出现报错。 CORS 跨域 CORS 定义   CORS（Cross-Origin Resource Sharing）即跨源资源共享，属于浏览">
+    <meta name="description" content="同源策略同源策略：浏览器出于安全方面的考虑，只允许与本域下的接口交互。不同源的客户端脚本在没有明确授权的情况下，不能读写对方的资源。简单来说，同源策略就是：AJAX 只能向同源网址发出 HTTP 请求，同源网址即协议、域名和端口都相同；如果发出跨域请求，则会出现报错。 CORS 跨域CORS 定义 CORS（Cross-Origin Resource Sharing）即跨源资源共享，属于浏览器技术">
 <meta property="og:type" content="article">
 <meta property="og:title" content="同源策略与 CORS 跨域">
 <meta property="og:url" content="http://yoursite.com/2019/08/04/同源策略与-CORS-跨域/index.html">
 <meta property="og:site_name" content="养乐多&#39;s Blog">
-<meta property="og:description" content="同源策略同源策略：浏览器出于安全方面的考虑，只允许与本域下的接口交互。不同源的客户端脚本在没有明确授权的情况下，不能读写对方的资源。简单来说，同源策略就是：AJAX 只能向同源网址发出 HTTP 请求，同源网址即协议、域名和端口都相同；如果发出跨域请求，则会出现报错。 CORS 跨域 CORS 定义   CORS（Cross-Origin Resource Sharing）即跨源资源共享，属于浏览">
+<meta property="og:description" content="同源策略同源策略：浏览器出于安全方面的考虑，只允许与本域下的接口交互。不同源的客户端脚本在没有明确授权的情况下，不能读写对方的资源。简单来说，同源策略就是：AJAX 只能向同源网址发出 HTTP 请求，同源网址即协议、域名和端口都相同；如果发出跨域请求，则会出现报错。 CORS 跨域CORS 定义 CORS（Cross-Origin Resource Sharing）即跨源资源共享，属于浏览器技术">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-04T00:48:09.141Z">
+<meta property="og:updated_time" content="2019-08-04T01:27:22.588Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="同源策略与 CORS 跨域">
-<meta name="twitter:description" content="同源策略同源策略：浏览器出于安全方面的考虑，只允许与本域下的接口交互。不同源的客户端脚本在没有明确授权的情况下，不能读写对方的资源。简单来说，同源策略就是：AJAX 只能向同源网址发出 HTTP 请求，同源网址即协议、域名和端口都相同；如果发出跨域请求，则会出现报错。 CORS 跨域 CORS 定义   CORS（Cross-Origin Resource Sharing）即跨源资源共享，属于浏览">
+<meta name="twitter:description" content="同源策略同源策略：浏览器出于安全方面的考虑，只允许与本域下的接口交互。不同源的客户端脚本在没有明确授权的情况下，不能读写对方的资源。简单来说，同源策略就是：AJAX 只能向同源网址发出 HTTP 请求，同源网址即协议、域名和端口都相同；如果发出跨域请求，则会出现报错。 CORS 跨域CORS 定义 CORS（Cross-Origin Resource Sharing）即跨源资源共享，属于浏览器技术">
 
     
     <link rel="alternative" href="atom.xml" title="养乐多&#39;s Blog" type="application/atom+xml">
@@ -97,22 +97,16 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#同源策略"><span class="toc-number">1.</span> <span class="toc-text">同源策略</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CORS-跨域"><span class="toc-number">2.</span> <span class="toc-text">CORS 跨域</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#同源策略"><span class="toc-number">1.</span> <span class="toc-text">同源策略</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CORS-跨域"><span class="toc-number">2.</span> <span class="toc-text">CORS 跨域</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CORS-定义"><span class="toc-number">2.1.</span> <span class="toc-text">CORS 定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CORS-用法"><span class="toc-number">2.2.</span> <span class="toc-text">CORS 用法</span></a></li></ol></li></ol>
 		
 		</div>
 		
 		<h2 id="同源策略"><a href="#同源策略" class="headerlink" title="同源策略"></a>同源策略</h2><p>同源策略：浏览器出于安全方面的考虑，只允许与本域下的接口交互。不同源的客户端脚本在没有明确授权的情况下，不能读写对方的资源。<br>简单来说，同源策略就是：AJAX 只能向同源网址发出 HTTP 请求，同源网址即协议、域名和端口都相同；如果发出跨域请求，则会出现报错。</p>
-<h2 id="CORS-跨域"><a href="#CORS-跨域" class="headerlink" title="CORS 跨域"></a>CORS 跨域</h2><ol>
-<li>CORS 定义</li>
-</ol>
-<ul>
+<h2 id="CORS-跨域"><a href="#CORS-跨域" class="headerlink" title="CORS 跨域"></a>CORS 跨域</h2><h3 id="CORS-定义"><a href="#CORS-定义" class="headerlink" title="CORS 定义"></a>CORS 定义</h3><ul>
 <li>CORS（Cross-Origin Resource Sharing）即跨源资源共享，属于浏览器技术规范，用来规避浏览器的同源策略。</li>
 <li>CORS 除了支持 GET 请求外，还支持其他的 HTTP 请求（JSONP 只支持 GET 请求）。</li>
 </ul>
-<ol start="2">
-<li>CORS 用法<br>在被请求方的后台（server.js）加一个响应头，允许请求方访问即可：<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">response</span><span class="selector-class">.setHeader</span>(<span class="string">'Access-Control-Allow-Origin'</span>, <span class="string">'http://gangyuanyuan.top'</span>)</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
+<h3 id="CORS-用法"><a href="#CORS-用法" class="headerlink" title="CORS 用法"></a>CORS 用法</h3><p>在被请求方的后台（server.js）加一个响应头，允许请求方访问即可：<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">response</span><span class="selector-class">.setHeader</span>(<span class="string">'Access-Control-Allow-Origin'</span>, <span class="string">'http://gangyuanyuan.top'</span>)</span><br></pre></td></tr></table></figure></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -135,6 +129,13 @@
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev">
+ <a href="/2019/08/04/模块化与-MVC/" title="模块化与 MVC">
+  <span>
+  模块化与 MVC</span>
+</a>
+</div>
+
 
 <div class="next">
 <a href="/2019/08/03/JSON-是什么/" title="JSON 是什么">
@@ -185,7 +186,7 @@
 		<ul>
 		
 		  
-			<li><a href="/categories/前端探索/" title="前端探索">前端探索<sup>22</sup></a></li>
+			<li><a href="/categories/前端探索/" title="前端探索">前端探索<sup>23</sup></a></li>
 		  
 		
 		</ul>
@@ -218,15 +219,15 @@
 			
 		
 			
-				<li><a href="/tags/命令行/" title="命令行">命令行<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/JSONP/" title="JSONP">JSONP<sup>1</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/HTML标签/" title="HTML标签">HTML标签<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTTP/" title="HTTP">HTTP<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/命令行/" title="命令行">命令行<sup>1</sup></a></li>
 			
 		
 			
@@ -238,7 +239,7 @@
 			
 		
 			
-				<li><a href="/tags/HTTP/" title="HTTP">HTTP<sup>1</sup></a></li>
+				<li><a href="/tags/JSONP/" title="JSONP">JSONP<sup>1</sup></a></li>
 			
 		
 		</ul>
