@@ -4,25 +4,24 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
   
-    <title>JSON 是什么 | 养乐多&#39;s Blog</title>
+    <title>解读 Cookie | 养乐多&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Gangyuanyuan">
     
 
     
-    <meta name="description" content="JSON 定义 JSON（JavaScript Object Notation）是由道格拉斯构想和设计的一种轻量级的数据交换格式， 易于人阅读和编写，同时也易于机器解析和生成。 JSON 数据格式与语言无关，它脱胎自 Javascript，但当前很多编程语言都支持 JSON 格式数据的生成和解析。JSON 的官方 MIME 类型是 application/json，文件扩展名是 .json。  J">
-<meta name="keywords" content="JSON">
+    <meta name="description" content="Cookie我们知道，响应头中包括 Cookie 和 Cache-Control（缓存控制），我们今天就先来解读一下 Cookie。 设置 CookieCookie 是在响应头中设置的，格式为：Set-Cookie: &amp;lt;cookie-name&amp;gt;=&amp;lt;cookie-value&amp;gt;，例设置一个用户登录的 Cookie：1response.setHeader(&apos;Set-Cookie&apos;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JSON 是什么">
-<meta property="og:url" content="http://yoursite.com/2019/08/03/JSON-是什么/index.html">
+<meta property="og:title" content="解读 Cookie">
+<meta property="og:url" content="http://yoursite.com/2019/08/05/解读 Cookie/index.html">
 <meta property="og:site_name" content="养乐多&#39;s Blog">
-<meta property="og:description" content="JSON 定义 JSON（JavaScript Object Notation）是由道格拉斯构想和设计的一种轻量级的数据交换格式， 易于人阅读和编写，同时也易于机器解析和生成。 JSON 数据格式与语言无关，它脱胎自 Javascript，但当前很多编程语言都支持 JSON 格式数据的生成和解析。JSON 的官方 MIME 类型是 application/json，文件扩展名是 .json。  J">
+<meta property="og:description" content="Cookie我们知道，响应头中包括 Cookie 和 Cache-Control（缓存控制），我们今天就先来解读一下 Cookie。 设置 CookieCookie 是在响应头中设置的，格式为：Set-Cookie: &amp;lt;cookie-name&amp;gt;=&amp;lt;cookie-value&amp;gt;，例设置一个用户登录的 Cookie：1response.setHeader(&apos;Set-Cookie&apos;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-03T15:42:08.369Z">
+<meta property="og:updated_time" content="2019-08-05T15:26:08.659Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JSON 是什么">
-<meta name="twitter:description" content="JSON 定义 JSON（JavaScript Object Notation）是由道格拉斯构想和设计的一种轻量级的数据交换格式， 易于人阅读和编写，同时也易于机器解析和生成。 JSON 数据格式与语言无关，它脱胎自 Javascript，但当前很多编程语言都支持 JSON 格式数据的生成和解析。JSON 的官方 MIME 类型是 application/json，文件扩展名是 .json。  J">
+<meta name="twitter:title" content="解读 Cookie">
+<meta name="twitter:description" content="Cookie我们知道，响应头中包括 Cookie 和 Cache-Control（缓存控制），我们今天就先来解读一下 Cookie。 设置 CookieCookie 是在响应头中设置的，格式为：Set-Cookie: &amp;lt;cookie-name&amp;gt;=&amp;lt;cookie-value&amp;gt;，例设置一个用户登录的 Cookie：1response.setHeader(&apos;Set-Cookie&apos;">
 
     
     <link rel="alternative" href="atom.xml" title="养乐多&#39;s Blog" type="application/atom+xml">
@@ -82,14 +81,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2019/08/03/JSON-是什么/" title="JSON 是什么" itemprop="url">JSON 是什么</a>
+      <a href="/2019/08/05/解读 Cookie/" title="解读 Cookie" itemprop="url">解读 Cookie</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Gangyuanyuan" target="_blank" itemprop="author">Gangyuanyuan</a>
 		
   </p><p class="article-time">
-    <time datetime="2019-08-03T15:20:20.000Z" itemprop="datePublished"> Published 2019-08-03</time>
+    <time datetime="2019-08-05T11:16:07.000Z" itemprop="datePublished"> Published 2019-08-05</time>
     
   </p>
 </header>
@@ -98,19 +97,23 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JSON-定义"><span class="toc-number">1.</span> <span class="toc-text">JSON 定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JSON-与-JavaScript-的区别"><span class="toc-number">2.</span> <span class="toc-text">JSON 与 JavaScript 的区别</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Cookie"><span class="toc-number">1.</span> <span class="toc-text">Cookie</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#设置-Cookie"><span class="toc-number">1.1.</span> <span class="toc-text">设置 Cookie</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cookie-特点"><span class="toc-number">1.2.</span> <span class="toc-text">Cookie 特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于-Cookie-的几个问题"><span class="toc-number">1.3.</span> <span class="toc-text">关于 Cookie 的几个问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cookie-如何设置过期时间"><span class="toc-number">1.4.</span> <span class="toc-text">Cookie 如何设置过期时间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何删除-Cookie"><span class="toc-number">1.5.</span> <span class="toc-text">如何删除 Cookie</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cookie-存在的问题"><span class="toc-number">1.6.</span> <span class="toc-text">Cookie 存在的问题</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h2 id="JSON-定义"><a href="#JSON-定义" class="headerlink" title="JSON 定义"></a>JSON 定义</h2><ul>
-<li>JSON（JavaScript Object Notation）是由道格拉斯构想和设计的一种轻量级的数据交换格式， 易于人阅读和编写，同时也易于机器解析和生成。</li>
-<li>JSON 数据格式与语言无关，它脱胎自 Javascript，但当前很多编程语言都支持 JSON 格式数据的生成和解析。JSON 的官方 MIME 类型是 <code>application/json</code>，文件扩展名是 <code>.json</code>。</li>
+		<h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h2><p>我们知道，响应头中包括 Cookie 和 Cache-Control（缓存控制），我们今天就先来解读一下 Cookie。</p>
+<h3 id="设置-Cookie"><a href="#设置-Cookie" class="headerlink" title="设置 Cookie"></a>设置 Cookie</h3><p>Cookie 是在响应头中设置的，格式为：<code>Set-Cookie: &lt;cookie-name&gt;=&lt;cookie-value&gt;</code>，例设置一个用户登录的 Cookie：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.setHeader(<span class="string">'Set-Cookie'</span>, <span class="string">`sign_in_email=<span class="subst">$&#123;email&#125;</span>`</span>)</span><br></pre></td></tr></table></figure></p>
+<h3 id="Cookie-特点"><a href="#Cookie-特点" class="headerlink" title="Cookie 特点"></a>Cookie 特点</h3><ul>
+<li>服务器通过 Set-Cookie 响应头设置 Cookie</li>
+<li>浏览器得到 Cookie 之后，之后每次请求（相同语言相同域名下）都会带上 Cookie</li>
+<li>客户端要在一段时间内保存这个 Cookie</li>
+<li>Cookie 默认在用户关闭页面后就失效，后台代码可以任意设置 Cookie 的过期时间</li>
+<li>Cookie <a href="https://stackoverflow.com/questions/640938/what-is-the-maximum-size-of-a-web-browsers-cookies-key" title="null" target="_blank" rel="noopener">大小大概在 4kb 以内</a></li>
 </ul>
-<h2 id="JSON-与-JavaScript-的区别"><a href="#JSON-与-JavaScript-的区别" class="headerlink" title="JSON 与 JavaScript 的区别"></a>JSON 与 JavaScript 的区别</h2><ul>
-<li>JSON 没有 <code>undefined</code> 和 <code>function</code>。</li>
-<li>JSON 的字符串首尾必须是双引号 <code>&quot;</code>。</li>
-<li>JSON 没有变量。</li>
-</ul>
+<h3 id="关于-Cookie-的几个问题"><a href="#关于-Cookie-的几个问题" class="headerlink" title="关于 Cookie 的几个问题"></a>关于 Cookie 的几个问题</h3><p>1. 用户在 Chrome 登录得到了 Cookie，用 Safari 访问，Safari 会带上 Cookie 吗？<br>答：不会。<br>2. Cookie 存在哪？<br>答：Windows 系统存在 C 盘的一个文件里。<br>3. Cookie 能造假吗？<br>答：Cookie 可以被篡改，开发者模式 —— Application —— Cookie.<br>4. Cookie 有有效期吗？<br>答：默认有效期 20 分钟左右，不同浏览器策略不同。后端也可以强制设置有效期。<br>5.  Cookie 遵守同源策略吗？<br>答：也有，不过跟 AJAX 的同源策略稍微有些不同。<br>当请求 qq.com 下的资源时，浏览器会默认带上 qq.com 对应的 Cookie，不会带上 baidu.com 对应的 Cookie。<br>当请求 v.qq.com 下的资源时，浏览器不仅会带上 v.qq.com 的 Cookie，还会带上 qq.com 的 Cookie。<br>另外 Cookie 还可以根据路径做限制，但这个功能用得比较少。</p>
+<h3 id="Cookie-如何设置过期时间"><a href="#Cookie-如何设置过期时间" class="headerlink" title="Cookie 如何设置过期时间"></a>Cookie 如何设置过期时间</h3><p>用 <code>max-age</code> 和 <code>expires</code> 都可以设置 Cookie 的过期时间。<br><code>max-age</code> 设置的是一个时间段，而 <code>expires</code> 设置的是时间点。<br>例：设置 cookie 在 60 秒后过期：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">document<span class="selector-class">.cookie</span> = <span class="string">"name=cookie; max-age=60"</span></span><br><span class="line"><span class="comment">// 或</span></span><br><span class="line"><span class="selector-tag">var</span> currDate = new Date()</span><br><span class="line">currDate.setTime(currDate.getTime()+<span class="number">60</span>*<span class="number">1000</span>) </span><br><span class="line">document<span class="selector-class">.cookie</span> = <span class="string">"name=cookie; expires="</span> + currDate.toGMTString()</span><br></pre></td></tr></table></figure></p>
+<h3 id="如何删除-Cookie"><a href="#如何删除-Cookie" class="headerlink" title="如何删除 Cookie"></a>如何删除 Cookie</h3><p>将 <code>max-age</code> 设置为零或负数，即可将 cookie 删除。<br><code>expires</code> 设置的时间内是 cookie 的有效期，将 <code>expires</code> 设置为比当前时间早的值，cookie 也会被删除。<br><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.cookie=<span class="string">"name=cookie; max-age=0"</span></span><br><span class="line"><span class="comment">// 或</span></span><br><span class="line"><span class="built_in">document</span>.cookie=<span class="string">"name=cookie; max-age=-1"</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="Cookie-存在的问题"><a href="#Cookie-存在的问题" class="headerlink" title="Cookie 存在的问题"></a>Cookie 存在的问题</h3><p>用户可以随意篡改 Cookie，把 Cookie 直接暴露给用户缺乏安全性，<br>可以用 Session 来解决这个问题。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -121,11 +124,6 @@
   <a class="article-category-link" href="/categories/前端探索/">前端探索</a>
 </div>
 
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/JSON/">JSON</a>
-  </div>
 
 </div>
 
@@ -138,17 +136,10 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev">
- <a href="/2019/08/04/同源策略与-CORS-跨域/" title="同源策略与 CORS 跨域">
-  <span>
-  同源策略与 CORS 跨域</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2019/08/03/实现-AJAX/" title="实现 AJAX">
- <span>实现 AJAX
+<a href="/2019/08/05/异步与回调/" title="异步与回调">
+ <span>异步与回调
 </span>
 </a>
 </div>

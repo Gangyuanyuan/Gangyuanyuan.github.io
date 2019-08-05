@@ -11,17 +11,17 @@
     
 
     
-    <meta name="description" content="同步同步：一个任务执行完拿到结果之后，再执行下一步操作。即顺序执行代码。 异步异步：不等一个任务返回结果（成功/失败/或其他结果），就直接进行下一步操作。那么如何拿到异步的结果？这里可以用回调函数。 回调（callback）callback 是一种特殊的函数调用方式。一个函数被作为参数传给另一个函数去调用，这样的函数就是回调函数。123function fn(fn2)&amp;#123;  fn2.cal">
+    <meta name="description" content="同步同步：一个任务执行完拿到结果之后，再执行下一步操作。即顺序执行代码。 异步异步：不等待一个任务的返回结果（成功/失败/或其他结果），就直接进行下一步操作。那么如何拿到异步的结果？这里可以用回调函数。 回调（callback）callback 是一种特殊的函数调用方式。一个函数被作为参数传给另一个函数去调用，这样的函数就是回调函数。123function fn(fn2)&amp;#123;  fn2.c">
 <meta property="og:type" content="article">
 <meta property="og:title" content="异步与回调">
 <meta property="og:url" content="http://yoursite.com/2019/08/05/异步与回调/index.html">
 <meta property="og:site_name" content="养乐多&#39;s Blog">
-<meta property="og:description" content="同步同步：一个任务执行完拿到结果之后，再执行下一步操作。即顺序执行代码。 异步异步：不等一个任务返回结果（成功/失败/或其他结果），就直接进行下一步操作。那么如何拿到异步的结果？这里可以用回调函数。 回调（callback）callback 是一种特殊的函数调用方式。一个函数被作为参数传给另一个函数去调用，这样的函数就是回调函数。123function fn(fn2)&amp;#123;  fn2.cal">
+<meta property="og:description" content="同步同步：一个任务执行完拿到结果之后，再执行下一步操作。即顺序执行代码。 异步异步：不等待一个任务的返回结果（成功/失败/或其他结果），就直接进行下一步操作。那么如何拿到异步的结果？这里可以用回调函数。 回调（callback）callback 是一种特殊的函数调用方式。一个函数被作为参数传给另一个函数去调用，这样的函数就是回调函数。123function fn(fn2)&amp;#123;  fn2.c">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-05T10:31:20.073Z">
+<meta property="og:updated_time" content="2019-08-05T10:50:05.874Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="异步与回调">
-<meta name="twitter:description" content="同步同步：一个任务执行完拿到结果之后，再执行下一步操作。即顺序执行代码。 异步异步：不等一个任务返回结果（成功/失败/或其他结果），就直接进行下一步操作。那么如何拿到异步的结果？这里可以用回调函数。 回调（callback）callback 是一种特殊的函数调用方式。一个函数被作为参数传给另一个函数去调用，这样的函数就是回调函数。123function fn(fn2)&amp;#123;  fn2.cal">
+<meta name="twitter:description" content="同步同步：一个任务执行完拿到结果之后，再执行下一步操作。即顺序执行代码。 异步异步：不等待一个任务的返回结果（成功/失败/或其他结果），就直接进行下一步操作。那么如何拿到异步的结果？这里可以用回调函数。 回调（callback）callback 是一种特殊的函数调用方式。一个函数被作为参数传给另一个函数去调用，这样的函数就是回调函数。123function fn(fn2)&amp;#123;  fn2.c">
 
     
     <link rel="alternative" href="atom.xml" title="养乐多&#39;s Blog" type="application/atom+xml">
@@ -102,7 +102,7 @@
 		</div>
 		
 		<h2 id="同步"><a href="#同步" class="headerlink" title="同步"></a>同步</h2><p>同步：一个任务执行完拿到结果之后，再执行下一步操作。即顺序执行代码。</p>
-<h2 id="异步"><a href="#异步" class="headerlink" title="异步"></a>异步</h2><p>异步：不等一个任务返回结果（成功/失败/或其他结果），就直接进行下一步操作。<br>那么如何拿到异步的结果？这里可以用回调函数。</p>
+<h2 id="异步"><a href="#异步" class="headerlink" title="异步"></a>异步</h2><p>异步：不等待一个任务的返回结果（成功/失败/或其他结果），就直接进行下一步操作。<br>那么如何拿到异步的结果？这里可以用回调函数。</p>
 <h2 id="回调（callback）"><a href="#回调（callback）" class="headerlink" title="回调（callback）"></a>回调（callback）</h2><p>callback 是一种特殊的函数调用方式。一个函数被作为参数传给另一个函数去调用，这样的函数就是回调函数。<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span><span class="params">(fn2)</span></span>&#123;</span><br><span class="line">  fn2.call()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>如上，在函数 fn 中将传给它的 fn2 调用了，这种调用就是回调。</p>
 <p>回调是拿到异步结果的一种方式（回调也可以拿同步结果）。</p>
@@ -131,6 +131,13 @@
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev">
+ <a href="/2019/08/05/解读 Cookie/" title="解读 Cookie">
+  <span>
+  解读 Cookie</span>
+</a>
+</div>
+
 
 <div class="next">
 <a href="/2019/08/05/面向对象编程/" title="面向对象编程">
@@ -181,7 +188,7 @@
 		<ul>
 		
 		  
-			<li><a href="/categories/前端探索/" title="前端探索">前端探索<sup>25</sup></a></li>
+			<li><a href="/categories/前端探索/" title="前端探索">前端探索<sup>26</sup></a></li>
 		  
 		
 		</ul>
@@ -210,7 +217,7 @@
 			
 		
 			
-				<li><a href="/tags/JSON/" title="JSON">JSON<sup>1</sup></a></li>
+				<li><a href="/tags/HTTP/" title="HTTP">HTTP<sup>1</sup></a></li>
 			
 		
 			
@@ -222,11 +229,7 @@
 			
 		
 			
-				<li><a href="/tags/JSONP/" title="JSONP">JSONP<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/命令行/" title="命令行">命令行<sup>1</sup></a></li>
+				<li><a href="/tags/JSON/" title="JSON">JSON<sup>1</sup></a></li>
 			
 		
 			
@@ -234,7 +237,11 @@
 			
 		
 			
-				<li><a href="/tags/HTTP/" title="HTTP">HTTP<sup>1</sup></a></li>
+				<li><a href="/tags/命令行/" title="命令行">命令行<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JSONP/" title="JSONP">JSONP<sup>1</sup></a></li>
 			
 		
 		</ul>
