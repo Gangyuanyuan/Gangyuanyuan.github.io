@@ -4,25 +4,24 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
   
-    <title>Vim 常用操作 | 养乐多&#39;s Blog</title>
+    <title>异步与回调 | 养乐多&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Gangyuanyuan">
     
 
     
-    <meta name="description" content="我们在使用 git 的过程中会经常遇到 Vim 的操作，现将常用操作总结一下。 关于 Vim在 git 中输入 vi xxx 命令可以进入 Vim 编辑器界面。 Vim 的模式Vim 主要有如下两种操作模式：  Normal 模式 Insert 模式Normal 模式 normal 模式又称为“命令模式”，打开 Vim 编辑器默认进入此模式。 此模式下可以进行复制、粘贴、保存或退出操作，但无法输入">
-<meta name="keywords" content="Git">
+    <meta name="description" content="同步同步：一个任务执行完拿到结果之后，再执行下一步操作。即顺序执行代码。 异步异步：不等一个任务返回结果（成功/失败/或其他结果），就直接进行下一步操作。那么如何拿到异步的结果？这里可以用回调函数。 回调（callback）callback 是一种特殊的函数调用方式。一个函数被作为参数传给另一个函数去调用，这样的函数就是回调函数。123function fn(fn2)&amp;#123;  fn2.cal">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vim 常用操作">
-<meta property="og:url" content="http://yoursite.com/2019/07/31/Vim-常用操作/index.html">
+<meta property="og:title" content="异步与回调">
+<meta property="og:url" content="http://yoursite.com/2019/08/05/异步与回调/index.html">
 <meta property="og:site_name" content="养乐多&#39;s Blog">
-<meta property="og:description" content="我们在使用 git 的过程中会经常遇到 Vim 的操作，现将常用操作总结一下。 关于 Vim在 git 中输入 vi xxx 命令可以进入 Vim 编辑器界面。 Vim 的模式Vim 主要有如下两种操作模式：  Normal 模式 Insert 模式Normal 模式 normal 模式又称为“命令模式”，打开 Vim 编辑器默认进入此模式。 此模式下可以进行复制、粘贴、保存或退出操作，但无法输入">
+<meta property="og:description" content="同步同步：一个任务执行完拿到结果之后，再执行下一步操作。即顺序执行代码。 异步异步：不等一个任务返回结果（成功/失败/或其他结果），就直接进行下一步操作。那么如何拿到异步的结果？这里可以用回调函数。 回调（callback）callback 是一种特殊的函数调用方式。一个函数被作为参数传给另一个函数去调用，这样的函数就是回调函数。123function fn(fn2)&amp;#123;  fn2.cal">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-31T00:48:41.006Z">
+<meta property="og:updated_time" content="2019-08-05T10:31:20.073Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vim 常用操作">
-<meta name="twitter:description" content="我们在使用 git 的过程中会经常遇到 Vim 的操作，现将常用操作总结一下。 关于 Vim在 git 中输入 vi xxx 命令可以进入 Vim 编辑器界面。 Vim 的模式Vim 主要有如下两种操作模式：  Normal 模式 Insert 模式Normal 模式 normal 模式又称为“命令模式”，打开 Vim 编辑器默认进入此模式。 此模式下可以进行复制、粘贴、保存或退出操作，但无法输入">
+<meta name="twitter:title" content="异步与回调">
+<meta name="twitter:description" content="同步同步：一个任务执行完拿到结果之后，再执行下一步操作。即顺序执行代码。 异步异步：不等一个任务返回结果（成功/失败/或其他结果），就直接进行下一步操作。那么如何拿到异步的结果？这里可以用回调函数。 回调（callback）callback 是一种特殊的函数调用方式。一个函数被作为参数传给另一个函数去调用，这样的函数就是回调函数。123function fn(fn2)&amp;#123;  fn2.cal">
 
     
     <link rel="alternative" href="atom.xml" title="养乐多&#39;s Blog" type="application/atom+xml">
@@ -82,14 +81,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2019/07/31/Vim-常用操作/" title="Vim 常用操作" itemprop="url">Vim 常用操作</a>
+      <a href="/2019/08/05/异步与回调/" title="异步与回调" itemprop="url">异步与回调</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Gangyuanyuan" target="_blank" itemprop="author">Gangyuanyuan</a>
 		
   </p><p class="article-time">
-    <time datetime="2019-07-31T00:33:50.000Z" itemprop="datePublished"> Published 2019-07-31</time>
+    <time datetime="2019-08-05T10:27:49.000Z" itemprop="datePublished"> Published 2019-08-05</time>
     
   </p>
 </header>
@@ -98,24 +97,17 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#关于-Vim"><span class="toc-number">1.</span> <span class="toc-text">关于 Vim</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vim-的模式"><span class="toc-number">2.</span> <span class="toc-text">Vim 的模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Normal-模式"><span class="toc-number">2.1.</span> <span class="toc-text">Normal 模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Insert-模式"><span class="toc-number">2.2.</span> <span class="toc-text">Insert 模式:</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#同步"><span class="toc-number">1.</span> <span class="toc-text">同步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#异步"><span class="toc-number">2.</span> <span class="toc-text">异步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#回调（callback）"><span class="toc-number">3.</span> <span class="toc-text">回调（callback）</span></a></li></ol>
 		
 		</div>
 		
-		<p>我们在使用 git 的过程中会经常遇到 Vim 的操作，现将常用操作总结一下。</p>
-<h2 id="关于-Vim"><a href="#关于-Vim" class="headerlink" title="关于 Vim"></a>关于 Vim</h2><p>在 git 中输入 <code>vi xxx</code> 命令可以进入 Vim 编辑器界面。</p>
-<h2 id="Vim-的模式"><a href="#Vim-的模式" class="headerlink" title="Vim 的模式"></a>Vim 的模式</h2><p>Vim 主要有如下两种操作模式：</p>
+		<h2 id="同步"><a href="#同步" class="headerlink" title="同步"></a>同步</h2><p>同步：一个任务执行完拿到结果之后，再执行下一步操作。即顺序执行代码。</p>
+<h2 id="异步"><a href="#异步" class="headerlink" title="异步"></a>异步</h2><p>异步：不等一个任务返回结果（成功/失败/或其他结果），就直接进行下一步操作。<br>那么如何拿到异步的结果？这里可以用回调函数。</p>
+<h2 id="回调（callback）"><a href="#回调（callback）" class="headerlink" title="回调（callback）"></a>回调（callback）</h2><p>callback 是一种特殊的函数调用方式。一个函数被作为参数传给另一个函数去调用，这样的函数就是回调函数。<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span><span class="params">(fn2)</span></span>&#123;</span><br><span class="line">  fn2.call()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如上，在函数 fn 中将传给它的 fn2 调用了，这种调用就是回调。</p>
+<p>回调是拿到异步结果的一种方式（回调也可以拿同步结果）。</p>
 <ul>
-<li>Normal 模式</li>
-<li>Insert 模式<h3 id="Normal-模式"><a href="#Normal-模式" class="headerlink" title="Normal 模式"></a>Normal 模式</h3></li>
-<li>normal 模式又称为“命令模式”，打开 Vim 编辑器默认进入此模式。</li>
-<li>此模式下可以进行复制、粘贴、保存或退出操作，但无法输入内容。</li>
-<li>常用命令：<br><code>:w</code>：保存<br><code>:q</code>：退出（如果未保存会有提示）<br><code>:wq</code>：保存并离开<br><code>:q!</code>：强制退出<br><code>yy</code>：复制当前光标所在行<br><code>p</code>：粘贴所复制的内容</li>
-</ul>
-<h3 id="Insert-模式"><a href="#Insert-模式" class="headerlink" title="Insert 模式:"></a>Insert 模式:</h3><ul>
-<li>Insert 模式又称为“编辑模式”，此模式下可以对文件内容进行编辑。</li>
-<li>键盘按以下键都可以进入此模式：<br><code>i</code>：表示在光标当前位置插入<br><code>a</code>：表示在光标下一个位置插入<br><code>o</code>：表示在新一行插入<br><code>I</code>：表示在行首插入<br><code>A</code>：表示在行尾插入</li>
-<li>编辑完之后键盘按 ESC 键或者 【Ctrl + [】 组合键可退出编辑模式进入命令模式。</li>
+<li>举例：<br>让黄牛去买票，然后站在原地等（同步）<br>让黄牛去买票，然后去做别的事（异步）<br>让黄牛去买票（告诉他买到票就回我电话），然后去做别的事（异步+回调）</li>
 </ul>
   
 	</div>
@@ -128,11 +120,6 @@
 </div>
 
 
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/Git/">Git</a>
-  </div>
-
 </div>
 
 
@@ -144,17 +131,10 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev">
- <a href="/2019/07/31/删除-commit-的三种方法/" title="删除 commit 的三种方法">
-  <span>
-  删除 commit 的三种方法</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2019/07/17/触发-关闭浮层/" title="触发 / 关闭浮层">
- <span>触发 / 关闭浮层
+<a href="/2019/08/05/面向对象编程/" title="面向对象编程">
+ <span>面向对象编程
 </span>
 </a>
 </div>
