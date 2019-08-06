@@ -11,17 +11,17 @@
     
 
     
-    <meta name="description" content="Cookie我们知道，响应头中包括 Cookie 和 Cache-Control（缓存控制），我们今天就先来解读一下 Cookie。 设置 CookieCookie 是在响应头中设置的，格式为：Set-Cookie: &amp;lt;cookie-name&amp;gt;=&amp;lt;cookie-value&amp;gt;，例设置一个用户登录的 Cookie：1response.setHeader(&apos;Set-Cookie&apos;">
+    <meta name="description" content="Cookie我们知道，响应头中包括 Cookie 和 Cache-Control（缓存控制），下面就先来解读一下 Cookie。 设置 CookieCookie 是在响应头中设置的，格式为：Set-Cookie: &amp;lt;cookie-name&amp;gt;=&amp;lt;cookie-value&amp;gt;，例设置一个用户登录的 Cookie：1response.setHeader(&apos;Set-Cookie&apos;,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="解读 Cookie">
 <meta property="og:url" content="http://yoursite.com/2019/08/05/解读 Cookie/index.html">
 <meta property="og:site_name" content="养乐多&#39;s Blog">
-<meta property="og:description" content="Cookie我们知道，响应头中包括 Cookie 和 Cache-Control（缓存控制），我们今天就先来解读一下 Cookie。 设置 CookieCookie 是在响应头中设置的，格式为：Set-Cookie: &amp;lt;cookie-name&amp;gt;=&amp;lt;cookie-value&amp;gt;，例设置一个用户登录的 Cookie：1response.setHeader(&apos;Set-Cookie&apos;">
+<meta property="og:description" content="Cookie我们知道，响应头中包括 Cookie 和 Cache-Control（缓存控制），下面就先来解读一下 Cookie。 设置 CookieCookie 是在响应头中设置的，格式为：Set-Cookie: &amp;lt;cookie-name&amp;gt;=&amp;lt;cookie-value&amp;gt;，例设置一个用户登录的 Cookie：1response.setHeader(&apos;Set-Cookie&apos;,">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-05T15:26:08.659Z">
+<meta property="og:updated_time" content="2019-08-06T08:22:14.549Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="解读 Cookie">
-<meta name="twitter:description" content="Cookie我们知道，响应头中包括 Cookie 和 Cache-Control（缓存控制），我们今天就先来解读一下 Cookie。 设置 CookieCookie 是在响应头中设置的，格式为：Set-Cookie: &amp;lt;cookie-name&amp;gt;=&amp;lt;cookie-value&amp;gt;，例设置一个用户登录的 Cookie：1response.setHeader(&apos;Set-Cookie&apos;">
+<meta name="twitter:description" content="Cookie我们知道，响应头中包括 Cookie 和 Cache-Control（缓存控制），下面就先来解读一下 Cookie。 设置 CookieCookie 是在响应头中设置的，格式为：Set-Cookie: &amp;lt;cookie-name&amp;gt;=&amp;lt;cookie-value&amp;gt;，例设置一个用户登录的 Cookie：1response.setHeader(&apos;Set-Cookie&apos;,">
 
     
     <link rel="alternative" href="atom.xml" title="养乐多&#39;s Blog" type="application/atom+xml">
@@ -101,7 +101,7 @@
 		
 		</div>
 		
-		<h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h2><p>我们知道，响应头中包括 Cookie 和 Cache-Control（缓存控制），我们今天就先来解读一下 Cookie。</p>
+		<h2 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h2><p>我们知道，响应头中包括 Cookie 和 Cache-Control（缓存控制），下面就先来解读一下 Cookie。</p>
 <h3 id="设置-Cookie"><a href="#设置-Cookie" class="headerlink" title="设置 Cookie"></a>设置 Cookie</h3><p>Cookie 是在响应头中设置的，格式为：<code>Set-Cookie: &lt;cookie-name&gt;=&lt;cookie-value&gt;</code>，例设置一个用户登录的 Cookie：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">response.setHeader(<span class="string">'Set-Cookie'</span>, <span class="string">`sign_in_email=<span class="subst">$&#123;email&#125;</span>`</span>)</span><br></pre></td></tr></table></figure></p>
 <h3 id="Cookie-特点"><a href="#Cookie-特点" class="headerlink" title="Cookie 特点"></a>Cookie 特点</h3><ul>
 <li>服务器通过 Set-Cookie 响应头设置 Cookie</li>
@@ -136,6 +136,13 @@
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev">
+ <a href="/2019/08/06/Cookie，Session-和缓存/" title="Cookie，Session 和缓存">
+  <span>
+  Cookie，Session 和缓存</span>
+</a>
+</div>
+
 
 <div class="next">
 <a href="/2019/08/05/异步与回调/" title="异步与回调">
@@ -186,7 +193,7 @@
 		<ul>
 		
 		  
-			<li><a href="/categories/前端探索/" title="前端探索">前端探索<sup>26</sup></a></li>
+			<li><a href="/categories/前端探索/" title="前端探索">前端探索<sup>27</sup></a></li>
 		  
 		
 		</ul>
@@ -215,7 +222,7 @@
 			
 		
 			
-				<li><a href="/tags/HTTP/" title="HTTP">HTTP<sup>1</sup></a></li>
+				<li><a href="/tags/JSON/" title="JSON">JSON<sup>1</sup></a></li>
 			
 		
 			
@@ -227,11 +234,11 @@
 			
 		
 			
-				<li><a href="/tags/JSON/" title="JSON">JSON<sup>1</sup></a></li>
+				<li><a href="/tags/JSONP/" title="JSONP">JSONP<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/算法/" title="算法">算法<sup>1</sup></a></li>
+				<li><a href="/tags/HTTP/" title="HTTP">HTTP<sup>1</sup></a></li>
 			
 		
 			
@@ -239,7 +246,7 @@
 			
 		
 			
-				<li><a href="/tags/JSONP/" title="JSONP">JSONP<sup>1</sup></a></li>
+				<li><a href="/tags/算法/" title="算法">算法<sup>1</sup></a></li>
 			
 		
 		</ul>
