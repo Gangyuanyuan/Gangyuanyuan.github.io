@@ -4,24 +4,27 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
   
-    <title>开博大吉 | 养乐多&#39;s Blog</title>
+    <title>Vue.js 概述与 MVVM 模式 | 养乐多&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Gangyuanyuan">
     
 
     
-    <meta name="description" content="你好我的博客开通啦！我将在这里分享我的学习心得，欢迎关注~">
+    <meta name="description" content="Vue.jsVue.js 是什么Vue.js 是一个轻巧、高性能、可组件化的MVVM库，拥有非常容易上手的 API；Vue.js是一个构建数据驱动的 Web 界面的库。 Vue.js 的特性1. 轻量级的框架2. 双向数据绑定3. 指令4. 插件化（组件化） MVVM 框架 MVVM（Model-View-ViewModel）是对 MVC（Model-View-Control）和 MVP（Mode">
+<meta name="keywords" content="Vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="开博大吉">
-<meta property="og:url" content="http://yoursite.com/2019/04/10/开博大吉/index.html">
+<meta property="og:title" content="Vue.js 概述与 MVVM 模式">
+<meta property="og:url" content="http://yoursite.com/2019/08/07/Vue-js-概述与-MVVM-模式/index.html">
 <meta property="og:site_name" content="养乐多&#39;s Blog">
-<meta property="og:description" content="你好我的博客开通啦！我将在这里分享我的学习心得，欢迎关注~">
+<meta property="og:description" content="Vue.jsVue.js 是什么Vue.js 是一个轻巧、高性能、可组件化的MVVM库，拥有非常容易上手的 API；Vue.js是一个构建数据驱动的 Web 界面的库。 Vue.js 的特性1. 轻量级的框架2. 双向数据绑定3. 指令4. 插件化（组件化） MVVM 框架 MVVM（Model-View-ViewModel）是对 MVC（Model-View-Control）和 MVP（Mode">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-10T09:17:15.437Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/13038962-96704c499078e5b7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-08-07T02:18:37.819Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="开博大吉">
-<meta name="twitter:description" content="你好我的博客开通啦！我将在这里分享我的学习心得，欢迎关注~">
+<meta name="twitter:title" content="Vue.js 概述与 MVVM 模式">
+<meta name="twitter:description" content="Vue.jsVue.js 是什么Vue.js 是一个轻巧、高性能、可组件化的MVVM库，拥有非常容易上手的 API；Vue.js是一个构建数据驱动的 Web 界面的库。 Vue.js 的特性1. 轻量级的框架2. 双向数据绑定3. 指令4. 插件化（组件化） MVVM 框架 MVVM（Model-View-ViewModel）是对 MVC（Model-View-Control）和 MVP（Mode">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/13038962-96704c499078e5b7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
     
     <link rel="alternative" href="atom.xml" title="养乐多&#39;s Blog" type="application/atom+xml">
@@ -81,14 +84,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2019/04/10/开博大吉/" title="开博大吉" itemprop="url">开博大吉</a>
+      <a href="/2019/08/07/Vue-js-概述与-MVVM-模式/" title="Vue.js 概述与 MVVM 模式" itemprop="url">Vue.js 概述与 MVVM 模式</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Gangyuanyuan" target="_blank" itemprop="author">Gangyuanyuan</a>
 		
   </p><p class="article-time">
-    <time datetime="2019-04-10T08:45:40.000Z" itemprop="datePublished"> Published 2019-04-10</time>
+    <time datetime="2019-08-07T02:15:33.000Z" itemprop="datePublished"> Published 2019-08-07</time>
     
   </p>
 </header>
@@ -97,16 +100,61 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#你好"><span class="toc-number">1.</span> <span class="toc-text">你好</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue-js"><span class="toc-number">1.</span> <span class="toc-text">Vue.js</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Vue-js-是什么"><span class="toc-number">1.1.</span> <span class="toc-text">Vue.js 是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vue-js-的特性"><span class="toc-number">1.2.</span> <span class="toc-text">Vue.js 的特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MVVM-框架"><span class="toc-number">1.3.</span> <span class="toc-text">MVVM 框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vue-的开发模式"><span class="toc-number">1.4.</span> <span class="toc-text">Vue 的开发模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vue-js-的优点"><span class="toc-number">1.5.</span> <span class="toc-text">Vue.js 的优点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问答"><span class="toc-number">2.</span> <span class="toc-text">问答</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#简述-MVVM"><span class="toc-number">2.1.</span> <span class="toc-text">简述 MVVM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#简述-Vue-js-的优点"><span class="toc-number">2.2.</span> <span class="toc-text">简述 Vue.js 的优点</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h1 id="你好"><a href="#你好" class="headerlink" title="你好"></a>你好</h1><p>我的博客开通啦！<br>我将在这里分享我的学习心得，欢迎关注~</p>
+		<h2 id="Vue-js"><a href="#Vue-js" class="headerlink" title="Vue.js"></a>Vue.js</h2><h3 id="Vue-js-是什么"><a href="#Vue-js-是什么" class="headerlink" title="Vue.js 是什么"></a>Vue.js 是什么</h3><p>Vue.js 是一个轻巧、高性能、可组件化的MVVM库，拥有非常容易上手的 API；<br>Vue.js是一个构建数据驱动的 Web 界面的库。</p>
+<h3 id="Vue-js-的特性"><a href="#Vue-js-的特性" class="headerlink" title="Vue.js 的特性"></a>Vue.js 的特性</h3><p>1. 轻量级的框架<br>2. 双向数据绑定<br>3. 指令<br>4. 插件化（组件化）</p>
+<h3 id="MVVM-框架"><a href="#MVVM-框架" class="headerlink" title="MVVM 框架"></a>MVVM 框架</h3><ul>
+<li>MVVM（Model-View-ViewModel）是对 MVC（Model-View-Control）和 MVP（Model-View-Presenter）的进一步改进。<blockquote>
+<p>『View』：视图层（UI 用户界面）<br>『ViewModel』：业务逻辑层（一切 js 可视为业务逻辑）<br>『Model』：数据层（存储数据及对数据的处理如增删改查）</p>
+</blockquote>
+</li>
+<li><p>MVVM 将数据双向绑定（data-binding）作为核心思想，View 和 Model 之间没有联系，它们通过 ViewModel 这个桥梁进行交互。</p>
+</li>
+<li><p>Model 和 ViewModel 之间的交互是双向的，因此 View 的变化会自动同步到 Model，而 Model 的变化也会立即反映到 View 上显示。</p>
+</li>
+<li>当用户操作 View，ViewModel 感知到变化，然后通知 Model 发生相应改变；反之当 Model 发生改变，ViewModel 也能感知到变化，使 View 作出相应更新。<br><img src="https://upload-images.jianshu.io/upload_images/13038962-96704c499078e5b7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="MVVM"></li>
+<li><a href="https://angularjs.org/" target="_blank" rel="noopener">Angular</a> 和 <a href="http://emberjs.com/" target="_blank" rel="noopener">Ember</a> 都采用这种模式。</li>
+</ul>
+<h3 id="Vue-的开发模式"><a href="#Vue-的开发模式" class="headerlink" title="Vue 的开发模式"></a>Vue 的开发模式</h3><ul>
+<li>通过 script 标签直接引入 vue.js</li>
+<li>通过 Vue 的脚手架工具 vue-cli 来进行一键项目搭建</li>
+</ul>
+<h3 id="Vue-js-的优点"><a href="#Vue-js-的优点" class="headerlink" title="Vue.js 的优点"></a>Vue.js 的优点</h3><ul>
+<li>简单轻巧，功能强大，拥有非常容易上手的 API；</li>
+<li>可组件化 和 响应式设计</li>
+<li>实现数据与结构分离，高性能，易于浏览器的加载速度；</li>
+<li>MVVM 模式，数据双向绑定，减少了 DOM 操作，将更多精力放在数据和业务逻辑上。</li>
+</ul>
+<h2 id="问答"><a href="#问答" class="headerlink" title="问答"></a>问答</h2><h3 id="简述-MVVM"><a href="#简述-MVVM" class="headerlink" title="简述 MVVM"></a>简述 MVVM</h3><ul>
+<li>MVVM 是 Model-View-ViewModel 的缩写。MVVM 是一种设计思想。Model 层代表数据模型，也可以在 Model 中定义数据修改和操作的业务逻辑；View 代表 UI 组件，它负责将数据模型转化成 UI 展现出来，ViewModel 是一个同步 View 和 Model 的对象。</li>
+<li>在 MVVM 架构下，View 和 Model 之间并没有直接的联系，而是通过 ViewModel 进行交互，Model 和 ViewModel 之间的交互是双向的， 因此 View 数据的变化会同步到 Model 中，而 Model 数据的变化也会立即反应到 View 上。</li>
+<li>ViewModel 通过双向数据绑定把 View 层和 Model 层连接了起来，而View 和 Model 之间的同步工作完全是自动的，无需人为干涉，因此开发者只需关注业务逻辑，不需要手动操作DOM, 不需要关注数据状态的同步问题，复杂的数据状态维护完全由 MVVM 来统一管理。</li>
+</ul>
+<h3 id="简述-Vue-js-的优点"><a href="#简述-Vue-js-的优点" class="headerlink" title="简述 Vue.js 的优点"></a>简述 Vue.js 的优点</h3><ul>
+<li>低耦合。视图（View）可以独立于 Model 变化和修改，一个 ViewModel 可以绑定到不同的 “View” 上，当 View 变化的时候 Model 可以不变，当 Model 变化的时候 View 也可以不变。</li>
+<li>可重用性。你可以把一些视图逻辑放在一个 ViewModel 里面，让很多 View 重用这段视图逻辑。</li>
+<li>独立开发。开发人员可以专注于业务逻辑和数据的开发（ViewModel），设计人员可以专注于页面设计。</li>
+<li>方便测试。界面素来是比较难于测试的，开发中大部分 Bug 来至于逻辑处理，由于 ViewModel 分离了许多逻辑，可以对 ViewModel 构造单元测试。</li>
+<li>易用 灵活 高效。</li>
+</ul>
   
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/前端探索/">前端探索</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Vue/">Vue</a>
+  </div>
 
 </div>
 
@@ -119,17 +167,10 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev">
- <a href="/2019/04/19/轻松学习命令行基础/" title="轻松学习命令行基础">
-  <span>
-  轻松学习命令行基础</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2019/04/10/hello-world/" title="Hello World">
- <span>Hello World
+<a href="/2019/08/06/移动端调试技巧/" title="移动端调试技巧">
+ <span>移动端调试技巧
 </span>
 </a>
 </div>
