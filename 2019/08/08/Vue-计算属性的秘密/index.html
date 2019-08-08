@@ -4,27 +4,25 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
   
-    <title>Vue.js 概述与 MVVM 模式 | 养乐多&#39;s Blog</title>
+    <title>Vue 计算属性的秘密 | 养乐多&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Gangyuanyuan">
     
 
     
-    <meta name="description" content="Vue.jsVue.js 是什么Vue.js 是一个轻巧、高性能、可组件化的MVVM库，拥有非常容易上手的 API；Vue.js是一个构建数据驱动的 Web 界面的库。 Vue.js 的特性1. 轻量级的框架2. 双向数据绑定3. 指令4. 插件化（组件化） MVVM 框架 MVVM（Model-View-ViewModel）是对 MVC（Model-View-Control）和 MVP（Mode">
+    <meta name="description" content="什么是计算属性我们己经可以搭建出一个简单的 Vue 应用，在模板中双向绑定一些数据或表达式了。但是表达式如果过长，或逻辑更为复杂时，就会变得臃肿甚至难以阅读和维护，如：123&amp;lt;div&amp;gt;    &amp;#123;&amp;#123;text.split(&apos;,&apos;).reverse().join(&apos;,&apos;)&amp;#125;&amp;#125;&amp;lt;/div&amp;gt; 上述表达式包含三个操作，并不是很清晰，所以在遇到复杂">
 <meta name="keywords" content="Vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vue.js 概述与 MVVM 模式">
-<meta property="og:url" content="http://yoursite.com/2019/08/07/Vue-js-概述与-MVVM-模式/index.html">
+<meta property="og:title" content="Vue 计算属性的秘密">
+<meta property="og:url" content="http://yoursite.com/2019/08/08/Vue-计算属性的秘密/index.html">
 <meta property="og:site_name" content="养乐多&#39;s Blog">
-<meta property="og:description" content="Vue.jsVue.js 是什么Vue.js 是一个轻巧、高性能、可组件化的MVVM库，拥有非常容易上手的 API；Vue.js是一个构建数据驱动的 Web 界面的库。 Vue.js 的特性1. 轻量级的框架2. 双向数据绑定3. 指令4. 插件化（组件化） MVVM 框架 MVVM（Model-View-ViewModel）是对 MVC（Model-View-Control）和 MVP（Mode">
+<meta property="og:description" content="什么是计算属性我们己经可以搭建出一个简单的 Vue 应用，在模板中双向绑定一些数据或表达式了。但是表达式如果过长，或逻辑更为复杂时，就会变得臃肿甚至难以阅读和维护，如：123&amp;lt;div&amp;gt;    &amp;#123;&amp;#123;text.split(&apos;,&apos;).reverse().join(&apos;,&apos;)&amp;#125;&amp;#125;&amp;lt;/div&amp;gt; 上述表达式包含三个操作，并不是很清晰，所以在遇到复杂">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/13038962-96704c499078e5b7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-08-07T02:18:37.819Z">
+<meta property="og:updated_time" content="2019-08-08T01:27:48.105Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Vue.js 概述与 MVVM 模式">
-<meta name="twitter:description" content="Vue.jsVue.js 是什么Vue.js 是一个轻巧、高性能、可组件化的MVVM库，拥有非常容易上手的 API；Vue.js是一个构建数据驱动的 Web 界面的库。 Vue.js 的特性1. 轻量级的框架2. 双向数据绑定3. 指令4. 插件化（组件化） MVVM 框架 MVVM（Model-View-ViewModel）是对 MVC（Model-View-Control）和 MVP（Mode">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/13038962-96704c499078e5b7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="Vue 计算属性的秘密">
+<meta name="twitter:description" content="什么是计算属性我们己经可以搭建出一个简单的 Vue 应用，在模板中双向绑定一些数据或表达式了。但是表达式如果过长，或逻辑更为复杂时，就会变得臃肿甚至难以阅读和维护，如：123&amp;lt;div&amp;gt;    &amp;#123;&amp;#123;text.split(&apos;,&apos;).reverse().join(&apos;,&apos;)&amp;#125;&amp;#125;&amp;lt;/div&amp;gt; 上述表达式包含三个操作，并不是很清晰，所以在遇到复杂">
 
     
     <link rel="alternative" href="atom.xml" title="养乐多&#39;s Blog" type="application/atom+xml">
@@ -84,14 +82,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2019/08/07/Vue-js-概述与-MVVM-模式/" title="Vue.js 概述与 MVVM 模式" itemprop="url">Vue.js 概述与 MVVM 模式</a>
+      <a href="/2019/08/08/Vue-计算属性的秘密/" title="Vue 计算属性的秘密" itemprop="url">Vue 计算属性的秘密</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Gangyuanyuan" target="_blank" itemprop="author">Gangyuanyuan</a>
 		
   </p><p class="article-time">
-    <time datetime="2019-08-07T02:15:33.000Z" itemprop="datePublished"> Published 2019-08-07</time>
+    <time datetime="2019-08-07T23:41:37.000Z" itemprop="datePublished"> Published 2019-08-08</time>
     
   </p>
 </header>
@@ -100,45 +98,41 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue-js"><span class="toc-number">1.</span> <span class="toc-text">Vue.js</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Vue-js-是什么"><span class="toc-number">1.1.</span> <span class="toc-text">Vue.js 是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vue-js-的特性"><span class="toc-number">1.2.</span> <span class="toc-text">Vue.js 的特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MVVM-框架"><span class="toc-number">1.3.</span> <span class="toc-text">MVVM 框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vue-的开发模式"><span class="toc-number">1.4.</span> <span class="toc-text">Vue 的开发模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vue-js-的优点"><span class="toc-number">1.5.</span> <span class="toc-text">Vue.js 的优点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#问答"><span class="toc-number">2.</span> <span class="toc-text">问答</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#简述-MVVM"><span class="toc-number">2.1.</span> <span class="toc-text">简述 MVVM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#简述-Vue-js-的优点"><span class="toc-number">2.2.</span> <span class="toc-text">简述 Vue.js 的优点</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是计算属性"><span class="toc-number">1.</span> <span class="toc-text">什么是计算属性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#计算属性用法"><span class="toc-number">2.</span> <span class="toc-text">计算属性用法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#getter-和-setter-方法"><span class="toc-number">2.1.</span> <span class="toc-text">getter 和 setter 方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他用途"><span class="toc-number">2.2.</span> <span class="toc-text">其他用途</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#小技巧"><span class="toc-number">2.3.</span> <span class="toc-text">小技巧</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#计算属性缓存"><span class="toc-number">3.</span> <span class="toc-text">计算属性缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#结论"><span class="toc-number">3.1.</span> <span class="toc-text">结论</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#何时使用二者"><span class="toc-number">3.2.</span> <span class="toc-text">何时使用二者</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h2 id="Vue-js"><a href="#Vue-js" class="headerlink" title="Vue.js"></a>Vue.js</h2><h3 id="Vue-js-是什么"><a href="#Vue-js-是什么" class="headerlink" title="Vue.js 是什么"></a>Vue.js 是什么</h3><p>Vue.js 是一个轻巧、高性能、可组件化的MVVM库，拥有非常容易上手的 API；<br>Vue.js是一个构建数据驱动的 Web 界面的库。</p>
-<h3 id="Vue-js-的特性"><a href="#Vue-js-的特性" class="headerlink" title="Vue.js 的特性"></a>Vue.js 的特性</h3><p>1. 轻量级的框架<br>2. 双向数据绑定<br>3. 指令<br>4. 插件化（组件化）</p>
-<h3 id="MVVM-框架"><a href="#MVVM-框架" class="headerlink" title="MVVM 框架"></a>MVVM 框架</h3><ul>
-<li>MVVM（Model-View-ViewModel）是对 MVC（Model-View-Control）和 MVP（Model-View-Presenter）的进一步改进。<blockquote>
-<p>『View』：视图层（UI 用户界面）<br>『ViewModel』：业务逻辑层（一切 js 可视为业务逻辑）<br>『Model』：数据层（存储数据及对数据的处理如增删改查）</p>
+		<h2 id="什么是计算属性"><a href="#什么是计算属性" class="headerlink" title="什么是计算属性"></a>什么是计算属性</h2><p>我们己经可以搭建出一个简单的 Vue 应用，在模板中双向绑定一些数据或表达式了。但是表达式如果过长，或逻辑更为复杂时，就会变得臃肿甚至难以阅读和维护，如：<br><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">    &#123;&#123;<span class="built_in">text</span>.<span class="built_in">split</span>(<span class="string">','</span>).<span class="built_in">reverse</span>().<span class="built_in">join</span>(<span class="string">','</span>)&#125;&#125;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<p>上述表达式包含三个操作，并不是很清晰，所以在遇到复杂的逻辑时应该使用计算属性。</p>
+<ul>
+<li>所有的计算属性都以函数的形式写在 Vue 实例内的 <code>computed</code> 选项内，最终返回计算后的结果。</li>
+</ul>
+<h2 id="计算属性用法"><a href="#计算属性用法" class="headerlink" title="计算属性用法"></a>计算属性用法</h2><p>在一个计算属性里可以完成各种复杂的逻辑，包括运算、函数调用等，只要最终返回一个结果就可以。除了上例简单的用法，计算属性还可以依赖多个 Vue 实例的数据，<strong>只要其中任一数据变化，计算属性就会重新执行，视图也会更新</strong>。</p>
+<h3 id="getter-和-setter-方法"><a href="#getter-和-setter-方法" class="headerlink" title="getter 和 setter 方法"></a>getter 和 setter 方法</h3><p>每一个计算属性都包含一个 <code>getter</code> 方法和一个 <code>setter</code> 方法。</p>
+<ul>
+<li><p>如果计算属性后面直接跟一个 function，使用的就是计算属性的默认方法 <code>getter</code> 来读取。例 展示两个购物车的物品总价：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">    prices: function()&#123;</span><br><span class="line">        <span class="keyword">var</span> prices = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span>(let i=<span class="number">0</span>; i&lt;<span class="keyword">this</span>.<span class="keyword">package</span>.length; i++)&#123;</span><br><span class="line">            prices += <span class="keyword">this</span>.<span class="keyword">package</span>[i].price * <span class="keyword">this</span>.<span class="keyword">package</span>[i].count</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> prices</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>我们也可以在需要时使用 <code>setter</code> 函数 ， 当手动修改计算属性的值就像修改一个普通数据那样时，就会触发 <code>setter</code> 函数，执行一些自定义的操作。例 显示全名：</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">	fullName: &#123;</span><br><span class="line">		<span class="keyword">get</span>: <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">this</span>.firstName + <span class="string">' '</span> + <span class="keyword">this</span>.lastName</span><br><span class="line">		&#125;,</span><br><span class="line">		<span class="keyword">set</span>: <span class="function"><span class="keyword">function</span><span class="params">(newValue)</span></span>&#123;</span><br><span class="line">			<span class="comment">// 传进来的值用逗号分隔，如'Liu,Bei'</span></span><br><span class="line">			<span class="keyword">var</span> names = newValue.split(<span class="string">','</span>) <span class="comment">// 分隔为数组</span></span><br><span class="line">			<span class="keyword">this</span>.firstName = names[<span class="number">0</span>]</span><br><span class="line">			<span class="keyword">this</span>.lastName = names[<span class="number">1</span>]</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="其他用途"><a href="#其他用途" class="headerlink" title="其他用途"></a>其他用途</h3><p>计算属性除了上述简单的文本插值外，还经常用于动态地设置元素的样式名称 class 和内联样式 style。</p>
+<h3 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h3><blockquote>
+<p>计算属性还有两个很实用的小技巧容易被忽略：<br>1. 计算属性可以依赖其他计算属性；<br>2. 计算属性不仅可以依赖当前 Vue 实例的数据，还可以依赖其他实例的数据。</p>
 </blockquote>
-</li>
-<li><p>MVVM 将数据双向绑定（data-binding）作为核心思想，View 和 Model 之间没有联系，它们通过 ViewModel 这个桥梁进行交互。</p>
-</li>
-<li><p>Model 和 ViewModel 之间的交互是双向的，因此 View 的变化会自动同步到 Model，而 Model 的变化也会立即反映到 View 上显示。</p>
-</li>
-<li>当用户操作 View，ViewModel 感知到变化，然后通知 Model 发生相应改变；反之当 Model 发生改变，ViewModel 也能感知到变化，使 View 作出相应更新。<br><img src="https://upload-images.jianshu.io/upload_images/13038962-96704c499078e5b7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="MVVM"></li>
-<li><a href="https://angularjs.org/" target="_blank" rel="noopener">Angular</a> 和 <a href="http://emberjs.com/" target="_blank" rel="noopener">Ember</a> 都采用这种模式。</li>
+<h2 id="计算属性缓存"><a href="#计算属性缓存" class="headerlink" title="计算属性缓存"></a>计算属性缓存</h2><p>计算属性缓存是定义在计算属性 <code>computed</code> 里的。<br>调用 <code>methods</code> 里的方法也可以与计算属性起到同样的作用。</p>
+<ul>
+<li>页面中的方法： 如果是调用方法，只要页面重新渲染，方法就会重新执行；若不需要渲染，则不需要重新执行。</li>
+<li>计算属性：不管是否渲染，只要计算属性依赖的数据（缓存）未发生变化，就永远不变。</li>
 </ul>
-<h3 id="Vue-的开发模式"><a href="#Vue-的开发模式" class="headerlink" title="Vue 的开发模式"></a>Vue 的开发模式</h3><ul>
-<li>通过 script 标签直接引入 vue.js</li>
-<li>通过 Vue 的脚手架工具 vue-cli 来进行一键项目搭建</li>
+<h3 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h3><ul>
+<li>用计算属性可以实现的问题，在 <code>methods</code> 里定义一个方法也可以实现相同的效果，甚至该方法还可以接受参数，使用起来更灵活。</li>
+<li>既然使用 <code>methods</code> 就可以实现，那么为什么还需要计算属性呢？因为计算属性是基于它的依赖缓存的，一个计算属性所依赖的数据发生变化时，它才会重新取值，所以 <code>text</code> 只要不改变，计算属性也就不更新。</li>
 </ul>
-<h3 id="Vue-js-的优点"><a href="#Vue-js-的优点" class="headerlink" title="Vue.js 的优点"></a>Vue.js 的优点</h3><ul>
-<li>简单轻巧，功能强大，拥有非常容易上手的 API；</li>
-<li>可组件化 和 响应式设计</li>
-<li>实现数据与结构分离，高性能，易于浏览器的加载速度；</li>
-<li>MVVM 模式，数据双向绑定，减少了 DOM 操作，将更多精力放在数据和业务逻辑上。</li>
-</ul>
-<h2 id="问答"><a href="#问答" class="headerlink" title="问答"></a>问答</h2><h3 id="简述-MVVM"><a href="#简述-MVVM" class="headerlink" title="简述 MVVM"></a>简述 MVVM</h3><ul>
-<li>MVVM 是 Model-View-ViewModel 的缩写。MVVM 是一种设计思想。Model 层代表数据模型，也可以在 Model 中定义数据修改和操作的业务逻辑；View 代表 UI 组件，它负责将数据模型转化成 UI 展现出来，ViewModel 是一个同步 View 和 Model 的对象。</li>
-<li>在 MVVM 架构下，View 和 Model 之间并没有直接的联系，而是通过 ViewModel 进行交互，Model 和 ViewModel 之间的交互是双向的， 因此 View 数据的变化会同步到 Model 中，而 Model 数据的变化也会立即反应到 View 上。</li>
-<li>ViewModel 通过双向数据绑定把 View 层和 Model 层连接了起来，而View 和 Model 之间的同步工作完全是自动的，无需人为干涉，因此开发者只需关注业务逻辑，不需要手动操作DOM, 不需要关注数据状态的同步问题，复杂的数据状态维护完全由 MVVM 来统一管理。</li>
-</ul>
-<h3 id="简述-Vue-js-的优点"><a href="#简述-Vue-js-的优点" class="headerlink" title="简述 Vue.js 的优点"></a>简述 Vue.js 的优点</h3><ul>
-<li>低耦合。视图（View）可以独立于 Model 变化和修改，一个 ViewModel 可以绑定到不同的 “View” 上，当 View 变化的时候 Model 可以不变，当 Model 变化的时候 View 也可以不变。</li>
-<li>可重用性。你可以把一些视图逻辑放在一个 ViewModel 里面，让很多 View 重用这段视图逻辑。</li>
-<li>独立开发。开发人员可以专注于业务逻辑和数据的开发（ViewModel），设计人员可以专注于页面设计。</li>
-<li>方便测试。界面素来是比较难于测试的，开发中大部分 Bug 来至于逻辑处理，由于 ViewModel 分离了许多逻辑，可以对 ViewModel 构造单元测试。</li>
-<li>易用 灵活 高效。</li>
+<h3 id="何时使用二者"><a href="#何时使用二者" class="headerlink" title="何时使用二者"></a>何时使用二者</h3><ul>
+<li>使用计算属性还是 <code>methods</code> 取决于是否需要缓存，当遍历大数组和做大量计算时，应当使用计算属性，除非不希望得到缓存；</li>
+<li>当需要数据实时发生变化时，适合用 <code>methods</code>。</li>
 </ul>
   
 	</div>
@@ -167,17 +161,10 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev">
- <a href="/2019/08/07/Vue-基础入门/" title="Vue 基础入门">
-  <span>
-  Vue 基础入门</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2019/08/06/移动端调试技巧/" title="移动端调试技巧">
- <span>移动端调试技巧
+<a href="/2019/08/07/Vue-基础入门/" title="Vue 基础入门">
+ <span>Vue 基础入门
 </span>
 </a>
 </div>
