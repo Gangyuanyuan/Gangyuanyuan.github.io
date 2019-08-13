@@ -1,0 +1,499 @@
+
+ <!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  
+    <title>Vue核心---可复用性组件详解 | 养乐多&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Gangyuanyuan">
+    
+
+    
+    <meta name="description" content="使用组件的原因组件在 Vue 中占据着非常重要的角色，可谓是 Vue 的核心内容。我们在写代码时经常会遇到大量代码相似和重复的现象，使代码能够被重复利用则可以很好地解决这个问题。  组件作用：提高代码的复用性，进而极大程度地提高工作效率。  组件的使用方法组件需要注册之后才能使用，注册组件和创建 Vue 实例的方法相似。组件注册分为全局注册和局部注册。 全局注册123Vue.component(&apos;">
+<meta name="keywords" content="Vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue核心---可复用性组件详解">
+<meta property="og:url" content="http://yoursite.com/2019/08/13/Vue核心-可复用性组件详解/index.html">
+<meta property="og:site_name" content="养乐多&#39;s Blog">
+<meta property="og:description" content="使用组件的原因组件在 Vue 中占据着非常重要的角色，可谓是 Vue 的核心内容。我们在写代码时经常会遇到大量代码相似和重复的现象，使代码能够被重复利用则可以很好地解决这个问题。  组件作用：提高代码的复用性，进而极大程度地提高工作效率。  组件的使用方法组件需要注册之后才能使用，注册组件和创建 Vue 实例的方法相似。组件注册分为全局注册和局部注册。 全局注册123Vue.component(&apos;">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-08-13T14:56:57.526Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vue核心---可复用性组件详解">
+<meta name="twitter:description" content="使用组件的原因组件在 Vue 中占据着非常重要的角色，可谓是 Vue 的核心内容。我们在写代码时经常会遇到大量代码相似和重复的现象，使代码能够被重复利用则可以很好地解决这个问题。  组件作用：提高代码的复用性，进而极大程度地提高工作效率。  组件的使用方法组件需要注册之后才能使用，注册组件和创建 Vue 实例的方法相似。组件注册分为全局注册和局部注册。 全局注册123Vue.component(&apos;">
+
+    
+    <link rel="alternative" href="atom.xml" title="养乐多&#39;s Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/profile2.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/profile2.png">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="养乐多&#39;s Blog">养乐多&#39;s Blog</a></h1>
+				<h2 class="blog-motto">不要拖泥又带水， 不要懒惰又浪费。</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/categories">Categories</a></li>
+					
+						<li><a href="/tags">Tags</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search">
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</ul></nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2019/08/13/Vue核心-可复用性组件详解/" title="Vue核心---可复用性组件详解" itemprop="url">Vue核心---可复用性组件详解</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Gangyuanyuan" target="_blank" itemprop="author">Gangyuanyuan</a>
+		
+  </p><p class="article-time">
+    <time datetime="2019-08-13T14:44:44.000Z" itemprop="datePublished"> Published 2019-08-13</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#使用组件的原因"><span class="toc-number">1.</span> <span class="toc-text">使用组件的原因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组件的使用方法"><span class="toc-number">2.</span> <span class="toc-text">组件的使用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#全局注册"><span class="toc-number">2.1.</span> <span class="toc-text">全局注册</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#局部注册"><span class="toc-number">2.2.</span> <span class="toc-text">局部注册</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#组件使用"><span class="toc-number">2.3.</span> <span class="toc-text">组件使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#解决标签限制"><span class="toc-number">2.4.</span> <span class="toc-text">解决标签限制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组件使用小技巧"><span class="toc-number">3.</span> <span class="toc-text">组件使用小技巧</span></a></li></ol>
+		
+		</div>
+		
+		<h2 id="使用组件的原因"><a href="#使用组件的原因" class="headerlink" title="使用组件的原因"></a>使用组件的原因</h2><p>组件在 Vue 中占据着非常重要的角色，可谓是 Vue 的核心内容。<br>我们在写代码时经常会遇到大量代码相似和重复的现象，使代码能够被重复利用则可以很好地解决这个问题。</p>
+<ul>
+<li>组件作用：提高代码的复用性，进而极大程度地提高工作效率。</li>
+</ul>
+<h2 id="组件的使用方法"><a href="#组件的使用方法" class="headerlink" title="组件的使用方法"></a>组件的使用方法</h2><p>组件需要注册之后才能使用，注册组件和创建 Vue 实例的方法相似。<br>组件注册分为全局注册和局部注册。</p>
+<h3 id="全局注册"><a href="#全局注册" class="headerlink" title="全局注册"></a>全局注册</h3><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Vue.component('<span class="keyword">my</span>-component', &#123;</span><br><span class="line">    template: '&lt;<span class="keyword">div</span>&gt;我是组件的内容&lt;/<span class="keyword">div</span>&gt;'</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>第一个参数是自定义的 tag 标签，即要注册的组件的名称。</p>
+<ul>
+<li>优点：所有的 Vue 实例都可以使用。</li>
+<li>缺点：权限太大，容错率降低（因此全局注册在实际开发中使用较少）。<h3 id="局部注册"><a href="#局部注册" class="headerlink" title="局部注册"></a>局部注册</h3><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    <span class="keyword">e</span><span class="variable">l:</span> <span class="string">'#app'</span>,</span><br><span class="line">    component<span class="variable">s:</span> &#123;</span><br><span class="line">        <span class="string">'app-component'</span>: &#123;</span><br><span class="line">            template: <span class="string">'&lt;div&gt;我是app局部注册的组件&lt;/div&gt;'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="组件使用"><a href="#组件使用" class="headerlink" title="组件使用"></a>组件使用</h3><p>注册过的组件就可以在 Vue 实例中被当作 html 标签使用了，但局部注册的组件只能在它所注册的 Vue 实例中使用：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">my-component</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">app-component</span>&gt;</span><span class="tag">&lt;/<span class="name">app-component</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>渲染到页面时，组件标签会被替换成我们自定义的内容。</p>
+<h3 id="解决标签限制"><a href="#解决标签限制" class="headerlink" title="解决标签限制"></a>解决标签限制</h3><p>Vue 组件的模板在某些情况下会受到 html 标签的限制，比如 <code>&lt;table&gt;</code> 中只能还有 <code>&lt;tr&gt;</code>、<code>&lt;td&gt;</code>、<code>tbody</code> 这些元素，所以直接在 <code>&lt;table&gt;</code> 中使用组件是无效的，此时可以使用 <code>is</code> 属性来挂载组件，如：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tbody</span> <span class="attr">is</span>=<span class="string">"my-component"</span>&gt;</span><span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="组件使用小技巧"><a href="#组件使用小技巧" class="headerlink" title="组件使用小技巧"></a>组件使用小技巧</h2><ol>
+<li>推荐（必须）使用小写字母加 <code>-</code> 方式进行命名，如用 <code>child</code>、<code>my-­componnet</code> 等命名组件（驼峰式命名会报错）。</li>
+<li><code>template</code> 中的内容必须被一个 DOM 元素包裹 ，也可以进行嵌套。</li>
+<li>在组件的定义中，除了 <code>template</code> 选项外还可以定义其他选项，如<code>data</code>、<code>computed</code>、<code>methods</code> 等。</li>
+<li><strong>组件注册中的 <code>data</code> 必须是一个方法</strong>。</li>
+</ol>
+<ul>
+<li>例：用组件实现 两个按钮分别点击分别自增：<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    两个按钮共用同一个count，点击任一按钮两个按钮都会自增：<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"plus"</span>&gt;</span>&#123;&#123;count&#125;&#125;<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"plus"</span>&gt;</span>&#123;&#123;count&#125;&#125;<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">hr</span>&gt;</span></span><br><span class="line">    用组件实现两个按钮分别点击分别自增：<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">btn-component</span>&gt;</span><span class="tag">&lt;/<span class="name">btn-component</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">btn-component</span>&gt;</span><span class="tag">&lt;/<span class="name">btn-component</span>&gt;</span>	</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="actionscript">	<span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">	    el: <span class="string">"#app"</span>, </span></span><br><span class="line"><span class="undefined">            data: &#123;</span></span><br><span class="line"><span class="undefined">            	count: 1</span></span><br><span class="line"><span class="undefined">            &#125;,</span></span><br><span class="line"><span class="undefined">	    components: &#123;</span></span><br><span class="line"><span class="actionscript">	    	<span class="string">'btn-component'</span>: &#123;</span></span><br><span class="line"><span class="handlebars"><span class="xml">	    		template: '<span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"count++"</span>&gt;</span></span><span class="template-variable">&#123;&#123;count&#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">button</span>&gt;</span>',</span></span></span><br><span class="line"><span class="actionscript">	    		data: <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">	    			<span class="keyword">return</span> &#123; count: <span class="number">0</span> &#125;</span></span><br><span class="line"><span class="undefined">	    		&#125;</span></span><br><span class="line"><span class="undefined">	    	&#125;</span></span><br><span class="line"><span class="undefined">	    &#125;,</span></span><br><span class="line"><span class="undefined">        methods: &#123;</span></span><br><span class="line"><span class="actionscript">            plus: <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">                <span class="keyword">this</span>.count++</span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;,</span></span><br><span class="line"><span class="undefined">    &#125;)</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/前端探索/">前端探索</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Vue/">Vue</a>
+  </div>
+
+</div>
+
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2019/08/12/解决Hexo标签与MD文件冲突问题/" title="解决Hexo标签与MD文件冲突问题">
+ <span>解决Hexo标签与MD文件冲突问题
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+<div id="authorInfo">
+	
+		<div class="author-img"></div>		
+	
+	<div class="social-info">
+		
+		<a href="http://weibo.com/5174431150" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/Gangyuanyuan" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:gang.gy@qq.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+
+	</div>
+</div>
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/前端探索/" title="前端探索">前端探索<sup>35</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Vue/" title="Vue">Vue<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JS/" title="JS">JS<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Git/" title="Git">Git<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CSS/" title="CSS">CSS<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/jQuery/" title="jQuery">jQuery<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JSON/" title="JSON">JSON<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTML标签/" title="HTML标签">HTML标签<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/AJAX/" title="AJAX">AJAX<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JSONP/" title="JSONP">JSONP<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/命令行/" title="命令行">命令行<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/移动端/" title="移动端">移动端<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTTP/" title="HTTP">HTTP<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/算法/" title="算法">算法<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://github.com/Gangyuanyuan" target="_blank" title="My GitHub">My GitHub</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://www.jianshu.com/u/9f534f79952c" target="_blank" title="My JianShu">My JianShu</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer">
+		
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/hsihohuang/kiddochan" target="_blank" title="Kiddochan">Kiddochan</a> © 2019 
+		
+		<a href="/about" target="_blank" title="Gangyuanyuan">Gangyuanyuan</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
