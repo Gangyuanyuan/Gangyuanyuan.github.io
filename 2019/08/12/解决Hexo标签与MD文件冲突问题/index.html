@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="养乐多&#39;s Blog">
 <meta property="og:description" content="今天使用 Github+Hexo 搭建的博客写文章时遇到一个 Bug，查阅资料解决之后，发现很多人都遇到过由于 nunjucks 模板标签导致 MD 文件解析报错的问题，于是记录一下这个问题的解决方法。 报错及原因我在使用 hexo generate 生成文章时，出现了如下报错：123456$ hexo generateINFO  Start processingFATAL Something&apos;s">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-12T06:41:08.871Z">
+<meta property="og:updated_time" content="2019-08-18T23:27:29.087Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="解决Hexo标签与MD文件冲突问题">
 <meta name="twitter:description" content="今天使用 Github+Hexo 搭建的博客写文章时遇到一个 Bug，查阅资料解决之后，发现很多人都遇到过由于 nunjucks 模板标签导致 MD 文件解析报错的问题，于是记录一下这个问题的解决方法。 报错及原因我在使用 hexo generate 生成文章时，出现了如下报错：123456$ hexo generateINFO  Start processingFATAL Something&apos;s">
@@ -126,7 +126,7 @@
 <li>插件同步修改<br>若博客使用 <code>hexo-generator-search</code> 或 <code>hexo-generator-feed</code> 等其他依赖于 <code>nunjucks</code> 模板的插件，那么这些插件的模板处理标签也需要进行同步修改。以搜索插件为例，打开如下路径的文件：<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node_modules/hexo-generator-<span class="built_in">search</span>/templates/<span class="built_in">search</span>.xml</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>根据之前修改的 <code>nunjucks</code> 的内容，将此文件的 <code>{{` 和 `}}</code> 也更改为 <code>{$</code> 和 <code>$}</code> 即可。</p>
+<p>根据之前修改的 <code>nunjucks</code> 的内容，将此文件的 <code>{{ }}</code> 也分别更改为 <code>{$</code> 和 <code>$}</code> 即可。</p>
 <p><strong>注意</strong>：<br>如果在项目下执行 <code>npm install</code> 更新 <code>nunjucks</code> 模板时，那么之前更改的内容会被还原，需要重新对有冲突的符号进行更改。</p>
   
 	</div>
@@ -249,7 +249,7 @@
 			
 		
 			
-				<li><a href="/tags/HTTP/" title="HTTP">HTTP<sup>1</sup></a></li>
+				<li><a href="/tags/JSON/" title="JSON">JSON<sup>1</sup></a></li>
 			
 		
 			
@@ -257,15 +257,11 @@
 			
 		
 			
+				<li><a href="/tags/JSONP/" title="JSONP">JSONP<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/移动端/" title="移动端">移动端<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/JSON/" title="JSON">JSON<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/算法/" title="算法">算法<sup>1</sup></a></li>
 			
 		
 			
@@ -273,7 +269,11 @@
 			
 		
 			
-				<li><a href="/tags/JSONP/" title="JSONP">JSONP<sup>1</sup></a></li>
+				<li><a href="/tags/算法/" title="算法">算法<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTTP/" title="HTTP">HTTP<sup>1</sup></a></li>
 			
 		
 		</ul>

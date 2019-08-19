@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="养乐多&#39;s Blog">
 <meta property="og:description" content="什么是计算属性我们己经可以搭建出一个简单的 Vue 应用，在模板中双向绑定一些数据或表达式了。但是表达式如果过长，或逻辑更为复杂时，就会变得臃肿甚至难以阅读和维护，如：123&amp;lt;div&amp;gt;    &amp;#123;&amp;#123;text.split(&apos;,&apos;).reverse().join(&apos;,&apos;)&amp;#125;&amp;#125;&amp;lt;/div&amp;gt; 上述表达式包含三个操作，并不是很清晰，所以在遇到复杂">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-08T01:27:48.105Z">
+<meta property="og:updated_time" content="2019-08-18T23:12:10.847Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue 计算属性的秘密">
 <meta name="twitter:description" content="什么是计算属性我们己经可以搭建出一个简单的 Vue 应用，在模板中双向绑定一些数据或表达式了。但是表达式如果过长，或逻辑更为复杂时，就会变得臃肿甚至难以阅读和维护，如：123&amp;lt;div&amp;gt;    &amp;#123;&amp;#123;text.split(&apos;,&apos;).reverse().join(&apos;,&apos;)&amp;#125;&amp;#125;&amp;lt;/div&amp;gt; 上述表达式包含三个操作，并不是很清晰，所以在遇到复杂">
@@ -114,7 +114,7 @@
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">    prices: function()&#123;</span><br><span class="line">        <span class="keyword">var</span> prices = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span>(let i=<span class="number">0</span>; i&lt;<span class="keyword">this</span>.<span class="keyword">package</span>.length; i++)&#123;</span><br><span class="line">            prices += <span class="keyword">this</span>.<span class="keyword">package</span>[i].price * <span class="keyword">this</span>.<span class="keyword">package</span>[i].count</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> prices</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>我们也可以在需要时使用 <code>setter</code> 函数 ， 当手动修改计算属性的值就像修改一个普通数据那样时，就会触发 <code>setter</code> 函数，执行一些自定义的操作。例 显示全名：</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">	fullName: &#123;</span><br><span class="line">		<span class="keyword">get</span>: <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">this</span>.firstName + <span class="string">' '</span> + <span class="keyword">this</span>.lastName</span><br><span class="line">		&#125;,</span><br><span class="line">		<span class="keyword">set</span>: <span class="function"><span class="keyword">function</span><span class="params">(newValue)</span></span>&#123;</span><br><span class="line">			<span class="comment">// 传进来的值用逗号分隔，如'Liu,Bei'</span></span><br><span class="line">			<span class="keyword">var</span> names = newValue.split(<span class="string">','</span>) <span class="comment">// 分隔为数组</span></span><br><span class="line">			<span class="keyword">this</span>.firstName = names[<span class="number">0</span>]</span><br><span class="line">			<span class="keyword">this</span>.lastName = names[<span class="number">1</span>]</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">    fullName: &#123;</span><br><span class="line">        <span class="keyword">get</span>: <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">this</span>.firstName + <span class="string">' '</span> + <span class="keyword">this</span>.lastName</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="keyword">set</span>: <span class="function"><span class="keyword">function</span><span class="params">(newValue)</span></span>&#123;</span><br><span class="line">            <span class="comment">// 传进来的值用逗号分隔，如'Liu,Bei'</span></span><br><span class="line">            <span class="keyword">var</span> names = newValue.split(<span class="string">','</span>) <span class="comment">// 分隔为数组</span></span><br><span class="line">            <span class="keyword">this</span>.firstName = names[<span class="number">0</span>]</span><br><span class="line">            <span class="keyword">this</span>.lastName = names[<span class="number">1</span>]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="其他用途"><a href="#其他用途" class="headerlink" title="其他用途"></a>其他用途</h3><p>计算属性除了上述简单的文本插值外，还经常用于动态地设置元素的样式名称 class 和内联样式 style。</p>
@@ -255,7 +255,7 @@
 			
 		
 			
-				<li><a href="/tags/HTTP/" title="HTTP">HTTP<sup>1</sup></a></li>
+				<li><a href="/tags/JSON/" title="JSON">JSON<sup>1</sup></a></li>
 			
 		
 			
@@ -263,15 +263,11 @@
 			
 		
 			
+				<li><a href="/tags/JSONP/" title="JSONP">JSONP<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/移动端/" title="移动端">移动端<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/JSON/" title="JSON">JSON<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/算法/" title="算法">算法<sup>1</sup></a></li>
 			
 		
 			
@@ -279,7 +275,11 @@
 			
 		
 			
-				<li><a href="/tags/JSONP/" title="JSONP">JSONP<sup>1</sup></a></li>
+				<li><a href="/tags/算法/" title="算法">算法<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTTP/" title="HTTP">HTTP<sup>1</sup></a></li>
 			
 		
 		</ul>
