@@ -21,7 +21,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/13038962-ff3a518c60319b82.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/13038962-664b0efc181c3175.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-08-19T03:48:16.459Z">
+<meta property="og:updated_time" content="2019-08-19T04:03:57.933Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue 基础入门">
 <meta name="twitter:description" content="Vue.js 实例和数据绑定通过构造函数 Vue() 就可以创建一个 Vue 的根实例，并启动 Vue 应用。Vue 实例就是使用 Vue.js 的入口。123456789101112131415&amp;lt;!-- 挂载到这里 --&amp;gt;&amp;lt;div id=&quot;app&quot;&amp;gt;    &amp;#123;&amp;#123;message&amp;#125;&amp;#125;&amp;lt;/div&amp;gt;&amp;lt;!-- 环境搭建 --">
@@ -101,7 +101,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue-js-实例和数据绑定"><span class="toc-number">1.</span> <span class="toc-text">Vue.js 实例和数据绑定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生命周期钩子"><span class="toc-number">2.</span> <span class="toc-text">生命周期钩子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文本差值和表达式"><span class="toc-number">3.</span> <span class="toc-text">文本差值和表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-语法"><span class="toc-number">3.1.</span> <span class="toc-text">1. 语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-用法"><span class="toc-number">3.2.</span> <span class="toc-text">2. 用法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#过滤器"><span class="toc-number">4.</span> <span class="toc-text">过滤器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#指令和事件"><span class="toc-number">5.</span> <span class="toc-text">指令和事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#语法糖"><span class="toc-number">6.</span> <span class="toc-text">语法糖</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue-js-实例和数据绑定"><span class="toc-number">1.</span> <span class="toc-text">Vue.js 实例和数据绑定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生命周期钩子"><span class="toc-number">2.</span> <span class="toc-text">生命周期钩子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文本差值和表达式"><span class="toc-number">3.</span> <span class="toc-text">文本差值和表达式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#语法"><span class="toc-number">3.1.</span> <span class="toc-text">语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用法"><span class="toc-number">3.2.</span> <span class="toc-text">用法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#过滤器"><span class="toc-number">4.</span> <span class="toc-text">过滤器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#指令和事件"><span class="toc-number">5.</span> <span class="toc-text">指令和事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#语法糖"><span class="toc-number">6.</span> <span class="toc-text">语法糖</span></a></li></ol>
 		
 		</div>
 		
@@ -117,8 +117,8 @@
 <li><strong>beforeDestroy</strong><br>实例销毁之前调用，要解绑一些使用 <code>addEventListener</code> 监听的事件等。</li>
 </ul>
 <p>下面我们通过一个例子来理解生命周期钩子，如在页面中实时显示当前时间：<br><figure class="highlight twig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span></span><br><span class="line"><span class="xml">    </span><span class="template-variable">&#123;&#123;<span class="name">date</span>&#125;&#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span></span><br><span class="line"><span class="xml">    var app = new Vue(&#123;</span></span><br><span class="line"><span class="xml">        el: "#app",</span></span><br><span class="line"><span class="xml">        data: &#123;</span></span><br><span class="line"><span class="xml">            date: new Date()</span></span><br><span class="line"><span class="xml">        &#125;,</span></span><br><span class="line"><span class="xml">        // 生命周期钩子</span></span><br><span class="line"><span class="xml">        created: function() &#123;</span></span><br><span class="line"><span class="xml">              alert("我是Vue实例，创建完成，还未挂载到Dom")</span></span><br><span class="line"><span class="xml">        &#125;,</span></span><br><span class="line"><span class="xml">        mounted: function()&#123;</span></span><br><span class="line"><span class="xml">            alert("我是Vue实例，已经挂载到DOM")</span></span><br><span class="line"><span class="xml">            var _this = this // this代表Vue实例本身</span></span><br><span class="line"><span class="xml">            this.timer = setInterval(function()&#123;</span></span><br><span class="line"><span class="xml">                _this.date = new Date()</span></span><br><span class="line"><span class="xml">            &#125;, 1000)</span></span><br><span class="line"><span class="xml">        &#125;,</span></span><br><span class="line"><span class="xml">        beforeDestroy: function()&#123;</span></span><br><span class="line"><span class="xml">            if(this.timer)&#123;</span></span><br><span class="line"><span class="xml">                clearInterval(this.timer)</span></span><br><span class="line"><span class="xml">            &#125;</span></span><br><span class="line"><span class="xml">        &#125;</span></span><br><span class="line"><span class="xml">    &#125;)</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
-<h2 id="文本差值和表达式"><a href="#文本差值和表达式" class="headerlink" title="文本差值和表达式"></a>文本差值和表达式</h2><h3 id="1-语法"><a href="#1-语法" class="headerlink" title="1. 语法"></a>1. 语法</h3><p>双大括号（Mustache 语法）<code>{{}}</code> 是最基本的文本插值方法，它会自动将我们双向绑定的数据实时显示出来。在前文中我们已经使用过：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> <span class="built_in">id</span>=<span class="string">"app"</span>&gt;</span><br><span class="line">    &#123;&#123;message&#125;&#125;</span><br><span class="line">&lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure></p>
-<h3 id="2-用法"><a href="#2-用法" class="headerlink" title="2. 用法"></a>2. 用法</h3><ul>
+<h2 id="文本差值和表达式"><a href="#文本差值和表达式" class="headerlink" title="文本差值和表达式"></a>文本差值和表达式</h2><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><p>双大括号（Mustache 语法）<code>{{}}</code> 是最基本的文本插值方法，它会自动将我们双向绑定的数据实时显示出来。在前文中我们已经使用过：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> <span class="built_in">id</span>=<span class="string">"app"</span>&gt;</span><br><span class="line">    &#123;&#123;message&#125;&#125;</span><br><span class="line">&lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><ul>
 <li><p>在文本差值的 <code>{{}}</code> 中，除了简单的绑定属性值外，还可以使用 JavaScript 表达式进行简单的运算 、 三元运算等。</p>
 <figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span></span><br><span class="line"><span class="xml">    </span><span class="template-variable">&#123;&#123;6*3&#125;&#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml">    </span><span class="template-variable">&#123;&#123;3&gt;6 ? message : a&#125;&#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span></span><br><span class="line"><span class="xml">    var app = new Vue(&#123;</span></span><br><span class="line"><span class="xml">        el: "#app",</span></span><br><span class="line"><span class="xml">        data: &#123;</span></span><br><span class="line"><span class="xml">            message: 'Hello,Vue!',</span></span><br><span class="line"><span class="xml">			a: 1</span></span><br><span class="line"><span class="xml">        &#125;</span></span><br><span class="line"><span class="xml">    &#125;)</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
 </li>
@@ -256,7 +256,7 @@
 		<ul>
 		
 		  
-			<li><a href="/categories/前端探索/" title="前端探索">前端探索<sup>37</sup></a></li>
+			<li><a href="/categories/前端探索/" title="前端探索">前端探索<sup>38</sup></a></li>
 		  
 		
 		</ul>
@@ -269,7 +269,7 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Vue/" title="Vue">Vue<sup>10</sup></a></li>
+				<li><a href="/tags/Vue/" title="Vue">Vue<sup>11</sup></a></li>
 			
 		
 			
@@ -289,15 +289,11 @@
 			
 		
 			
-				<li><a href="/tags/HTML标签/" title="HTML标签">HTML标签<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/JSON/" title="JSON">JSON<sup>1</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/AJAX/" title="AJAX">AJAX<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTML标签/" title="HTML标签">HTML标签<sup>1</sup></a></li>
 			
 		
 			
@@ -305,7 +301,11 @@
 			
 		
 			
-				<li><a href="/tags/移动端/" title="移动端">移动端<sup>1</sup></a></li>
+				<li><a href="/tags/JSON/" title="JSON">JSON<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTTP/" title="HTTP">HTTP<sup>1</sup></a></li>
 			
 		
 			
@@ -317,7 +317,7 @@
 			
 		
 			
-				<li><a href="/tags/HTTP/" title="HTTP">HTTP<sup>1</sup></a></li>
+				<li><a href="/tags/移动端/" title="移动端">移动端<sup>1</sup></a></li>
 			
 		
 		</ul>
