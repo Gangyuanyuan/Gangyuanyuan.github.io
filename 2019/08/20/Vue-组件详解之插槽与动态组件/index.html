@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="养乐多&#39;s Blog">
 <meta property="og:description" content="使用 slot 分发内容什么是 slot (插槽)为了让组件可以组合，我们需要一种方式来混合父组件的内容和子组件自己的模板。这个过程被称为“内容分发”。Vue.js 实现了一个内容分发 API —— 使用 slot 元素作为原始内容的插槽。 编译的作用域在深入内容分发 API 之前，我们先明确内容在哪个作用域里编译。假定模板为：12345678910111213// 父组件作用域&amp;lt;div i">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-20T14:04:41.813Z">
+<meta property="og:updated_time" content="2019-08-31T09:48:49.182Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue 组件详解之插槽与动态组件">
 <meta name="twitter:description" content="使用 slot 分发内容什么是 slot (插槽)为了让组件可以组合，我们需要一种方式来混合父组件的内容和子组件自己的模板。这个过程被称为“内容分发”。Vue.js 实现了一个内容分发 API —— 使用 slot 元素作为原始内容的插槽。 编译的作用域在深入内容分发 API 之前，我们先明确内容在哪个作用域里编译。假定模板为：12345678910111213// 父组件作用域&amp;lt;div i">
@@ -105,15 +105,19 @@
 		<h2 id="使用-slot-分发内容"><a href="#使用-slot-分发内容" class="headerlink" title="使用 slot 分发内容"></a>使用 slot 分发内容</h2><h3 id="什么是-slot-插槽"><a href="#什么是-slot-插槽" class="headerlink" title="什么是 slot (插槽)"></a>什么是 slot (插槽)</h3><p>为了让组件可以组合，我们需要一种方式来混合父组件的内容和子组件自己的模板。这个过程被称为“内容分发”。Vue.js 实现了一个内容分发 API —— 使用 <code>slot</code> 元素作为原始内容的插槽。</p>
 <h3 id="编译的作用域"><a href="#编译的作用域" class="headerlink" title="编译的作用域"></a>编译的作用域</h3><p>在深入内容分发 API 之前，我们先明确内容在哪个作用域里编译。假定模板为：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 父组件作用域</span></span><br><span class="line">&lt;div id=<span class="string">"app"</span>&gt;</span><br><span class="line">    &lt;my-component&gt; &#123;&#123;message&#125;&#125; &lt;<span class="regexp">/my-component&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>div&gt;</span><br><span class="line"><span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">"#app"</span>, </span><br><span class="line">    components: &#123;</span><br><span class="line">        <span class="string">'my-component'</span>: &#123;</span><br><span class="line">            <span class="comment">// 子组件作用域</span></span><br><span class="line">            template: <span class="string">'&lt;div&gt;我是子组件&lt;/div&gt;'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
 <p>这里的 <code>message</code> 应该绑定到的是父组件的数据。组件作用域简单地说是：<br>父组件模板的内容在父组件作用域内编译；<br>子组件模板的内容在子组件作用域内编译。</p>
-<h3 id="插槽的用法"><a href="#插槽的用法" class="headerlink" title="插槽的用法"></a>插槽的用法</h3><p>插槽将父组件的内容与子组件的模板相混合，从而弥补了视图的不足。<br>如果父组件没有插入内容，那么 <code>slot</code> 的内容就作为默认出现；若父组件插入了内容，则 <code>slot</code> 的内容将被插入的内容替换掉。</p>
+<h3 id="插槽的用法"><a href="#插槽的用法" class="headerlink" title="插槽的用法"></a>插槽的用法</h3><p>插槽将父组件的内容与子组件的模板相混合，从而弥补了视图的不足。</p>
 <ul>
+<li>如果想在组件中添加内容，则必须在组件注册时在 <code>template</code> 中添加插槽 <code>slot</code>。</li>
+<li>如果父组件没有插入内容，那么 <code>slot</code> 的内容就作为默认出现；若父组件插入了内容，则 <code>slot</code> 的内容将被插入的内容替换掉。</li>
+</ul>
+<ol>
 <li><p>单个插槽</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">my-component</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>我是父组件的内容<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">        el: <span class="string">"#app"</span>, </span></span><br><span class="line"><span class="undefined">        components: &#123;</span></span><br><span class="line"><span class="actionscript">            <span class="string">'my-component'</span>: &#123;</span></span><br><span class="line"><span class="handlebars"><span class="xml">                template: '<span class="tag">&lt;<span class="name">div</span>&gt;</span>\</span></span></span><br><span class="line"><span class="handlebars"><span class="xml">                            <span class="tag">&lt;<span class="name">slot</span>&gt;</span>\</span></span></span><br><span class="line"><span class="undefined">                                如果父组件没有插入内容，我就作为默认出现\</span></span><br><span class="line"><span class="handlebars"><span class="xml">                            <span class="tag">&lt;/<span class="name">slot</span>&gt;</span>\</span></span></span><br><span class="line"><span class="handlebars"><span class="xml">                        <span class="tag">&lt;/<span class="name">div</span>&gt;</span>'</span></span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;)</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>具名插槽<br>有时我们会根据不同的视图来指定使用某个插槽，具名插槽用法如下：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name-component</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h3</span> <span class="attr">slot</span>=<span class="string">"header"</span>&gt;</span>我是标题<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>正文第一段<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>正文第二段<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span> <span class="attr">slot</span>=<span class="string">"footer"</span>&gt;</span>我是尾部信息<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">name-component</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">        el: <span class="string">"#app"</span>, </span></span><br><span class="line"><span class="undefined">        components: &#123;</span></span><br><span class="line"><span class="actionscript">            <span class="string">'name-component'</span>: &#123;</span></span><br><span class="line"><span class="handlebars"><span class="xml">                template: '<span class="tag">&lt;<span class="name">div</span>&gt;</span>\</span></span></span><br><span class="line"><span class="javascript">                            &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"header"</span>&gt;\n<span class="string">' +</span></span></span><br><span class="line"><span class="handlebars"><span class="xml">                                '<span class="tag">&lt;<span class="name">slot</span> <span class="attr">name</span>=<span class="string">"header"</span>&gt;</span>\n' +</span></span></span><br><span class="line"><span class="actionscript">                                <span class="string">'\n'</span> +	</span></span><br><span class="line"><span class="actionscript">                                <span class="string">'&lt;/slot&gt;\n'</span> +</span></span><br><span class="line"><span class="actionscript">                            <span class="string">'&lt;/div&gt;\n'</span> +</span></span><br><span class="line"><span class="handlebars"><span class="xml">                            '<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span>\n' +</span></span></span><br><span class="line"><span class="actionscript">                                <span class="string">'&lt;slot&gt;\n'</span> +</span></span><br><span class="line"><span class="actionscript">                                <span class="string">'\n'</span> +</span></span><br><span class="line"><span class="actionscript">                                <span class="string">'&lt;/slot&gt;\n'</span> +</span></span><br><span class="line"><span class="actionscript">                            <span class="string">'&lt;/div&gt;\n'</span> +</span></span><br><span class="line"><span class="handlebars"><span class="xml">                            '<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"footer"</span>&gt;</span>\n' +</span></span></span><br><span class="line"><span class="handlebars"><span class="xml">                                '<span class="tag">&lt;<span class="name">slot</span> <span class="attr">name</span>=<span class="string">"footer"</span>&gt;</span>\n' +</span></span></span><br><span class="line"><span class="actionscript">                                <span class="string">'\n'</span> +	</span></span><br><span class="line"><span class="actionscript">                                <span class="string">'&lt;/slot&gt;\n'</span> +</span></span><br><span class="line"><span class="actionscript">                            <span class="string">'&lt;/div&gt;\n'</span> +</span></span><br><span class="line"><span class="actionscript">                        <span class="string">'&lt;/div&gt;'</span></span></span><br><span class="line"><span class="undefined">            &#125;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;)</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
-</ul>
+</ol>
 <p>如上所示，可以给 <code>slot</code> 定义 <code>name</code> 属性。渲染模板时可以指定使用某个 <code>slot</code>，若没有指定，则使用没有 <code>name</code> 的默认 <code>slot</code>。</p>
 <h3 id="作用域插槽"><a href="#作用域插槽" class="headerlink" title="作用域插槽"></a>作用域插槽</h3><p>作用域插槽是一种特殊的 <code>slot</code>，使用一个可以复用的模板来替换已经渲染的元素，即通过 <code>slot</code> 从子组件获取数据（但 <code>name</code> 不可以获取）。</p>
 <ul>
@@ -210,7 +214,7 @@
 		<ul>
 		
 		  
-			<li><a href="/categories/前端探索/" title="前端探索">前端探索<sup>39</sup></a></li>
+			<li><a href="/categories/前端探索/" title="前端探索">前端探索<sup>40</sup></a></li>
 		  
 		
 		</ul>
@@ -223,7 +227,7 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/Vue/" title="Vue">Vue<sup>12</sup></a></li>
+				<li><a href="/tags/Vue/" title="Vue">Vue<sup>13</sup></a></li>
 			
 		
 			
@@ -247,11 +251,7 @@
 			
 		
 			
-				<li><a href="/tags/JSON/" title="JSON">JSON<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/HTTP/" title="HTTP">HTTP<sup>1</sup></a></li>
+				<li><a href="/tags/JSONP/" title="JSONP">JSONP<sup>1</sup></a></li>
 			
 		
 			
@@ -263,15 +263,19 @@
 			
 		
 			
+				<li><a href="/tags/HTTP/" title="HTTP">HTTP<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/算法/" title="算法">算法<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/JSONP/" title="JSONP">JSONP<sup>1</sup></a></li>
+				<li><a href="/tags/命令行/" title="命令行">命令行<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/命令行/" title="命令行">命令行<sup>1</sup></a></li>
+				<li><a href="/tags/JSON/" title="JSON">JSON<sup>1</sup></a></li>
 			
 		
 		</ul>

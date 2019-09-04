@@ -1,0 +1,492 @@
+
+ <!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  
+    <title>Vue 之 render 函数 | 养乐多&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Gangyuanyuan">
+    
+
+    
+    <meta name="description" content="render 函数初步了解在使用 Vue 组件的过程中，当 template 中的内容较多时，可以在外部用 template 标签来定义，然后在组件中用 id 引入。但 template 下只允许有一个子节点，如需同时设置多个子节点，可用 div 将它们包裹起来。例：123456789101112131415161718192021222324252627282930&amp;lt;div id=&quot;app">
+<meta name="keywords" content="Vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue 之 render 函数">
+<meta property="og:url" content="http://yoursite.com/2019/09/04/Vue-之-render-函数/index.html">
+<meta property="og:site_name" content="养乐多&#39;s Blog">
+<meta property="og:description" content="render 函数初步了解在使用 Vue 组件的过程中，当 template 中的内容较多时，可以在外部用 template 标签来定义，然后在组件中用 id 引入。但 template 下只允许有一个子节点，如需同时设置多个子节点，可用 div 将它们包裹起来。例：123456789101112131415161718192021222324252627282930&amp;lt;div id=&quot;app">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-09-04T14:48:51.584Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vue 之 render 函数">
+<meta name="twitter:description" content="render 函数初步了解在使用 Vue 组件的过程中，当 template 中的内容较多时，可以在外部用 template 标签来定义，然后在组件中用 id 引入。但 template 下只允许有一个子节点，如需同时设置多个子节点，可用 div 将它们包裹起来。例：123456789101112131415161718192021222324252627282930&amp;lt;div id=&quot;app">
+
+    
+    <link rel="alternative" href="atom.xml" title="养乐多&#39;s Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/profile2.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/profile2.png">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="养乐多&#39;s Blog">养乐多&#39;s Blog</a></h1>
+				<h2 class="blog-motto">不要拖泥又带水， 不要懒惰又浪费。</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/categories">Categories</a></li>
+					
+						<li><a href="/tags">Tags</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search">
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</ul></nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2019/09/04/Vue-之-render-函数/" title="Vue 之 render 函数" itemprop="url">Vue 之 render 函数</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Gangyuanyuan" target="_blank" itemprop="author">Gangyuanyuan</a>
+		
+  </p><p class="article-time">
+    <time datetime="2019-09-04T10:20:37.000Z" itemprop="datePublished"> Published 2019-09-04</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#render-函数初步了解"><span class="toc-number">1.</span> <span class="toc-text">render 函数初步了解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#render-函数的参数"><span class="toc-number">2.</span> <span class="toc-text">render 函数的参数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#render-函数的第一个参数"><span class="toc-number">2.1.</span> <span class="toc-text">render 函数的第一个参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#render-函数的第二个参数"><span class="toc-number">2.2.</span> <span class="toc-text">render 函数的第二个参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#render-函数的第三个参数"><span class="toc-number">2.3.</span> <span class="toc-text">render 函数的第三个参数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#this-slots-在-render-函数中的应用"><span class="toc-number">3.</span> <span class="toc-text">this.$slots 在 render 函数中的应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在-render-函数中使用-props-传递数据"><span class="toc-number">4.</span> <span class="toc-text">在 render 函数中使用 props 传递数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#v-model-在-render-函数中的使用"><span class="toc-number">5.</span> <span class="toc-text">v-model 在 render 函数中的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#作用域插槽在-render-函数中的使用"><span class="toc-number">6.</span> <span class="toc-text">作用域插槽在 render 函数中的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数化组件的应用"><span class="toc-number">7.</span> <span class="toc-text">函数化组件的应用</span></a></li></ol>
+		
+		</div>
+		
+		<h2 id="render-函数初步了解"><a href="#render-函数初步了解" class="headerlink" title="render 函数初步了解"></a>render 函数初步了解</h2><p>在使用 Vue 组件的过程中，当 <code>template</code> 中的内容较多时，可以在外部用 <code>template</code> 标签来定义，然后在组件中用 <code>id</code> 引入。但 <code>template</code> 下只允许有一个子节点，如需同时设置多个子节点，可用 <code>div</code> 将它们包裹起来。例：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">child</span> <span class="attr">:level</span>=<span class="string">'level'</span>&gt;</span></span><br><span class="line">		春暖花开</span><br><span class="line">	<span class="tag">&lt;/<span class="name">child</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">id</span>=<span class="string">"hdom"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">h1</span> <span class="attr">v-if</span>=<span class="string">"level==1"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">slot</span>&gt;</span><span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">h2</span> <span class="attr">v-if</span>=<span class="string">"level==2"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">slot</span>&gt;</span><span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">h3</span> <span class="attr">v-if</span>=<span class="string">"level==3"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">slot</span>&gt;</span><span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="actionscript">	Vue.component(<span class="string">'child'</span>,&#123;</span></span><br><span class="line"><span class="actionscript">		props: [<span class="string">'level'</span>],</span></span><br><span class="line"><span class="actionscript">		template: <span class="string">'#hdom'</span></span></span><br><span class="line"><span class="undefined">	&#125;);</span></span><br><span class="line"><span class="actionscript">	<span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">        el: <span class="string">"#app"</span>, </span></span><br><span class="line"><span class="undefined">        data: &#123;</span></span><br><span class="line"><span class="undefined">           level: 1 </span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;)</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="render-函数的参数"><a href="#render-函数的参数" class="headerlink" title="render 函数的参数"></a>render 函数的参数</h2><p>使用组件时，因为 <code>template</code> 中的内容会先在页面中渲染，如上例中，每个 <code>h</code> 标签都会被渲染，且当把模板直接写在 <code>template</code> 中时，会导致代码比较冗长。因此 Vue 为我们提供了 <code>render</code> 函数来解决这个问题。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">child</span> <span class="attr">:level</span>=<span class="string">'level'</span>&gt;</span></span><br><span class="line">		春暖花开</span><br><span class="line">	<span class="tag">&lt;/<span class="name">child</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="actionscript">	Vue.component(<span class="string">'child'</span>,&#123;</span></span><br><span class="line"><span class="actionscript">		render: <span class="function"><span class="keyword">function</span><span class="params">(createElement)</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">			<span class="keyword">return</span> createElement(<span class="string">'h'</span>+<span class="keyword">this</span>.level, <span class="keyword">this</span>.$slots.default)</span></span><br><span class="line"><span class="undefined">		&#125;,</span></span><br><span class="line"><span class="actionscript">		props: [<span class="string">'level'</span>]</span></span><br><span class="line"><span class="undefined">	&#125;)</span></span><br><span class="line"><span class="actionscript">	<span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">        el: <span class="string">"#app"</span>, </span></span><br><span class="line"><span class="undefined">        data: &#123;</span></span><br><span class="line"><span class="undefined">           level: 1</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;)</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="render-函数的第一个参数"><a href="#render-函数的第一个参数" class="headerlink" title="render 函数的第一个参数"></a>render 函数的第一个参数</h3><p>在 <code>render</code> 函数的后面必须是 <code>createElement</code> 方法，<code>createElement</code> 的类型是 function。<br><code>render</code> 函数的第一个参数是必选的，类型可以是 String、Object 或 Function。</p>
+<blockquote>
+<p>String —— html标签<br>Object —— 一个含有数据选项的对象<br>Function —— 方法返回含有数据选项的对象</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="actionscript">	Vue.component(<span class="string">'child'</span>,&#123;</span></span><br><span class="line"><span class="actionscript">		render: <span class="function"><span class="keyword">function</span><span class="params">(createElement)</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">			<span class="comment">// String</span></span></span><br><span class="line"><span class="actionscript">			<span class="comment">// return createElement('div')</span></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="actionscript">			<span class="comment">// Object</span></span></span><br><span class="line"><span class="actionscript">			<span class="comment">// return createElement(&#123;</span></span></span><br><span class="line"><span class="handlebars"><span class="xml">			// 	template: '<span class="tag">&lt;<span class="name">div</span>&gt;</span>安得广厦千万间<span class="tag">&lt;/<span class="name">div</span>&gt;</span>'</span></span></span><br><span class="line"><span class="actionscript">			<span class="comment">// &#125;)</span></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="actionscript">			<span class="comment">// Function</span></span></span><br><span class="line"><span class="actionscript">			<span class="keyword">var</span> domFun = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">				<span class="keyword">return</span> &#123; </span></span><br><span class="line"><span class="handlebars"><span class="xml">					template: '<span class="tag">&lt;<span class="name">div</span>&gt;</span>安得广厦千万间<span class="tag">&lt;/<span class="name">div</span>&gt;</span>'</span></span></span><br><span class="line"><span class="undefined">				&#125;</span></span><br><span class="line"><span class="undefined">			&#125;</span></span><br><span class="line"><span class="actionscript">			<span class="keyword">return</span> createElement(domFun())</span></span><br><span class="line"><span class="undefined">		&#125;</span></span><br><span class="line"><span class="undefined">	&#125;)</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="render-函数的第二个参数"><a href="#render-函数的第二个参数" class="headerlink" title="render 函数的第二个参数"></a>render 函数的第二个参数</h3><p><code>render</code> 函数的第二个参数是可选的，这个参数是数据对象，它的类型只能是 Object。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="actionscript">	Vue.component(<span class="string">'child'</span>,&#123;</span></span><br><span class="line"><span class="actionscript">		render: <span class="function"><span class="keyword">function</span><span class="params">(createElement)</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">			<span class="keyword">return</span> createElement(&#123;</span></span><br><span class="line"><span class="handlebars"><span class="xml">				template: '<span class="tag">&lt;<span class="name">div</span>&gt;</span>天凉好个秋<span class="tag">&lt;/<span class="name">div</span>&gt;</span>'</span></span></span><br><span class="line"><span class="undefined">			&#125;, &#123;</span></span><br><span class="line"><span class="actionscript">				<span class="string">'class'</span>: &#123; <span class="comment">// 因为class是关键字，建议用引号包裹</span></span></span><br><span class="line"><span class="actionscript">					foo: <span class="literal">true</span>,  <span class="comment">// class列表中包含foo但不包含baz</span></span></span><br><span class="line"><span class="actionscript">					baz: <span class="literal">false</span></span></span><br><span class="line"><span class="undefined">				&#125;,</span></span><br><span class="line"><span class="undefined">				style: &#123;</span></span><br><span class="line"><span class="actionscript">					color: <span class="string">'red'</span>,</span></span><br><span class="line"><span class="actionscript">					fontSize: <span class="string">'16px'</span></span></span><br><span class="line"><span class="undefined">				&#125;,</span></span><br><span class="line"><span class="actionscript">				attrs: &#123; <span class="comment">// attributes，正常的html特性（即除了style之外的属性）</span></span></span><br><span class="line"><span class="actionscript">					id: <span class="string">'foo'</span>,</span></span><br><span class="line"><span class="actionscript">					src: <span class="string">'http://www.baidu.com'</span></span></span><br><span class="line"><span class="undefined">				&#125;,</span></span><br><span class="line"><span class="actionscript">				domProps: &#123; <span class="comment">// 用来写原生的Dom属性</span></span></span><br><span class="line"><span class="handlebars"><span class="xml">					innerHTML: '<span class="tag">&lt;<span class="name">span</span> <span class="attr">style</span>=<span class="string">"color:green;font-size:18px;"</span>&gt;</span>关关雎鸠，在河之洲<span class="tag">&lt;/<span class="name">span</span>&gt;</span>'</span></span></span><br><span class="line"><span class="undefined">				&#125;</span></span><br><span class="line"><span class="undefined">			&#125;)</span></span><br><span class="line"><span class="undefined">		&#125;</span></span><br><span class="line"><span class="undefined">	&#125;)</span></span><br><span class="line"><span class="actionscript">	<span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">        el: <span class="string">"#app"</span></span></span><br><span class="line"><span class="undefined">    &#125;)</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="render-函数的第三个参数"><a href="#render-函数的第三个参数" class="headerlink" title="render 函数的第三个参数"></a>render 函数的第三个参数</h3><p><code>render</code> 函数的第三个参数也是可选的，类型可以是 String 或 Array，它是作为我们构件函数的子节点来使用的。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="actionscript">	Vue.component(<span class="string">'child'</span>,&#123;</span></span><br><span class="line"><span class="actionscript">		render: <span class="function"><span class="keyword">function</span><span class="params">(createElement)</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">			<span class="keyword">return</span> createElement(<span class="string">'div'</span>,[</span></span><br><span class="line"><span class="actionscript">				<span class="comment">// 因为第二个参数只能是对象，因此后面是第三个参数</span></span></span><br><span class="line"><span class="actionscript">				createElement(<span class="string">'h1'</span>,<span class="string">'我是h1标题'</span>), <span class="comment">// 创建一个包含文本节点的h1节点</span></span></span><br><span class="line"><span class="actionscript">				createElement(<span class="string">'h6'</span>,<span class="string">'我是h6标题'</span>)</span></span><br><span class="line"><span class="undefined">			])</span></span><br><span class="line"><span class="undefined">		&#125;</span></span><br><span class="line"><span class="undefined">	&#125;)</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="this-slots-在-render-函数中的应用"><a href="#this-slots-在-render-函数中的应用" class="headerlink" title="this.$slots 在 render 函数中的应用"></a>this.$slots 在 render 函数中的应用</h2><p><code>render</code> 函数的第三个参数存储的是 VNODE（虚拟节点）。<br>之前我们直接用 html 控制页面时，用 JS 来操作 DOM 树存在一些缺陷，即每次操作 DOM 所有的 html 都会进行重绘。现在由于 Vue 的数据双向绑定， Vue 检测到哪个虚拟节点发生变化，就直接更新这个 VNODE，因此效率比直接操作 DOM 元素高很多。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">my-component</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span>君不见黄河之水天上来<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span>奔流到海不复回<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">h3</span> <span class="attr">slot</span>=<span class="string">"header"</span>&gt;</span>我是标题<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">h5</span> <span class="attr">slot</span>=<span class="string">"footer"</span>&gt;</span>我是正文最后一段<span class="tag">&lt;/<span class="name">h5</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="actionscript">	Vue.component(<span class="string">'my-component'</span>, &#123;</span></span><br><span class="line"><span class="actionscript">		render: <span class="function"><span class="keyword">function</span><span class="params">(createElement)</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">			<span class="keyword">var</span> header = <span class="keyword">this</span>.$slots.header</span></span><br><span class="line"><span class="actionscript">			<span class="keyword">var</span> main = <span class="keyword">this</span>.$slots.default</span></span><br><span class="line"><span class="actionscript">			<span class="keyword">var</span> footer = <span class="keyword">this</span>.$slots.footer</span></span><br><span class="line"><span class="actionscript">			<span class="keyword">return</span> createElement(<span class="string">'div'</span>, [</span></span><br><span class="line"><span class="actionscript">				createElement(<span class="string">'header'</span>,header), <span class="comment">// header是html5中的标签</span></span></span><br><span class="line"><span class="actionscript">				createElement(<span class="string">'main'</span>,main),</span></span><br><span class="line"><span class="actionscript">				createElement(<span class="string">'footer'</span>,footer),</span></span><br><span class="line"><span class="undefined">			])</span></span><br><span class="line"><span class="undefined">		&#125;</span></span><br><span class="line"><span class="undefined">	&#125;)</span></span><br><span class="line"><span class="actionscript">	<span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">        el: <span class="string">"#app"</span></span></span><br><span class="line"><span class="undefined">    &#125;)</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><code>var header = this.$slots.header</code> 返回的内容就是含有 VNODE 的数组，<br><code>createElement(&#39;header&#39;, header)</code> 返回的就是 VNODE。</p>
+<h2 id="在-render-函数中使用-props-传递数据"><a href="#在-render-函数中使用-props-传递数据" class="headerlink" title="在 render 函数中使用 props 传递数据"></a>在 render 函数中使用 props 传递数据</h2><p>例：实现点击按钮切换图片：<br><figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span></span><br><span class="line"><span class="xml">	<span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"switchShow"</span>&gt;</span>点击切换图片<span class="tag">&lt;/<span class="name">button</span>&gt;</span> </span><span class="template-variable">&#123;&#123;show&#125;&#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml">	<span class="tag">&lt;<span class="name">my-component</span> <span class="attr">:show</span>=<span class="string">"show"</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span></span><br><span class="line"><span class="xml">	Vue.component('my-component', &#123;</span></span><br><span class="line"><span class="xml">		props: ['show'],</span></span><br><span class="line"><span class="xml">		render: function(createElement)&#123;</span></span><br><span class="line"><span class="xml">			var imgSrc</span></span><br><span class="line"><span class="xml">			if(this.show)&#123;</span></span><br><span class="line"><span class="xml">				imgSrc = 'img/001.jpg'</span></span><br><span class="line"><span class="xml">			&#125;else&#123;</span></span><br><span class="line"><span class="xml">				imgSrc = 'img/002.jpg'</span></span><br><span class="line"><span class="xml">			&#125;</span></span><br><span class="line"><span class="xml">			return createElement('img',&#123;</span></span><br><span class="line"><span class="xml">				attrs: &#123;</span></span><br><span class="line"><span class="xml">					src: imgSrc</span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">				&#125;,</span></span><br><span class="line"><span class="xml">				style: &#123;</span></span><br><span class="line"><span class="xml">					width: '600px',</span></span><br><span class="line"><span class="xml">					height: '400px'</span></span><br><span class="line"><span class="xml">				&#125;</span></span><br><span class="line"><span class="xml">			&#125;)</span></span><br><span class="line"><span class="xml">		&#125;</span></span><br><span class="line"><span class="xml">	&#125;)</span></span><br><span class="line"><span class="xml">	var app = new Vue(&#123;</span></span><br><span class="line"><span class="xml">        el: "#app", </span></span><br><span class="line"><span class="xml">        data: &#123;</span></span><br><span class="line"><span class="xml">        	show: false</span></span><br><span class="line"><span class="xml">        &#125;,</span></span><br><span class="line"><span class="xml">        methods: &#123;</span></span><br><span class="line"><span class="xml">        	switchShow: function()&#123;</span></span><br><span class="line"><span class="xml">        		this.show = !this.show</span></span><br><span class="line"><span class="xml">        	&#125;</span></span><br><span class="line"><span class="xml">        &#125;</span></span><br><span class="line"><span class="xml">    &#125;)</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+<h2 id="v-model-在-render-函数中的使用"><a href="#v-model-在-render-函数中的使用" class="headerlink" title="v-model 在 render 函数中的使用"></a>v-model 在 render 函数中的使用</h2><p>例：将在输入框输入的内容实时显示在下方：<br><figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span></span><br><span class="line"><span class="xml">	<span class="tag">&lt;<span class="name">my-component</span> <span class="attr">:name</span>=<span class="string">"name"</span> <span class="attr">v-model</span>=<span class="string">"name"</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span></span><br><span class="line"><span class="xml">	<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><span class="template-variable">&#123;&#123;name&#125;&#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span></span><br><span class="line"><span class="xml">	Vue.component('my-component', &#123;</span></span><br><span class="line"><span class="xml">		render: function(createElement)&#123;</span></span><br><span class="line"><span class="xml">			var self = this // 指的就是当前的Vue实例</span></span><br><span class="line"><span class="xml">			return createElement('input',&#123;</span></span><br><span class="line"><span class="xml">				domProps: &#123;</span></span><br><span class="line"><span class="xml">					value: self.name // 将接收的name赋值给input框的value</span></span><br><span class="line"><span class="xml">				&#125;,</span></span><br><span class="line"><span class="xml">				on: &#123;</span></span><br><span class="line"><span class="xml">					input: function(event)&#123;</span></span><br><span class="line"><span class="xml">						self.$emit('input',event.target.value) // 触发input事件并将输入的value值传递给父组件</span></span><br><span class="line"><span class="xml">					&#125;</span></span><br><span class="line"><span class="xml">				&#125;</span></span><br><span class="line"><span class="xml">			&#125;)</span></span><br><span class="line"><span class="xml">		&#125;</span></span><br><span class="line"><span class="xml">	&#125;)</span></span><br><span class="line"><span class="xml">	var app = new Vue(&#123;</span></span><br><span class="line"><span class="xml">        el: "#app", </span></span><br><span class="line"><span class="xml">        data: &#123;</span></span><br><span class="line"><span class="xml">        	name: 'Jack'</span></span><br><span class="line"><span class="xml">        &#125;</span></span><br><span class="line"><span class="xml">    &#125;)</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+<h2 id="作用域插槽在-render-函数中的使用"><a href="#作用域插槽在-render-函数中的使用" class="headerlink" title="作用域插槽在 render 函数中的使用"></a>作用域插槽在 render 函数中的使用</h2><p>作用域插槽即子组件向父组件的插槽中传递数据的一个过程，在 render 函数中我们使用 <code>this.$scopedSlots.default()</code> 来通过作用域插槽向父组件插槽中传递数据，传递的内容就是括号里面的对象。<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span></span><br><span class="line"><span class="xml">	</span><span class="xml"><span class="tag">&lt;<span class="name">my-component</span>&gt;</span></span></span><br><span class="line"><span class="xml">		</span><span class="xml"><span class="tag">&lt;<span class="name">template</span> <span class="attr">scope</span>=<span class="string">"prop"</span>&gt;</span> <span class="comment">&lt;!-- prop是自定义的 --&gt;</span></span></span><br><span class="line"><span class="xml">			</span><span class="xquery">&#123;&#123;prop.<span class="type">text</span>&#125;</span><span class="xml">&#125; </span><span class="xml"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span></span><br><span class="line"><span class="xml">			</span><span class="xquery">&#123;&#123;prop.message&#125;</span><span class="xml">&#125;</span></span><br><span class="line"><span class="xml">		<span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><span class="xml"></span></span><br><span class="line"><span class="xml">	<span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><span class="xml"></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><span class="xml"></span></span><br><span class="line"><span class="xml"></span><span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span></span><br><span class="line"><span class="xml">	Vue.component('my-component', </span><span class="xquery">&#123;</span></span><br><span class="line"><span class="xquery">		render: <span class="keyword">function</span>(createElement)&#123;</span></span><br><span class="line"><span class="xquery">			// 相当于 <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">slot</span> <span class="attr">:text</span>=<span class="string">"text"</span>&gt;</span><span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span>&lt;/div&gt;</span></span><br><span class="line"><span class="xquery">			<span class="keyword">return</span> createElement(<span class="string">'div'</span>,this.<span class="variable">$scopedSlots</span>.<span class="keyword">default</span>(&#123;</span></span><br><span class="line"><span class="xquery">				text: <span class="string">'我是子组件传递过来的数据'</span>,</span></span><br><span class="line"><span class="xquery">				message: <span class="string">'scopetext'</span></span></span><br><span class="line"><span class="xquery">			&#125;</span><span class="xml">))</span></span><br><span class="line"><span class="xml">		&#125;</span></span><br><span class="line"><span class="xml">	&#125;)</span></span><br><span class="line"><span class="xml">	var app = new Vue(</span><span class="xquery">&#123;</span></span><br><span class="line"><span class="xquery">        el: <span class="string">"#app"</span></span></span><br><span class="line"><span class="xquery">    &#125;</span><span class="xml">)</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><span class="xml"></span></span><br></pre></td></tr></table></figure></p>
+<h2 id="函数化组件的应用"><a href="#函数化组件的应用" class="headerlink" title="函数化组件的应用"></a>函数化组件的应用</h2><p><code>functional: true</code> 表示该组件无状态无实例，无实例即组件内部没有 <code>this</code> 的概念，此时我们想要拿到从外部传递过来的数据，可以通过 <code>context</code> 进行读取。<code>context</code> 即上下文对象，读取父组件的内容可以用 <code>context.parent.xxx</code>。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">my-component</span> <span class="attr">value</span>=<span class="string">"haha"</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="actionscript">	Vue.component(<span class="string">'my-component'</span>, &#123;</span></span><br><span class="line"><span class="actionscript">		<span class="comment">// 表示该组件无状态无实例（组件内部没有this的概念）</span></span></span><br><span class="line"><span class="actionscript">		functional: <span class="literal">true</span>, </span></span><br><span class="line"><span class="actionscript">		render: <span class="function"><span class="keyword">function</span><span class="params">(createElement, context)</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">			<span class="keyword">return</span> createElement(<span class="string">'button'</span>,&#123;</span></span><br><span class="line"><span class="undefined">				on: &#123;</span></span><br><span class="line"><span class="actionscript">					click: <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="javascript">						<span class="built_in">console</span>.log(context)</span></span><br><span class="line"><span class="javascript">						<span class="built_in">console</span>.log(context.parent) <span class="comment">// 父组件</span></span></span><br><span class="line"><span class="javascript">						<span class="built_in">console</span>.log(context.parent.msg) </span></span><br><span class="line"><span class="javascript">						<span class="built_in">console</span>.log(context.props.value)</span></span><br><span class="line"><span class="undefined">					&#125;</span></span><br><span class="line"><span class="undefined">				&#125;</span></span><br><span class="line"><span class="actionscript">			&#125;,<span class="string">'点击学习context'</span>)</span></span><br><span class="line"><span class="undefined">		&#125;,</span></span><br><span class="line"><span class="actionscript">		props: [<span class="string">'value'</span>]</span></span><br><span class="line"><span class="undefined">	&#125;)</span></span><br><span class="line"><span class="actionscript">	<span class="keyword">var</span> app = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">        el: <span class="string">"#app"</span>,</span></span><br><span class="line"><span class="undefined">        data: &#123;</span></span><br><span class="line"><span class="actionscript">        	msg: <span class="string">'我是父组件的内容'</span></span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    &#125;)</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>使用 context 的转变：<br><code>this.text</code> —— <code>context.props.text</code><br><code>this.$slots.default</code> —— <code>context.children</code></p>
+</blockquote>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/前端探索/">前端探索</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Vue/">Vue</a>
+  </div>
+
+</div>
+
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2019/08/29/Vue-自定义指令/" title="Vue 自定义指令">
+ <span>Vue 自定义指令
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+<div id="authorInfo">
+	
+		<div class="author-img"></div>		
+	
+	<div class="social-info">
+		
+		<a href="http://weibo.com/5174431150" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/Gangyuanyuan" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:gang.gy@qq.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+
+	</div>
+</div>
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/前端探索/" title="前端探索">前端探索<sup>40</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Vue/" title="Vue">Vue<sup>13</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JS/" title="JS">JS<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Git/" title="Git">Git<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CSS/" title="CSS">CSS<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/jQuery/" title="jQuery">jQuery<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTML标签/" title="HTML标签">HTML标签<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JSONP/" title="JSONP">JSONP<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/AJAX/" title="AJAX">AJAX<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/移动端/" title="移动端">移动端<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTTP/" title="HTTP">HTTP<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/算法/" title="算法">算法<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/命令行/" title="命令行">命令行<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JSON/" title="JSON">JSON<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://github.com/Gangyuanyuan" target="_blank" title="My GitHub">My GitHub</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://www.jianshu.com/u/9f534f79952c" target="_blank" title="My JianShu">My JianShu</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer">
+		
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/hsihohuang/kiddochan" target="_blank" title="Kiddochan">Kiddochan</a> © 2019 
+		
+		<a href="/about" target="_blank" title="Gangyuanyuan">Gangyuanyuan</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
