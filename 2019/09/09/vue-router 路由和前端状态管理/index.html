@@ -1,0 +1,608 @@
+
+ <!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  
+    <title>vue-router 路由和前端状态管理 | 养乐多&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Gangyuanyuan">
+    
+
+    
+    <meta name="description" content="vue–router 路由基本加载路由，通俗地来讲就是输入不同的网址，加载不同的组件。  进入项目目录 1cd my-project  安装 1npm install --save vue-router  在文件中引用 12import router from &apos;vue-router&apos;Vue.use(router)  配置路由文件，并在 vue 实例中注入 123456789101112var r">
+<meta name="keywords" content="Vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue-router 路由和前端状态管理">
+<meta property="og:url" content="http://yoursite.com/2019/09/09/vue-router 路由和前端状态管理/index.html">
+<meta property="og:site_name" content="养乐多&#39;s Blog">
+<meta property="og:description" content="vue–router 路由基本加载路由，通俗地来讲就是输入不同的网址，加载不同的组件。  进入项目目录 1cd my-project  安装 1npm install --save vue-router  在文件中引用 12import router from &apos;vue-router&apos;Vue.use(router)  配置路由文件，并在 vue 实例中注入 123456789101112var r">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-09-16T11:00:40.070Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue-router 路由和前端状态管理">
+<meta name="twitter:description" content="vue–router 路由基本加载路由，通俗地来讲就是输入不同的网址，加载不同的组件。  进入项目目录 1cd my-project  安装 1npm install --save vue-router  在文件中引用 12import router from &apos;vue-router&apos;Vue.use(router)  配置路由文件，并在 vue 实例中注入 123456789101112var r">
+
+    
+    <link rel="alternative" href="atom.xml" title="养乐多&#39;s Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/profile2.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/profile2.png">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="养乐多&#39;s Blog">养乐多&#39;s Blog</a></h1>
+				<h2 class="blog-motto">不要拖泥又带水， 不要懒惰又浪费。</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/categories">Categories</a></li>
+					
+						<li><a href="/tags">Tags</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search">
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</ul></nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2019/09/09/vue-router 路由和前端状态管理/" title="vue-router 路由和前端状态管理" itemprop="url">vue-router 路由和前端状态管理</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Gangyuanyuan" target="_blank" itemprop="author">Gangyuanyuan</a>
+		
+  </p><p class="article-time">
+    <time datetime="2019-09-09T15:08:26.000Z" itemprop="datePublished"> Published 2019-09-09</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#vue–router-路由基本加载"><span class="toc-number">1.</span> <span class="toc-text">vue–router 路由基本加载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue–router-路由的跳转"><span class="toc-number">2.</span> <span class="toc-text">vue–router 路由的跳转</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue–router-路由参数的传递"><span class="toc-number">3.</span> <span class="toc-text">vue–router 路由参数的传递</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置路由"><span class="toc-number">3.1.</span> <span class="toc-text">配置路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#传递和读取参数（两种方法）"><span class="toc-number">3.2.</span> <span class="toc-text">传递和读取参数（两种方法）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Axios-详解"><span class="toc-number">4.</span> <span class="toc-text">Axios 详解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Axios-简介"><span class="toc-number">4.1.</span> <span class="toc-text">Axios 简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Axios-之-get-请求详解"><span class="toc-number">4.2.</span> <span class="toc-text">Axios 之 get 请求详解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Axios-之-post-请求详解"><span class="toc-number">4.3.</span> <span class="toc-text">Axios 之 post 请求详解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vuex-之-store"><span class="toc-number">5.</span> <span class="toc-text">Vuex 之 store</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vuex-的相关操作"><span class="toc-number">6.</span> <span class="toc-text">Vuex 的相关操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#改变状态"><span class="toc-number">6.1.</span> <span class="toc-text">改变状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vuex-状态管理流程"><span class="toc-number">6.2.</span> <span class="toc-text">vuex 状态管理流程</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<h2 id="vue–router-路由基本加载"><a href="#vue–router-路由基本加载" class="headerlink" title="vue–router 路由基本加载"></a>vue–router 路由基本加载</h2><p>路由，通俗地来讲就是输入不同的网址，加载不同的组件。</p>
+<ol>
+<li><p>进入项目目录</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd <span class="keyword">my</span>-project</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> <span class="comment">--save vue-router</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在文件中<strong>引用</strong></p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">'vue-router'</span></span><br><span class="line">Vue.use(router)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置路由文件，并在 vue 实例中注入</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var rt = <span class="keyword">new</span> router(&#123;</span><br><span class="line">  route<span class="variable">s:</span> [&#123;</span><br><span class="line">    path: <span class="string">'/'</span>, // 指定要跳转的路径</span><br><span class="line">    componen<span class="variable">t:</span> HelloWorld // 指定要跳转的组件</span><br><span class="line">  &#125;]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  <span class="keyword">e</span><span class="variable">l:</span> <span class="string">'#app'</span>,</span><br><span class="line">  router: rt,</span><br><span class="line">  component<span class="variable">s:</span> &#123; App &#125;,</span><br><span class="line">  template: <span class="string">'&lt;App/&gt;'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>确定视图加载的位置</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">&lt;router-view&gt;</span><span class="section">&lt;/router-view&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="vue–router-路由的跳转"><a href="#vue–router-路由的跳转" class="headerlink" title="vue–router 路由的跳转"></a>vue–router 路由的跳转</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">"/"</span>&gt;</span><span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>例：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">"/helloworld"</span>&gt;</span>HELLO WORLD<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">"/helloearth"</span>&gt;</span>HELLO EARTH<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="vue–router-路由参数的传递"><a href="#vue–router-路由参数的传递" class="headerlink" title="vue–router 路由参数的传递"></a>vue–router 路由参数的传递</h2><blockquote>
+<ul>
+<li>必须在路由中加入路由的 <code>name</code> 属性</li>
+<li>必须在 <code>path</code> 后加 <code>/: + 传递的参数</code></li>
+<li>传递参数和接收参数见下方代码</li>
+</ul>
+</blockquote>
+<h3 id="配置路由"><a href="#配置路由" class="headerlink" title="配置路由"></a>配置路由</h3><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">export</span> <span class="selector-tag">default</span> <span class="selector-tag">new</span> <span class="selector-tag">router</span>(&#123; <span class="comment">// 导出路由</span></span><br><span class="line">  <span class="attribute">routes</span>: [&#123;</span><br><span class="line">    <span class="attribute">name</span>: <span class="string">'helloworld'</span>,</span><br><span class="line">    <span class="attribute">path</span>: <span class="string">'/helloworld/:worldmsg'</span>, <span class="comment">// 指定要跳转的路径</span></span><br><span class="line">    <span class="attribute">component</span>: HelloWorld <span class="comment">// 指定要跳转的组件</span></span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    <span class="attribute">name</span>: <span class="string">'helloearth'</span>,</span><br><span class="line">    <span class="attribute">path</span>: <span class="string">'/helloearth/:earthmsg'</span>,</span><br><span class="line">    <span class="attribute">component</span>: HelloEarth</span><br><span class="line">  &#125;]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="传递和读取参数（两种方法）"><a href="#传递和读取参数（两种方法）" class="headerlink" title="传递和读取参数（两种方法）"></a>传递和读取参数（两种方法）</h3><ol>
+<li>方法一</li>
+</ol>
+<ul>
+<li><p>传递参数：</p>
+<figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">"</span></span></span><span class="template-variable">&#123;name:'helloworld', params:&#123;worldmsg:'你好世界'&#125;</span><span class="xml"><span class="tag"><span class="string">&#125;"</span>&gt;</span></span></span><br><span class="line"><span class="xml">    HELLO WORLD</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">"</span></span></span><span class="template-variable">&#123;name:'helloearth', params:&#123;earthmsg:'你好地球'&#125;</span><span class="xml"><span class="tag"><span class="string">&#125;"</span>&gt;</span></span></span><br><span class="line"><span class="xml">    HELLO EARTH</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>读取（接收）参数：<code>$route.params.xxx</code><br>要往哪个组件跳转，就由哪个组件来接收。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">我是传递过来的参数：&lt;h3&gt;&#123;&#123;<span class="variable">$route</span><span class="selector-class">.params</span><span class="selector-class">.worldmsg</span>&#125;&#125;&lt;/h3&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol start="2">
+<li>方法二（不常用）</li>
+</ol>
+<ul>
+<li><p>传递参数：</p>
+<figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">:to</span>=<span class="string">"</span></span></span><span class="template-variable">&#123;path:'/helloearth', query:&#123;worldmsg:'你好世界'&#125;</span><span class="xml"><span class="tag"><span class="string">&#125;"</span>&gt;</span></span></span><br><span class="line"><span class="xml">    HELLO WORLD</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>读取（接收）参数：函数模式<br>可以创建一个函数返回 <code>props</code>，这样便可以将参数转换成另一种类型，将静态值与基于路由的值结合等。</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const router = <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">  routes: [&#123;</span><br><span class="line">    path: <span class="string">'/search'</span>,component: SearchUser, props: <span class="function"><span class="params">(route)</span> =&gt;</span> (&#123;</span><br><span class="line">        query: route.query.q &#125;)</span><br><span class="line">  &#125;]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol start="3">
+<li>两种传递方式的<strong>区别</strong>：</li>
+</ol>
+<ul>
+<li>params 传递方式：<code>http://localhost:8080/helloworld/你好世界</code></li>
+<li>query 传递方式：<code>http://localhost:8080/helloworld?name=xx&amp;count=xxx</code></li>
+</ul>
+<h2 id="Axios-详解"><a href="#Axios-详解" class="headerlink" title="Axios 详解"></a>Axios 详解</h2><h3 id="Axios-简介"><a href="#Axios-简介" class="headerlink" title="Axios 简介"></a>Axios 简介</h3><p>axios 是一个基于 Promise 用于浏览器和 node.js 的 HTTP 客户端，它的功能与 ajax 相似，其本身具有以下特征：</p>
+<blockquote>
+<ul>
+<li>在浏览器中创建 XMLHttpRequest</li>
+<li>从 node.js 发出 http 请求</li>
+<li>支持 Promise API</li>
+<li>拦截请求和响应</li>
+<li>转换请求和响应数据</li>
+<li>取消请求</li>
+<li>自动转换 JSON 数据</li>
+<li>客户端支持防止 CSRF/XSRF</li>
+</ul>
+</blockquote>
+<h3 id="Axios-之-get-请求详解"><a href="#Axios-之-get-请求详解" class="headerlink" title="Axios 之 get 请求详解"></a>Axios 之 get 请求详解</h3><ol>
+<li><p>安装</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> axios</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在文件中引入加载</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios'</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将 axios 全局挂载到 VUE 原型上</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vue<span class="selector-class">.prototype</span>.<span class="variable">$http</span> = axios <span class="comment">// $ 后面的内容自定义</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>发送请求</p>
+</li>
+</ol>
+<ul>
+<li><p>以 CNode 社区官方 API 为例：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">getData()&#123;</span><br><span class="line">  this.$http.<span class="built_in">get</span>(<span class="string">'https://cnodejs.org/api/v1/topics'</span>)</span><br><span class="line">    .then((<span class="keyword">res</span>) =&gt; &#123;</span><br><span class="line">      this.<span class="built_in">items</span> = <span class="keyword">res</span>.data.data</span><br><span class="line">      console.<span class="built_in">log</span>(<span class="keyword">res</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">    .<span class="keyword">catch</span>(<span class="function"><span class="keyword">function</span><span class="params">(err)</span>&#123;</span></span><br><span class="line">      console.<span class="built_in">log</span>(err)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>GET 请求的两种参数传递形式：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">axios</span><span class="selector-class">.get</span>(<span class="string">'https://cnodejs.org/api/v1/topics'</span>, &#123;</span><br><span class="line">  <span class="attribute">params</span>: &#123;      <span class="comment">// 只有一个参数时可省略params直接写参数</span></span><br><span class="line">    <span class="attribute">page</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attribute">limit</span>: <span class="number">10</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">axios</span><span class="selector-class">.get</span>(<span class="string">'https://cnodejs.org/api/v1/topics?page=1&amp;limit=15'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Axios-之-post-请求详解"><a href="#Axios-之-post-请求详解" class="headerlink" title="Axios 之 post 请求详解"></a>Axios 之 post 请求详解</h3><p>POST 请求和 GET 类似，将请求中的 <code>get</code> 替换成 <code>post</code> 即可。</p>
+<ul>
+<li>POST 请求传递数据的两种格式：<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">form-data?page=<span class="number">1</span><span class="variable">&amp;limit</span>=<span class="number">48</span></span><br><span class="line"></span><br><span class="line">x-www-form-<span class="class">urlencoded </span>&#123;</span><br><span class="line"><span class="symbol">  page:</span> <span class="number">1</span>,</span><br><span class="line"><span class="symbol">  limit:</span> <span class="number">10</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p><strong>注意</strong>：在 axios 中，post 请求接收的参数必须是 <code>form-data</code> 格式<br>需要使用 qs 插件的 <code>-qs.stringify</code> 方法。</p>
+<ul>
+<li>使用步骤：<br>安装 qs 插件：<code>npm install qs</code><br>在文件中引入：<code>import qs from &#39;qs&#39;</code><br>在 post 请求中使用：<code>qs.stringify({ page: 1, limit: 10 })</code></li>
+</ul>
+</blockquote>
+<ul>
+<li>以 CNode 社区官方 API 为例：<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">postData()&#123;</span><br><span class="line">  this.$http.<span class="built_in">get</span>(url, qs.stringify(&#123;</span><br><span class="line">      page: <span class="number">1</span>,</span><br><span class="line">      limi<span class="variable">t:</span> <span class="number">10</span></span><br><span class="line">  &#125;)).then((<span class="keyword">res</span>) =&gt; &#123;</span><br><span class="line">      this.<span class="built_in">items</span> = <span class="keyword">res</span>.data.data</span><br><span class="line">      console.<span class="built_in">log</span>(<span class="keyword">res</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">    .<span class="keyword">catch</span>(<span class="function"><span class="keyword">function</span><span class="params">(err)</span>&#123;</span></span><br><span class="line">      console.<span class="built_in">log</span>(err)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Vuex-之-store"><a href="#Vuex-之-store" class="headerlink" title="Vuex 之 store"></a>Vuex 之 store</h2><p>Vuex 是用来管理状态，共享数据，在各个组件之间管理外部状态的一个插件。例如用户的已登录状态，需要在各个组件之前进行交互。Vuex 首先会创建一个状态仓库，并将所有组件囊括其中，即这个仓库下的所有组件都可以共享仓库里的状态。</p>
+<ul>
+<li>使用步骤：<br>1. 安装 vuex：<code>npm install vuex</code><br>2. 在 main.js 文件中引入并通过 <code>use</code> 方法使用 vuex：<br><code>import Vuex from &#39;vuex&#39;</code>， <code>Vue.use(Vuex)</code><br>3. 创建状态仓库<br>4. 将 <code>store</code> 注入到 Vue 实例<br>5. 通过 <code>this.$store.state.xxx</code> 拿到需要的数据<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 创建状态仓库（此处名称store可自定义）</span><br><span class="line">var store = new Vuex.Store(&#123;</span><br><span class="line">  <span class="keyword">state</span>:&#123;</span><br><span class="line">    xxx：yyy</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Vuex-的相关操作"><a href="#Vuex-的相关操作" class="headerlink" title="Vuex 的相关操作"></a>Vuex 的相关操作</h2><h3 id="改变状态"><a href="#改变状态" class="headerlink" title="改变状态"></a>改变状态</h3><p>除了能够获取状态，那么如何改变状态呢？<br>我们用 <code>state</code> 存放定义的状态，用 <code>mutations</code> 来改变状态。</p>
+<ul>
+<li><p><code>mutations</code> 用法</p>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// 创建状态仓库</span><br><span class="line">var store = new Vuex.Store(&#123;</span><br><span class="line">  <span class="keyword">state</span>: &#123;</span><br><span class="line">    num: <span class="number">88</span></span><br><span class="line">  &#125;,</span><br><span class="line">  mutations: &#123;</span><br><span class="line">    // 定义状态改变函数</span><br><span class="line">    zzz: function(<span class="keyword">state</span>)&#123;</span><br><span class="line">      <span class="keyword">state</span>.num++</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// 调用方式</span><br><span class="line">this.<span class="variable">$store</span>.commit('zzz') // zzz 是在 mucations 中定义的方法名</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>actions</code> 用法：</p>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">var store = new Vuex.Store(&#123;</span><br><span class="line">  <span class="keyword">state</span>: &#123;</span><br><span class="line">    num: <span class="number">88</span></span><br><span class="line">  &#125;,</span><br><span class="line">  mutations: &#123;</span><br><span class="line">    zzz: function(<span class="keyword">state</span>)&#123;</span><br><span class="line">      <span class="keyword">state</span>.num++</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  actions:&#123;</span><br><span class="line">    // actions 中只能对 mutation 进行操作</span><br><span class="line">    ccc: function(context)&#123; // context是上下文对象</span><br><span class="line">      context.commit('zzz')</span><br><span class="line">    &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// 调用方式</span><br><span class="line">this.<span class="variable">$store</span>.dispatch('ccc')</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>注意</strong>：<br><code>actions</code> 提交的是 <code>mutation</code>，而不是直接变更状态。<br><code>actions</code> 可以包含异步操作，但是 <code>mutation</code> 只能包含同步操作。</p>
+<ul>
+<li><code>getters</code> 用法：<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">var store = new Vuex.Store(&#123;</span><br><span class="line">  <span class="keyword">state</span>: &#123;</span><br><span class="line">    num: <span class="number">88</span></span><br><span class="line">  &#125;,</span><br><span class="line">  mutations: &#123;</span><br><span class="line">    zzz: function(<span class="keyword">state</span>)&#123;</span><br><span class="line">      <span class="keyword">state</span>.num++</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  getters: &#123;</span><br><span class="line">    getNum: function(<span class="keyword">state</span>)&#123;</span><br><span class="line">      return <span class="keyword">state</span>.num&gt;<span class="number">0</span> ? <span class="keyword">state</span>.num : <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">// 调用方式</span><br><span class="line">this.<span class="variable">$store</span>.getters.getNum</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="vuex-状态管理流程"><a href="#vuex-状态管理流程" class="headerlink" title="vuex 状态管理流程"></a>vuex 状态管理流程</h3><p>vuex 状态管理流程为：</p>
+<blockquote>
+<p>view ——&gt; actions ——&gt; mutations ——&gt; state ——&gt; view</p>
+</blockquote>
+<ul>
+<li>从视图出发，先是 actions，然后是 mutations，然后通过 mutations 来操作 state，最后再回到 view。</li>
+<li>直接对状态进行操作的是 mutations，不是 actions。</li>
+<li>在这个过程中，actions 不是必须存在的，但如果有异步操作，则必须包含 actions。</li>
+</ul>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/前端探索/">前端探索</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Vue/">Vue</a>
+  </div>
+
+</div>
+
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2019/09/05/使用-vue-cli-脚手架搭建项目/" title="使用 vue-cli 脚手架搭建项目">
+ <span>使用 vue-cli 脚手架搭建项目
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+<div id="authorInfo">
+	
+		<div class="author-img"></div>		
+	
+	<div class="social-info">
+		
+		<a href="http://weibo.com/5174431150" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/Gangyuanyuan" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:gang.gy@qq.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+
+	</div>
+</div>
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/前端探索/" title="前端探索">前端探索<sup>42</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Vue/" title="Vue">Vue<sup>15</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JS/" title="JS">JS<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Git/" title="Git">Git<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CSS/" title="CSS">CSS<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/jQuery/" title="jQuery">jQuery<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTML标签/" title="HTML标签">HTML标签<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTTP/" title="HTTP">HTTP<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/AJAX/" title="AJAX">AJAX<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JSONP/" title="JSONP">JSONP<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JSON/" title="JSON">JSON<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/移动端/" title="移动端">移动端<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/算法/" title="算法">算法<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/命令行/" title="命令行">命令行<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://github.com/Gangyuanyuan" target="_blank" title="My GitHub">My GitHub</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://www.jianshu.com/u/9f534f79952c" target="_blank" title="My JianShu">My JianShu</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer">
+		
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/hsihohuang/kiddochan" target="_blank" title="Kiddochan">Kiddochan</a> © 2019 
+		
+		<a href="/about" target="_blank" title="Gangyuanyuan">Gangyuanyuan</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

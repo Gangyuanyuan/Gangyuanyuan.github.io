@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="养乐多&#39;s Blog">
 <meta property="og:description" content="使用组件的原因组件在 Vue 中占据着非常重要的角色，可谓是 Vue 的核心内容。我们在写代码时经常会遇到大量代码相似和重复的现象，使代码能够被重复利用则可以很好地解决这个问题。  组件作用：提高代码的复用性，进而极大程度地提高工作效率。  组件的使用方法组件需要注册之后才能使用，注册组件和创建 Vue 实例的方法相似。组件注册分为全局注册和局部注册。 全局注册123Vue.component(&apos;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-13T14:56:57.526Z">
+<meta property="og:updated_time" content="2019-09-12T22:49:17.151Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue核心---可复用性组件详解">
 <meta name="twitter:description" content="使用组件的原因组件在 Vue 中占据着非常重要的角色，可谓是 Vue 的核心内容。我们在写代码时经常会遇到大量代码相似和重复的现象，使代码能够被重复利用则可以很好地解决这个问题。  组件作用：提高代码的复用性，进而极大程度地提高工作效率。  组件的使用方法组件需要注册之后才能使用，注册组件和创建 Vue 实例的方法相似。组件注册分为全局注册和局部注册。 全局注册123Vue.component(&apos;">
@@ -114,7 +114,7 @@
 <li>缺点：权限太大，容错率降低（因此全局注册在实际开发中使用较少）。<h3 id="局部注册"><a href="#局部注册" class="headerlink" title="局部注册"></a>局部注册</h3><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var app = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    <span class="keyword">e</span><span class="variable">l:</span> <span class="string">'#app'</span>,</span><br><span class="line">    component<span class="variable">s:</span> &#123;</span><br><span class="line">        <span class="string">'app-component'</span>: &#123;</span><br><span class="line">            template: <span class="string">'&lt;div&gt;我是app局部注册的组件&lt;/div&gt;'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="组件使用"><a href="#组件使用" class="headerlink" title="组件使用"></a>组件使用</h3><p>注册过的组件就可以在 Vue 实例中被当作 html 标签使用了，但局部注册的组件只能在它所注册的 Vue 实例中使用：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">my-component</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">app-component</span>&gt;</span><span class="tag">&lt;/<span class="name">app-component</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="组件使用"><a href="#组件使用" class="headerlink" title="组件使用"></a>组件使用</h3><p>注册过的组件就可以在 Vue 实例中被当作 html 标签使用了，但局部注册的组件只能在它所注册的 Vue 实例中使用：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">my-component</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">app-component</span>&gt;</span><span class="tag">&lt;/<span class="name">app-component</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 组件中间不填充内容时，可以直接写为 &lt;my-component/&gt;，&lt;app-component/&gt;形式 --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>渲染到页面时，组件标签会被替换成我们自定义的内容。</p>
 <h3 id="解决标签限制"><a href="#解决标签限制" class="headerlink" title="解决标签限制"></a>解决标签限制</h3><p>Vue 组件的模板在某些情况下会受到 html 标签的限制，比如 <code>&lt;table&gt;</code> 中只能还有 <code>&lt;tr&gt;</code>、<code>&lt;td&gt;</code>、<code>tbody</code> 这些元素，所以直接在 <code>&lt;table&gt;</code> 中使用组件是无效的，此时可以使用 <code>is</code> 属性来挂载组件，如：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tbody</span> <span class="attr">is</span>=<span class="string">"my-component"</span>&gt;</span><span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="组件使用小技巧"><a href="#组件使用小技巧" class="headerlink" title="组件使用小技巧"></a>组件使用小技巧</h2><ol>
@@ -244,11 +244,11 @@
 			
 		
 			
-				<li><a href="/tags/HTTP/" title="HTTP">HTTP<sup>1</sup></a></li>
+				<li><a href="/tags/HTML标签/" title="HTML标签">HTML标签<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/命令行/" title="命令行">命令行<sup>1</sup></a></li>
+				<li><a href="/tags/HTTP/" title="HTTP">HTTP<sup>1</sup></a></li>
 			
 		
 			
@@ -260,11 +260,11 @@
 			
 		
 			
-				<li><a href="/tags/移动端/" title="移动端">移动端<sup>1</sup></a></li>
+				<li><a href="/tags/JSON/" title="JSON">JSON<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/HTML标签/" title="HTML标签">HTML标签<sup>1</sup></a></li>
+				<li><a href="/tags/移动端/" title="移动端">移动端<sup>1</sup></a></li>
 			
 		
 			
@@ -272,7 +272,7 @@
 			
 		
 			
-				<li><a href="/tags/JSON/" title="JSON">JSON<sup>1</sup></a></li>
+				<li><a href="/tags/命令行/" title="命令行">命令行<sup>1</sup></a></li>
 			
 		
 		</ul>

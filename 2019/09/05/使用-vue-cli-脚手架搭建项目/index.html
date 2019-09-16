@@ -20,7 +20,7 @@
 <meta property="og:description" content="安装 Node.js首先需要在电脑上安装最新稳定版本的 Node.js （官网下载），安装 Node.js 时会随之安装一个包管理工具 npm，可以在命令行工具中用命令 npm -v 查看已安装版本。安装完 Node.js 之后，可以安装淘宝 npm 镜像，因为我们使用国外的 npm 可能会受到网速的限制。1npm install -g cnpm --registry=https://regist">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/13038962-ee48ed581fb7830f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-09-05T15:51:29.218Z">
+<meta property="og:updated_time" content="2019-09-12T22:51:54.417Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用 vue-cli 脚手架搭建项目">
 <meta name="twitter:description" content="安装 Node.js首先需要在电脑上安装最新稳定版本的 Node.js （官网下载），安装 Node.js 时会随之安装一个包管理工具 npm，可以在命令行工具中用命令 npm -v 查看已安装版本。安装完 Node.js 之后，可以安装淘宝 npm 镜像，因为我们使用国外的 npm 可能会受到网速的限制。1npm install -g cnpm --registry=https://regist">
@@ -100,21 +100,25 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装-Node-js"><span class="toc-number">1.</span> <span class="toc-text">安装 Node.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue-cli-脚手架搭建"><span class="toc-number">2.</span> <span class="toc-text">Vue-cli 脚手架搭建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#目录结构分析"><span class="toc-number">3.</span> <span class="toc-text">目录结构分析</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装-Node-js"><span class="toc-number">1.</span> <span class="toc-text">安装 Node.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装-vue-cli"><span class="toc-number">2.</span> <span class="toc-text">安装 vue-cli</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#搭建项目"><span class="toc-number">3.</span> <span class="toc-text">搭建项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#目录结构分析"><span class="toc-number">4.</span> <span class="toc-text">目录结构分析</span></a></li></ol>
 		
 		</div>
 		
 		<h2 id="安装-Node-js"><a href="#安装-Node-js" class="headerlink" title="安装 Node.js"></a>安装 Node.js</h2><p>首先需要在电脑上安装最新稳定版本的 Node.js （<a href="https://nodejs.org/zh-cn/download/" target="_blank" rel="noopener">官网下载</a>），安装 Node.js 时会随之安装一个包管理工具 <code>npm</code>，可以在命令行工具中用命令 <code>npm -v</code> 查看已安装版本。<br>安装完 Node.js 之后，可以安装淘宝 npm 镜像，因为我们使用国外的 npm 可能会受到网速的限制。<br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">npm</span> install -g cnpm --registry=https:<span class="regexp">//</span>registry.<span class="built_in">npm</span>.taobao.org</span><br></pre></td></tr></table></figure></p>
 <p>安装之后命令中的 <code>npm</code> 都用 <code>cnpm</code> 来代替。</p>
-<h2 id="Vue-cli-脚手架搭建"><a href="#Vue-cli-脚手架搭建" class="headerlink" title="Vue-cli 脚手架搭建"></a>Vue-cli 脚手架搭建</h2><ul>
-<li><p>全局安装 vue­-cli（-g — global）</p>
-<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g vue-<span class="keyword">cli</span></span><br></pre></td></tr></table></figure>
+<h2 id="安装-vue-cli"><a href="#安装-vue-cli" class="headerlink" title="安装 vue-cli"></a>安装 vue-cli</h2><ul>
+<li>全局安装 vue­-cli（-g — global）<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g vue-<span class="keyword">cli</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>进入目录（如 vueWebpackApp），初始化项目（项目名称自定义）</p>
+</ul>
+<h2 id="搭建项目"><a href="#搭建项目" class="headerlink" title="搭建项目"></a>搭建项目</h2><ul>
+<li><p>进入想要创建项目的目录（如：进入 D 盘的 vueWebpackApp 文件夹）</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> d:<span class="string">/vueWebpackApp</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>初始化项目（项目名称自定义，均小写）</p>
 <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue init webpack <span class="keyword">my</span>-project</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>此时会出现以下选项：<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">? Project name vueapp          <span class="comment">// 输入项目名称</span></span><br><span class="line">? Project description demo     <span class="comment">// 输入项目描述</span></span><br><span class="line">? Author GY                    <span class="comment">// 输入作者</span></span><br><span class="line">? Vue build                    <span class="comment">// 选择构建模式，直接回车选择第一条</span></span><br><span class="line">&gt; Runtime + Compiler: recommended <span class="keyword">for</span> most users</span><br><span class="line">  Runtime-only: <span class="keyword">about</span> 6KB lighter min+gzip, but templates (or any Vue-specific</span><br><span class="line">HTML) are ONLY allowed <span class="keyword">in</span> .vue files - render functions are required elsewhere</span><br><span class="line">? Install vue-router? <span class="keyword">No</span>                 <span class="comment">// 是否安装 vue-router</span></span><br><span class="line">? <span class="keyword">Use</span> ESLint to lint your code? <span class="keyword">No</span>       <span class="comment">// 是否安装 ESLint 代码检查工具</span></span><br><span class="line">? Setup unit tests? <span class="keyword">No</span>                   <span class="comment">// 是否设置单元测试</span></span><br><span class="line">? Setup e2e tests with Nightwatch? <span class="keyword">No</span>    <span class="comment">// 是否设置端到端测试</span></span><br><span class="line">?Should we <span class="keyword">run</span> `npm install` <span class="keyword">for</span> you after the project has been created? <span class="comment">// 直接回车</span></span><br><span class="line">&gt; Yes, <span class="keyword">use</span> NPM</span><br><span class="line">  Yes, <span class="keyword">use</span> Yarn</span><br><span class="line">  <span class="keyword">No</span>, I will handle that myself</span><br></pre></td></tr></table></figure></p>
+<p>此时会出现以下选项：<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">? Project name vueapp          <span class="comment">// 输入项目名称</span></span><br><span class="line">? Project description demo     <span class="comment">// 输入项目描述</span></span><br><span class="line">? Author GY                    <span class="comment">// 输入作者</span></span><br><span class="line">? Vue build            <span class="comment">// 选择构建模式（cmd直接回车选第一条，git按对应数字+回车</span></span><br><span class="line">&gt; Runtime + Compiler: recommended <span class="keyword">for</span> most users</span><br><span class="line">  Runtime-only: <span class="keyword">about</span> 6KB lighter min+gzip, but templates (or any Vue-specific</span><br><span class="line">HTML) are ONLY allowed <span class="keyword">in</span> .vue files - render functions are required elsewhere</span><br><span class="line">? Install vue-router? <span class="keyword">No</span>                 <span class="comment">// 是否安装 vue-router</span></span><br><span class="line">? <span class="keyword">Use</span> ESLint to lint your code? <span class="keyword">No</span>       <span class="comment">// 是否安装 ESLint 代码检查工具</span></span><br><span class="line">? Setup unit tests? <span class="keyword">No</span>                   <span class="comment">// 是否设置单元测试</span></span><br><span class="line">? Setup e2e tests with Nightwatch? <span class="keyword">No</span>    <span class="comment">// 是否设置端到端测试</span></span><br><span class="line">?Should we <span class="keyword">run</span> `npm install` <span class="keyword">for</span> you after the project has been created? <span class="comment">// 直接回车</span></span><br><span class="line">&gt; Yes, <span class="keyword">use</span> NPM</span><br><span class="line">  Yes, <span class="keyword">use</span> Yarn</span><br><span class="line">  <span class="keyword">No</span>, I will handle that myself</span><br></pre></td></tr></table></figure></p>
 <ul>
 <li><p>进入项目</p>
 <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd <span class="keyword">my</span>-project</span><br></pre></td></tr></table></figure>
@@ -128,7 +132,8 @@
 </ul>
 <p>完成后会出现：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Your application is running <span class="string">here:</span> <span class="string">http:</span><span class="comment">//localhost:8080</span></span><br></pre></td></tr></table></figure></p>
 <p>打开这个地址 <code>http://localhost:8080</code>，你会发现通过 vue-cli 脚手架工具结合 webpack 搭建的项目已经完成了。<img src="https://upload-images.jianshu.io/upload_images/13038962-ee48ed581fb7830f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="vue-cli 搭建项目"></p>
-<h2 id="目录结构分析"><a href="#目录结构分析" class="headerlink" title="目录结构分析"></a>目录结构分析</h2><ul>
+<h2 id="目录结构分析"><a href="#目录结构分析" class="headerlink" title="目录结构分析"></a>目录结构分析</h2><p>用编辑器打开项目，可以看到目录结构如下所示：</p>
+<ul>
 <li>build // <strong>项目构建</strong>（webpack）相关代码（9个）<br>── build.js // 生产环境构建代码<br>── check-­versions.js // 检查 node&amp;npm 等版本<br>── dev­client.js // 热加载相关<br>── dev­server.js // 构建本地服务器<br>── utils.js // 构建配置公用工具<br>── vue-­loader.conf.js // vue 加载器<br>── webpack.base.conf.js // webpack 基础环境配置<br>── webpack.dev.conf.js // webpack 开发环境配置<br>── webpack.prod.conf.js // webpack 生产环境配置</li>
 <li>config // 项目开发<strong>环境配置</strong>相关代码（3个）<br>── dev.env.js // 开发环境变量<br>── index.js // 项目的一些配置变量<br>── prod.env.js // 生产环境变量</li>
 <li>node_modules // <strong>项目依赖</strong>的模块</li>
@@ -164,9 +169,9 @@
 <nav class="article-nav clearfix">
  
  <div class="prev">
- <a href="/2019/09/09/vue-router路由和前端状态管理/" title="vue-router路由和前端状态管理">
+ <a href="/2019/09/09/vue-router 路由和前端状态管理/" title="vue-router 路由和前端状态管理">
   <span>
-  vue-router路由和前端状态管理</span>
+  vue-router 路由和前端状态管理</span>
 </a>
 </div>
 
@@ -253,11 +258,11 @@
 			
 		
 			
-				<li><a href="/tags/HTTP/" title="HTTP">HTTP<sup>1</sup></a></li>
+				<li><a href="/tags/HTML标签/" title="HTML标签">HTML标签<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/命令行/" title="命令行">命令行<sup>1</sup></a></li>
+				<li><a href="/tags/HTTP/" title="HTTP">HTTP<sup>1</sup></a></li>
 			
 		
 			
@@ -269,11 +274,11 @@
 			
 		
 			
-				<li><a href="/tags/移动端/" title="移动端">移动端<sup>1</sup></a></li>
+				<li><a href="/tags/JSON/" title="JSON">JSON<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/HTML标签/" title="HTML标签">HTML标签<sup>1</sup></a></li>
+				<li><a href="/tags/移动端/" title="移动端">移动端<sup>1</sup></a></li>
 			
 		
 			
@@ -281,7 +286,7 @@
 			
 		
 			
-				<li><a href="/tags/JSON/" title="JSON">JSON<sup>1</sup></a></li>
+				<li><a href="/tags/命令行/" title="命令行">命令行<sup>1</sup></a></li>
 			
 		
 		</ul>
