@@ -4,25 +4,25 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
   
-    <title>解决Hexo标签与MD文件冲突问题 | 养乐多&#39;s Blog</title>
+    <title>Babel 的安装及使用方法 | 养乐多&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Gangyuanyuan">
     
 
     
-    <meta name="description" content="今天使用 Github+Hexo 搭建的博客写文章时遇到一个 Bug，查阅资料解决之后，发现很多人都遇到过由于 nunjucks 模板标签导致 MD 文件解析报错的问题，于是记录一下这个问题的解决方法。 报错及原因我在使用 hexo generate 生成文章时，出现了如下报错：123456$ hexo generateINFO  Start processingFATAL Something&apos;s">
-<meta name="keywords" content="Git">
+    <meta name="description" content="Babel 是一个 JavaScript 编译器，它可以将 ECMAScript 2015+ 版本的 JavaScript 代码编译为能在旧版浏览器上工作的代码，包含新语法的转换和缺失特性的修补。 安装 Babel局部安装 Babel局部安装的默认路径为 ./node_modules/.bin/babel。  进入项目： 1cd xxx  初始化，生成 package.json 文件（遇到需要填写">
+<meta name="keywords" content="Webpack">
 <meta property="og:type" content="article">
-<meta property="og:title" content="解决Hexo标签与MD文件冲突问题">
-<meta property="og:url" content="http://yoursite.com/2019/08/12/解决Hexo标签与MD文件冲突问题/index.html">
+<meta property="og:title" content="Babel 的安装及使用方法">
+<meta property="og:url" content="http://yoursite.com/2019/11/02/Babel-的安装及使用方法/index.html">
 <meta property="og:site_name" content="养乐多&#39;s Blog">
-<meta property="og:description" content="今天使用 Github+Hexo 搭建的博客写文章时遇到一个 Bug，查阅资料解决之后，发现很多人都遇到过由于 nunjucks 模板标签导致 MD 文件解析报错的问题，于是记录一下这个问题的解决方法。 报错及原因我在使用 hexo generate 生成文章时，出现了如下报错：123456$ hexo generateINFO  Start processingFATAL Something&apos;s">
+<meta property="og:description" content="Babel 是一个 JavaScript 编译器，它可以将 ECMAScript 2015+ 版本的 JavaScript 代码编译为能在旧版浏览器上工作的代码，包含新语法的转换和缺失特性的修补。 安装 Babel局部安装 Babel局部安装的默认路径为 ./node_modules/.bin/babel。  进入项目： 1cd xxx  初始化，生成 package.json 文件（遇到需要填写">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-18T23:27:29.087Z">
+<meta property="og:updated_time" content="2019-11-02T14:58:58.525Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="解决Hexo标签与MD文件冲突问题">
-<meta name="twitter:description" content="今天使用 Github+Hexo 搭建的博客写文章时遇到一个 Bug，查阅资料解决之后，发现很多人都遇到过由于 nunjucks 模板标签导致 MD 文件解析报错的问题，于是记录一下这个问题的解决方法。 报错及原因我在使用 hexo generate 生成文章时，出现了如下报错：123456$ hexo generateINFO  Start processingFATAL Something&apos;s">
+<meta name="twitter:title" content="Babel 的安装及使用方法">
+<meta name="twitter:description" content="Babel 是一个 JavaScript 编译器，它可以将 ECMAScript 2015+ 版本的 JavaScript 代码编译为能在旧版浏览器上工作的代码，包含新语法的转换和缺失特性的修补。 安装 Babel局部安装 Babel局部安装的默认路径为 ./node_modules/.bin/babel。  进入项目： 1cd xxx  初始化，生成 package.json 文件（遇到需要填写">
 
     
     <link rel="alternative" href="atom.xml" title="养乐多&#39;s Blog" type="application/atom+xml">
@@ -82,14 +82,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2019/08/12/解决Hexo标签与MD文件冲突问题/" title="解决Hexo标签与MD文件冲突问题" itemprop="url">解决Hexo标签与MD文件冲突问题</a>
+      <a href="/2019/11/02/Babel-的安装及使用方法/" title="Babel 的安装及使用方法" itemprop="url">Babel 的安装及使用方法</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Gangyuanyuan" target="_blank" itemprop="author">Gangyuanyuan</a>
 		
   </p><p class="article-time">
-    <time datetime="2019-08-12T05:42:37.000Z" itemprop="datePublished"> Published 2019-08-12</time>
+    <time datetime="2019-11-02T14:48:58.000Z" itemprop="datePublished"> Published 2019-11-02</time>
     
   </p>
 </header>
@@ -98,36 +98,61 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#报错及原因"><span class="toc-number">1.</span> <span class="toc-text">报错及原因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解决方法"><span class="toc-number">2.</span> <span class="toc-text">解决方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#方法一：修改-Markdown-文件"><span class="toc-number">2.1.</span> <span class="toc-text">方法一：修改 Markdown 文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法二：修改-nunjucks-模块源代码"><span class="toc-number">2.2.</span> <span class="toc-text">方法二：修改 nunjucks 模块源代码</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装-Babel"><span class="toc-number">1.</span> <span class="toc-text">安装 Babel</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#局部安装-Babel"><span class="toc-number">1.1.</span> <span class="toc-text">局部安装 Babel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模块释义"><span class="toc-number">1.2.</span> <span class="toc-text">模块释义</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置及使用"><span class="toc-number">2.</span> <span class="toc-text">配置及使用</span></a></li></ol>
 		
 		</div>
 		
-		<p>今天使用 Github+Hexo 搭建的博客写文章时遇到一个 Bug，查阅资料解决之后，发现很多人都遇到过由于 nunjucks 模板标签导致 MD 文件解析报错的问题，于是记录一下这个问题的解决方法。</p>
-<h2 id="报错及原因"><a href="#报错及原因" class="headerlink" title="报错及原因"></a>报错及原因</h2><p>我在使用 <code>hexo generate</code> 生成文章时，出现了如下报错：<br><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ hexo <span class="keyword">generate</span></span><br><span class="line">INFO  Start processing</span><br><span class="line">FATAL Something's wrong. Maybe you can find the solution here: http:<span class="comment">//hexo.io/docs/troubleshooting.html</span></span><br><span class="line">Template render error: (unknown path) [Line <span class="number">13</span>, Column <span class="number">197</span>]</span><br><span class="line">  unexpected token: &#125;&#125;</span><br><span class="line">  at ......</span><br></pre></td></tr></table></figure></p>
-<p>出现上述情况的原因是 Markdown 文件中的 <code>{{ }}</code> 标签与 nunjucks 模板引擎的标签发生了冲突。<code>{{ }}</code>，<code>{% %}</code> 等这些标签都是模板引擎的占位标签，如果 MarkDown 文件中包含这些标签，那么解析时就会把 MD 文件中的标签动态解析了，于是导致 MD 文件解析时报错。</p>
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><h3 id="方法一：修改-Markdown-文件"><a href="#方法一：修改-Markdown-文件" class="headerlink" title="方法一：修改 Markdown 文件"></a>方法一：修改 Markdown 文件</h3><p>将含有双大括号的内容首尾添加如下标签进行处理：<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;%<span class="built_in"> raw </span>%&#125;</span><br><span class="line">&#123;&#123; 双大括号内包裹的内容 &#125;&#125;</span><br><span class="line">&#123;% endraw %&#125;</span><br></pre></td></tr></table></figure></p>
-<p>用这个标签虽然可以解决问题，但之后再遇到类似的情况每次都需要对 MarkDown 文件进行修改。下面介绍一种更便捷的方法。</p>
-<h3 id="方法二：修改-nunjucks-模块源代码"><a href="#方法二：修改-nunjucks-模块源代码" class="headerlink" title="方法二：修改 nunjucks 模块源代码"></a>方法二：修改 nunjucks 模块源代码</h3><ol>
-<li>我们还可以直接在 nunjucks 模块上修改源代码，更改有冲突的渲染标签。</li>
+		<p>Babel 是一个 JavaScript 编译器，它可以将 ECMAScript 2015+ 版本的 JavaScript 代码编译为能在旧版浏览器上工作的代码，包含新语法的转换和缺失特性的修补。</p>
+<h2 id="安装-Babel"><a href="#安装-Babel" class="headerlink" title="安装 Babel"></a>安装 Babel</h2><h3 id="局部安装-Babel"><a href="#局部安装-Babel" class="headerlink" title="局部安装 Babel"></a>局部安装 Babel</h3><p>局部安装的默认路径为 <code>./node_modules/.bin/babel</code>。</p>
+<ol>
+<li><p>进入项目：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> xxx</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>初始化，生成 package.json 文件（遇到需要填写的问题直接回车）：</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">npm</span> init</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装所需的包（Babel 7）：</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">npm</span> install --save-dev @babel/core @babel/cli @babel/preset-env</span><br><span class="line"><span class="built_in">npm</span> install --save @babel/polyfill</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 <ul>
-<li><p>首先打开这个文件，路径如下：</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node_modules<span class="regexp">/nunjucks/</span>src<span class="regexp">/lexer.js</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>找到下述两行代码：</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> VARIABLE_START = <span class="string">'&#123;&#123;'</span>;</span><br><span class="line"><span class="keyword">var</span> VARIABLE_END = <span class="string">'&#125;&#125;'</span>;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>将其修改为：</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> VARIABLE_START = <span class="string">'&#123;$'</span>;</span><br><span class="line"><span class="keyword">var</span> VARIABLE_END = <span class="string">'$&#125;'</span>;</span><br></pre></td></tr></table></figure>
+<li>可以用以下命令查询所安装的版本号：<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./node_modules/.<span class="keyword">bin/babel </span>-V</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>将有冲突的模板引擎的占位符更改为其他字符，进行模板解析时就不会与 MarkDown 的内容发生冲突了，且这种方法对所有 MarkDown 文件都是有效的，一劳永逸。<br>类似的，如果出现 <code>{% %}</code> 等符号的解析错误时，也可以根据情况将其更改为其他占位符（自定义）。</p>
-<ol start="2">
-<li>插件同步修改<br>若博客使用 <code>hexo-generator-search</code> 或 <code>hexo-generator-feed</code> 等其他依赖于 <code>nunjucks</code> 模板的插件，那么这些插件的模板处理标签也需要进行同步修改。以搜索插件为例，打开如下路径的文件：<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node_modules/hexo-generator-<span class="built_in">search</span>/templates/<span class="built_in">search</span>.xml</span><br></pre></td></tr></table></figure>
+<h3 id="模块释义"><a href="#模块释义" class="headerlink" title="模块释义"></a>模块释义</h3><ul>
+<li><code>@babel/core</code>：Babel 的核心库，包含 Babel 的核心功能</li>
+<li><code>@babel/cli</code>：命令行工具，使用它从终端运行 Babel</li>
+<li><code>@babel/env preset</code>：一组预设的插件组，只对我们所使用的并且目标浏览器中缺失的功能进行代码转换和加载 polyfill</li>
+<li><code>@babel/polyfill</code>：用来模拟所有新的 JavaScript 功能</li>
+</ul>
+<h2 id="配置及使用"><a href="#配置及使用" class="headerlink" title="配置及使用"></a>配置及使用</h2><ol>
+<li>在项目的根目录下创建一个命名为 babel.config.js 的配置文件，其内容为<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">const presets = [</span><br><span class="line">  [</span><br><span class="line">    <span class="string">"@babel/env"</span>,</span><br><span class="line">    &#123;</span><br><span class="line"><span class="symbol">      targets:</span> &#123;</span><br><span class="line"><span class="symbol">        edge:</span> <span class="string">"17"</span>, firefox: <span class="string">"60"</span>, chrome: <span class="string">"67"</span>, safari: <span class="string">"11.1"</span>,</span><br><span class="line">      &#125;,</span><br><span class="line"><span class="symbol">      useBuiltIns:</span> <span class="string">"usage"</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">  ],</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">module.exports = &#123; presets &#125;;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>根据之前修改的 <code>nunjucks</code> 的内容，将此文件的 <code>{{ }}</code> 也分别更改为 <code>{$</code> 和 <code>$}</code> 即可。</p>
-<p><strong>注意</strong>：<br>如果在项目下执行 <code>npm install</code> 更新 <code>nunjucks</code> 模板时，那么之前更改的内容会被还原，需要重新对有冲突的符号进行更改。</p>
+<p>以上是直接指定支持的浏览器版本号，支持多种配置方式，可自行调整。</p>
+<ol start="2">
+<li><p>将 js 目录下的所有代码编译到 dist 目录：</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">./node_modules/.bin/babel</span> js <span class="params">--out-dir</span> dist</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>由于我们配置了 <code>useBuiltIns: usage</code>，所以执行编译时会出现警告，根据提示再安装配置一下 core-js：</p>
+</li>
+</ol>
+<ul>
+<li><p>安装 core-js 2：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> <span class="comment">--save core-js@2</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改 babel.config.js 配置文件：</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">const presets = [</span><br><span class="line">  [</span><br><span class="line">    <span class="string">"@babel/env"</span>,</span><br><span class="line">    &#123;</span><br><span class="line"><span class="symbol">      targets:</span> &#123;</span><br><span class="line"><span class="symbol">        edge:</span> <span class="string">"17"</span>, firefox: <span class="string">"60"</span>, chrome: <span class="string">"67"</span>, safari: <span class="string">"11.1"</span>,</span><br><span class="line">      &#125;,</span><br><span class="line"><span class="symbol">      useBuiltIns:</span> <span class="string">"usage"</span>,</span><br><span class="line"><span class="symbol">      corejs:</span> <span class="number">2</span></span><br><span class="line">    &#125;,</span><br><span class="line">  ],</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">module.exports = &#123; presets &#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>这时再执行编译命令，警告就会消除。</p>
+<ol start="4">
+<li><p>也可以用 <code>watch</code> 选项开启自动编译（需要一直开启），js 文件一旦发生变动就会同步更新到 dist 目录：</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">./node_modules/.bin/babel</span> js <span class="params">--out-dir</span> dist <span class="params">--watch</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>./node_modules/.bin/babel</code> 命令也可以用 <code>npx babel</code> 来代替（<a href="mailto:npm@5.2.0" target="_blank" rel="noopener">npm@5.2.0</a> 所自带的 npm 包运行器，它会自动寻找 babel 的局部安装路径）。</p>
+</li>
+</ol>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -141,7 +166,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/Git/">Git</a>
+  <span></span> <a href="/tags/Webpack/">Webpack</a>
   </div>
 
 </div>
@@ -155,17 +180,10 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev">
- <a href="/2019/08/13/Vue核心-可复用性组件详解/" title="Vue核心---可复用性组件详解">
-  <span>
-  Vue核心---可复用性组件详解</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2019/08/11/表单与-v-model/" title="表单与 v-model">
- <span>表单与 v-model
+<a href="/2019/09/09/vue-router 路由和前端状态管理/" title="vue-router 路由和前端状态管理">
+ <span>vue-router 路由和前端状态管理
 </span>
 </a>
 </div>

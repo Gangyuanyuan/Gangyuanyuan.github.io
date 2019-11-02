@@ -11,18 +11,18 @@
     
 
     
-    <meta name="description" content="vue–router 路由基本加载路由，通俗地来讲就是输入不同的网址，加载不同的组件。  进入项目目录 1cd my-project  安装 1npm install --save vue-router  在文件中引用 12import router from &apos;vue-router&apos;Vue.use(router)  配置路由文件，并在 vue 实例中注入 123456789101112var r">
+    <meta name="description" content="vue-router 路由基本加载路由，通俗地来讲就是输入不同的网址，加载不同的组件。  进入项目目录 1cd my-project  安装 1npm install -save vue-router  在文件中引用 12import router from &apos;vue-router&apos;Vue.use(router)  配置路由文件，并在 vue 实例中注入 123456789101112var rt">
 <meta name="keywords" content="Vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue-router 路由和前端状态管理">
 <meta property="og:url" content="http://yoursite.com/2019/09/09/vue-router 路由和前端状态管理/index.html">
 <meta property="og:site_name" content="养乐多&#39;s Blog">
-<meta property="og:description" content="vue–router 路由基本加载路由，通俗地来讲就是输入不同的网址，加载不同的组件。  进入项目目录 1cd my-project  安装 1npm install --save vue-router  在文件中引用 12import router from &apos;vue-router&apos;Vue.use(router)  配置路由文件，并在 vue 实例中注入 123456789101112var r">
+<meta property="og:description" content="vue-router 路由基本加载路由，通俗地来讲就是输入不同的网址，加载不同的组件。  进入项目目录 1cd my-project  安装 1npm install -save vue-router  在文件中引用 12import router from &apos;vue-router&apos;Vue.use(router)  配置路由文件，并在 vue 实例中注入 123456789101112var rt">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-09-16T11:00:40.070Z">
+<meta property="og:updated_time" content="2019-09-20T03:07:18.287Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue-router 路由和前端状态管理">
-<meta name="twitter:description" content="vue–router 路由基本加载路由，通俗地来讲就是输入不同的网址，加载不同的组件。  进入项目目录 1cd my-project  安装 1npm install --save vue-router  在文件中引用 12import router from &apos;vue-router&apos;Vue.use(router)  配置路由文件，并在 vue 实例中注入 123456789101112var r">
+<meta name="twitter:description" content="vue-router 路由基本加载路由，通俗地来讲就是输入不同的网址，加载不同的组件。  进入项目目录 1cd my-project  安装 1npm install -save vue-router  在文件中引用 12import router from &apos;vue-router&apos;Vue.use(router)  配置路由文件，并在 vue 实例中注入 123456789101112var rt">
 
     
     <link rel="alternative" href="atom.xml" title="养乐多&#39;s Blog" type="application/atom+xml">
@@ -98,17 +98,17 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#vue–router-路由基本加载"><span class="toc-number">1.</span> <span class="toc-text">vue–router 路由基本加载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue–router-路由的跳转"><span class="toc-number">2.</span> <span class="toc-text">vue–router 路由的跳转</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue–router-路由参数的传递"><span class="toc-number">3.</span> <span class="toc-text">vue–router 路由参数的传递</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置路由"><span class="toc-number">3.1.</span> <span class="toc-text">配置路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#传递和读取参数（两种方法）"><span class="toc-number">3.2.</span> <span class="toc-text">传递和读取参数（两种方法）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Axios-详解"><span class="toc-number">4.</span> <span class="toc-text">Axios 详解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Axios-简介"><span class="toc-number">4.1.</span> <span class="toc-text">Axios 简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Axios-之-get-请求详解"><span class="toc-number">4.2.</span> <span class="toc-text">Axios 之 get 请求详解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Axios-之-post-请求详解"><span class="toc-number">4.3.</span> <span class="toc-text">Axios 之 post 请求详解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vuex-之-store"><span class="toc-number">5.</span> <span class="toc-text">Vuex 之 store</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vuex-的相关操作"><span class="toc-number">6.</span> <span class="toc-text">Vuex 的相关操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#改变状态"><span class="toc-number">6.1.</span> <span class="toc-text">改变状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vuex-状态管理流程"><span class="toc-number">6.2.</span> <span class="toc-text">vuex 状态管理流程</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#vue-router-路由基本加载"><span class="toc-number">1.</span> <span class="toc-text">vue-router 路由基本加载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue-router-路由的跳转"><span class="toc-number">2.</span> <span class="toc-text">vue-router 路由的跳转</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vue-router-路由参数的传递"><span class="toc-number">3.</span> <span class="toc-text">vue-router 路由参数的传递</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置路由"><span class="toc-number">3.1.</span> <span class="toc-text">配置路由</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#传递和读取参数（两种方法）"><span class="toc-number">3.2.</span> <span class="toc-text">传递和读取参数（两种方法）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Axios-详解"><span class="toc-number">4.</span> <span class="toc-text">Axios 详解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Axios-简介"><span class="toc-number">4.1.</span> <span class="toc-text">Axios 简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Axios-之-get-请求详解"><span class="toc-number">4.2.</span> <span class="toc-text">Axios 之 get 请求详解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Axios-之-post-请求详解"><span class="toc-number">4.3.</span> <span class="toc-text">Axios 之 post 请求详解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vuex-之-store"><span class="toc-number">5.</span> <span class="toc-text">Vuex 之 store</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vuex-的相关操作"><span class="toc-number">6.</span> <span class="toc-text">Vuex 的相关操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#改变状态"><span class="toc-number">6.1.</span> <span class="toc-text">改变状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vuex-状态管理流程"><span class="toc-number">6.2.</span> <span class="toc-text">vuex 状态管理流程</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<h2 id="vue–router-路由基本加载"><a href="#vue–router-路由基本加载" class="headerlink" title="vue–router 路由基本加载"></a>vue–router 路由基本加载</h2><p>路由，通俗地来讲就是输入不同的网址，加载不同的组件。</p>
+		<h2 id="vue-router-路由基本加载"><a href="#vue-router-路由基本加载" class="headerlink" title="vue-router 路由基本加载"></a>vue-router 路由基本加载</h2><p>路由，通俗地来讲就是输入不同的网址，加载不同的组件。</p>
 <ol>
 <li><p>进入项目目录</p>
 <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd <span class="keyword">my</span>-project</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>安装</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> <span class="comment">--save vue-router</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> -<span class="keyword">save</span> vue-router</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>在文件中<strong>引用</strong></p>
 <figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">'vue-router'</span></span><br><span class="line">Vue.use(router)</span><br></pre></td></tr></table></figure>
@@ -120,9 +120,9 @@
 <figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">&lt;router-view&gt;</span><span class="section">&lt;/router-view&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h2 id="vue–router-路由的跳转"><a href="#vue–router-路由的跳转" class="headerlink" title="vue–router 路由的跳转"></a>vue–router 路由的跳转</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">"/"</span>&gt;</span><span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="vue-router-路由的跳转"><a href="#vue-router-路由的跳转" class="headerlink" title="vue-router 路由的跳转"></a>vue-router 路由的跳转</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">"/"</span>&gt;</span><span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>例：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">"/helloworld"</span>&gt;</span>HELLO WORLD<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">"/helloearth"</span>&gt;</span>HELLO EARTH<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="vue–router-路由参数的传递"><a href="#vue–router-路由参数的传递" class="headerlink" title="vue–router 路由参数的传递"></a>vue–router 路由参数的传递</h2><blockquote>
+<h2 id="vue-router-路由参数的传递"><a href="#vue-router-路由参数的传递" class="headerlink" title="vue-router 路由参数的传递"></a>vue-router 路由参数的传递</h2><blockquote>
 <ul>
 <li>必须在路由中加入路由的 <code>name</code> 属性</li>
 <li>必须在 <code>path</code> 后加 <code>/: + 传递的参数</code></li>
@@ -263,6 +263,13 @@
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev">
+ <a href="/2019/11/02/Babel-的安装及使用方法/" title="Babel 的安装及使用方法">
+  <span>
+  Babel 的安装及使用方法</span>
+</a>
+</div>
+
 
 <div class="next">
 <a href="/2019/09/05/使用-vue-cli-脚手架搭建项目/" title="使用 vue-cli 脚手架搭建项目">
@@ -313,7 +320,7 @@
 		<ul>
 		
 		  
-			<li><a href="/categories/前端探索/" title="前端探索">前端探索<sup>42</sup></a></li>
+			<li><a href="/categories/前端探索/" title="前端探索">前端探索<sup>43</sup></a></li>
 		  
 		
 		</ul>
@@ -346,23 +353,15 @@
 			
 		
 			
+				<li><a href="/tags/JSON/" title="JSON">JSON<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/HTML标签/" title="HTML标签">HTML标签<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/HTTP/" title="HTTP">HTTP<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/AJAX/" title="AJAX">AJAX<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/JSONP/" title="JSONP">JSONP<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/JSON/" title="JSON">JSON<sup>1</sup></a></li>
+				<li><a href="/tags/Webpack/" title="Webpack">Webpack<sup>1</sup></a></li>
 			
 		
 			
@@ -370,7 +369,19 @@
 			
 		
 			
+				<li><a href="/tags/HTTP/" title="HTTP">HTTP<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/算法/" title="算法">算法<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JSONP/" title="JSONP">JSONP<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/AJAX/" title="AJAX">AJAX<sup>1</sup></a></li>
 			
 		
 			
