@@ -11,19 +11,19 @@
     
 
     
-    <meta name="description" content="组件的作用不仅仅是将模板的内容进行复用，组件与组件之间的通信也尤为重要。 props - 父组件向子组件传递数据在子组件中使用 props 从父亲组件接收参数注意：在 props 中定义的属性，都可以在组件中直接使用。12345678910111213141516在父组件里向子组件传递消息：&amp;lt;div id=&quot;app&quot; style=&quot;border: 2px solid orange; heig">
+    <meta name="description" content="组件的作用不仅仅是将模板的内容进行复用，组件与组件之间的通信也尤为重要。 props - 父组件向子组件传递数据在子组件中使用 props 从父组件接收参数注意：在 props 中定义的属性，都可以在组件中直接使用。12345678910111213141516在父组件里向子组件传递消息：&amp;lt;div id=&quot;app&quot; style=&quot;border: 2px solid orange; heigh">
 <meta name="keywords" content="Vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vue 组件详解之 props 数据传递">
 <meta property="og:url" content="http://yoursite.com/2019/08/14/Vue-组件详解之-props-数据传递/index.html">
 <meta property="og:site_name" content="养乐多&#39;s Blog">
-<meta property="og:description" content="组件的作用不仅仅是将模板的内容进行复用，组件与组件之间的通信也尤为重要。 props - 父组件向子组件传递数据在子组件中使用 props 从父亲组件接收参数注意：在 props 中定义的属性，都可以在组件中直接使用。12345678910111213141516在父组件里向子组件传递消息：&amp;lt;div id=&quot;app&quot; style=&quot;border: 2px solid orange; heig">
+<meta property="og:description" content="组件的作用不仅仅是将模板的内容进行复用，组件与组件之间的通信也尤为重要。 props - 父组件向子组件传递数据在子组件中使用 props 从父组件接收参数注意：在 props 中定义的属性，都可以在组件中直接使用。12345678910111213141516在父组件里向子组件传递消息：&amp;lt;div id=&quot;app&quot; style=&quot;border: 2px solid orange; heigh">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/13038962-9a14b7e44456b082.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-08-19T02:25:38.965Z">
+<meta property="og:updated_time" content="2019-11-06T09:33:00.018Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue 组件详解之 props 数据传递">
-<meta name="twitter:description" content="组件的作用不仅仅是将模板的内容进行复用，组件与组件之间的通信也尤为重要。 props - 父组件向子组件传递数据在子组件中使用 props 从父亲组件接收参数注意：在 props 中定义的属性，都可以在组件中直接使用。12345678910111213141516在父组件里向子组件传递消息：&amp;lt;div id=&quot;app&quot; style=&quot;border: 2px solid orange; heig">
+<meta name="twitter:description" content="组件的作用不仅仅是将模板的内容进行复用，组件与组件之间的通信也尤为重要。 props - 父组件向子组件传递数据在子组件中使用 props 从父组件接收参数注意：在 props 中定义的属性，都可以在组件中直接使用。12345678910111213141516在父组件里向子组件传递消息：&amp;lt;div id=&quot;app&quot; style=&quot;border: 2px solid orange; heigh">
 <meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/13038962-9a14b7e44456b082.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
     
@@ -100,12 +100,12 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#props-父组件向子组件传递数据"><span class="toc-number">1.</span> <span class="toc-text">props - 父组件向子组件传递数据</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#在子组件中使用-props-从父亲组件接收参数"><span class="toc-number">1.1.</span> <span class="toc-text">在子组件中使用 props 从父亲组件接收参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可以使用-v­-bind-动态绑定来自父组件的内容"><span class="toc-number">1.2.</span> <span class="toc-text">可以使用 v­-bind 动态绑定来自父组件的内容</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#单向数据流"><span class="toc-number">2.</span> <span class="toc-text">单向数据流</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#props-父组件向子组件传递数据"><span class="toc-number">1.</span> <span class="toc-text">props - 父组件向子组件传递数据</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#在子组件中使用-props-从父组件接收参数"><span class="toc-number">1.1.</span> <span class="toc-text">在子组件中使用 props 从父组件接收参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可以使用-v­-bind-动态绑定来自父组件的内容"><span class="toc-number">1.2.</span> <span class="toc-text">可以使用 v­-bind 动态绑定来自父组件的内容</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#单向数据流"><span class="toc-number">2.</span> <span class="toc-text">单向数据流</span></a></li></ol>
 		
 		</div>
 		
 		<p>组件的作用不仅仅是将模板的内容进行复用，组件与组件之间的通信也尤为重要。</p>
-<h2 id="props-父组件向子组件传递数据"><a href="#props-父组件向子组件传递数据" class="headerlink" title="props - 父组件向子组件传递数据"></a>props - 父组件向子组件传递数据</h2><h3 id="在子组件中使用-props-从父亲组件接收参数"><a href="#在子组件中使用-props-从父亲组件接收参数" class="headerlink" title="在子组件中使用 props 从父亲组件接收参数"></a>在子组件中使用 props 从父亲组件接收参数</h3><p>注意：在 <code>props</code> 中定义的属性，都可以在组件中直接使用。<br><figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml">在父组件里向子组件传递消息：</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span> <span class="attr">style</span>=<span class="string">"border: 2px solid orange; height: 120px;"</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">h5</span> <span class="attr">style</span>=<span class="string">"text-align: center;"</span>&gt;</span>我是父组件<span class="tag">&lt;/<span class="name">h5</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">child-component</span> <span class="attr">message</span>=<span class="string">"我是来自父组件的内容"</span>&gt;</span><span class="tag">&lt;/<span class="name">child-component</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span></span><br><span class="line"><span class="xml">    var app = new Vue(&#123;</span></span><br><span class="line"><span class="xml">        el: "#app", </span></span><br><span class="line"><span class="xml">        components: &#123;</span></span><br><span class="line"><span class="xml">            'child-component': &#123;</span></span><br><span class="line"><span class="xml">                props: ['message'],</span></span><br><span class="line"><span class="xml">                template: '<span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"border: 2px solid green; height: 60px;"</span>&gt;</span></span><span class="template-variable">&#123;&#123;message&#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span>'</span></span><br><span class="line"><span class="xml">            &#125;</span></span><br><span class="line"><span class="xml">        &#125;</span></span><br><span class="line"><span class="xml">    &#125;)</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+<h2 id="props-父组件向子组件传递数据"><a href="#props-父组件向子组件传递数据" class="headerlink" title="props - 父组件向子组件传递数据"></a>props - 父组件向子组件传递数据</h2><h3 id="在子组件中使用-props-从父组件接收参数"><a href="#在子组件中使用-props-从父组件接收参数" class="headerlink" title="在子组件中使用 props 从父组件接收参数"></a>在子组件中使用 props 从父组件接收参数</h3><p>注意：在 <code>props</code> 中定义的属性，都可以在组件中直接使用。<br><figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml">在父组件里向子组件传递消息：</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span> <span class="attr">style</span>=<span class="string">"border: 2px solid orange; height: 120px;"</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">h5</span> <span class="attr">style</span>=<span class="string">"text-align: center;"</span>&gt;</span>我是父组件<span class="tag">&lt;/<span class="name">h5</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">child-component</span> <span class="attr">message</span>=<span class="string">"我是来自父组件的内容"</span>&gt;</span><span class="tag">&lt;/<span class="name">child-component</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span></span><br><span class="line"><span class="xml">    var app = new Vue(&#123;</span></span><br><span class="line"><span class="xml">        el: "#app", </span></span><br><span class="line"><span class="xml">        components: &#123;</span></span><br><span class="line"><span class="xml">            'child-component': &#123;</span></span><br><span class="line"><span class="xml">                props: ['message'],</span></span><br><span class="line"><span class="xml">                template: '<span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"border: 2px solid green; height: 60px;"</span>&gt;</span></span><span class="template-variable">&#123;&#123;message&#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span>'</span></span><br><span class="line"><span class="xml">            &#125;</span></span><br><span class="line"><span class="xml">        &#125;</span></span><br><span class="line"><span class="xml">    &#125;)</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
 <ul>
 <li>组件中 <code>props</code> 中定义的内容是来自父级的，而组件中 <code>data return</code> 的数据是组件自己的数据。两种情况 <strong>作用域</strong> 都是组件本身，可以在 <code>template</code>，<code>computed</code>，<code>methods</code> 中直接使用。</li>
 <li><code>props</code> 的值有两种，一种是字符串数组，一种是对象。</li>
@@ -213,7 +213,7 @@
 		<ul>
 		
 		  
-			<li><a href="/categories/前端探索/" title="前端探索">前端探索<sup>45</sup></a></li>
+			<li><a href="/categories/前端探索/" title="前端探索">前端探索<sup>46</sup></a></li>
 		  
 		
 		</ul>
@@ -254,7 +254,7 @@
 			
 		
 			
-				<li><a href="/tags/HTML标签/" title="HTML标签">HTML标签<sup>1</sup></a></li>
+				<li><a href="/tags/SASS/" title="SASS">SASS<sup>1</sup></a></li>
 			
 		
 			
@@ -262,15 +262,11 @@
 			
 		
 			
+				<li><a href="/tags/HTML标签/" title="HTML标签">HTML标签<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/AJAX/" title="AJAX">AJAX<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/JSONP/" title="JSONP">JSONP<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/命令行/" title="命令行">命令行<sup>1</sup></a></li>
 			
 		
 			
@@ -278,11 +274,19 @@
 			
 		
 			
+				<li><a href="/tags/SCSS/" title="SCSS">SCSS<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/算法/" title="算法">算法<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/SASS/" title="SASS">SASS<sup>1</sup></a></li>
+				<li><a href="/tags/命令行/" title="命令行">命令行<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JSONP/" title="JSONP">JSONP<sup>1</sup></a></li>
 			
 		
 		</ul>

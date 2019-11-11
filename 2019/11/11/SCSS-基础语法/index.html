@@ -1,0 +1,521 @@
+
+ <!DOCTYPE HTML>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  
+    <title>SCSS 基础语法 | 养乐多&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Gangyuanyuan">
+    
+
+    
+    <meta name="description" content="选择器扩展BEM  命名法BEM 全称为 Block Element Modifier，是一种 CSS 命名方法。比如要给一个模块取名字，步骤如下：1. 先确定模块的名字，如 user-card2. 这一模块的子代或后代元素都围绕这个名字来命名，用两个下划线连接。如模块里面的头像用 .user-card__picture，名字用 .user-card__name，简介用 .user-card__d">
+<meta name="keywords" content="SCSS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SCSS 基础语法">
+<meta property="og:url" content="http://yoursite.com/2019/11/11/SCSS-基础语法/index.html">
+<meta property="og:site_name" content="养乐多&#39;s Blog">
+<meta property="og:description" content="选择器扩展BEM  命名法BEM 全称为 Block Element Modifier，是一种 CSS 命名方法。比如要给一个模块取名字，步骤如下：1. 先确定模块的名字，如 user-card2. 这一模块的子代或后代元素都围绕这个名字来命名，用两个下划线连接。如模块里面的头像用 .user-card__picture，名字用 .user-card__name，简介用 .user-card__d">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-11-11T02:51:49.083Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SCSS 基础语法">
+<meta name="twitter:description" content="选择器扩展BEM  命名法BEM 全称为 Block Element Modifier，是一种 CSS 命名方法。比如要给一个模块取名字，步骤如下：1. 先确定模块的名字，如 user-card2. 这一模块的子代或后代元素都围绕这个名字来命名，用两个下划线连接。如模块里面的头像用 .user-card__picture，名字用 .user-card__name，简介用 .user-card__d">
+
+    
+    <link rel="alternative" href="atom.xml" title="养乐多&#39;s Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/profile2.png">
+    <link rel="apple-touch-icon-precomposed" href="/img/profile2.png">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="养乐多&#39;s Blog">养乐多&#39;s Blog</a></h1>
+				<h2 class="blog-motto">不要拖泥又带水， 不要懒惰又浪费。</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/categories">Categories</a></li>
+					
+						<li><a href="/tags">Tags</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search">
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</ul></nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2019/11/11/SCSS-基础语法/" title="SCSS 基础语法" itemprop="url">SCSS 基础语法</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="Gangyuanyuan" target="_blank" itemprop="author">Gangyuanyuan</a>
+		
+  </p><p class="article-time">
+    <time datetime="2019-11-11T02:08:21.000Z" itemprop="datePublished"> Published 2019-11-11</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#选择器扩展"><span class="toc-number">1.</span> <span class="toc-text">选择器扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#BEM-命名法"><span class="toc-number">1.1.</span> <span class="toc-text">BEM  命名法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#嵌套选择器"><span class="toc-number">1.2.</span> <span class="toc-text">嵌套选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#amp-符号"><span class="toc-number">1.3.</span> <span class="toc-text">&amp; 符号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#嵌套属性"><span class="toc-number">1.4.</span> <span class="toc-text">嵌套属性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注释"><span class="toc-number">2.</span> <span class="toc-text">注释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#变量"><span class="toc-number">3.</span> <span class="toc-text">变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#运算"><span class="toc-number">4.</span> <span class="toc-text">运算</span></a></li></ol>
+		
+		</div>
+		
+		<h2 id="选择器扩展"><a href="#选择器扩展" class="headerlink" title="选择器扩展"></a>选择器扩展</h2><h3 id="BEM-命名法"><a href="#BEM-命名法" class="headerlink" title="BEM  命名法"></a>BEM  命名法</h3><p>BEM 全称为 Block Element Modifier，是一种 CSS 命名方法。<br>比如要给一个模块取名字，步骤如下：<br>1. 先确定模块的名字，如 <code>user-card</code><br>2. 这一模块的子代或后代元素都围绕这个名字来命名，用两个下划线连接。如模块里面的头像用 <code>.user-card__picture</code>，名字用 <code>.user-card__name</code>，简介用 <code>.user-card__description</code>。<br>3. 当某个元素发生状态的变化，如 hover 或 click 时样式改变，命名时用两个中划线连接。如 <code>.user-card--active</code>，<code>.user-card__picture--active</code>。</p>
+<p>虽然 BEM 命名法逻辑清晰，且各模块名字之间不会相互影响，但名字比较冗长，实际开发中我们可以根据这个思想改的简洁一些，例如将 <code>.user-card__picture--active</code> 改写成 <code>.userCard-picture  .active</code>（<code>class=&quot;userCard-picture active&quot;</code>）。</p>
+<h3 id="嵌套选择器"><a href="#嵌套选择器" class="headerlink" title="嵌套选择器"></a>嵌套选择器</h3><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"userCard active"</span>&gt;</span><br><span class="line">	&lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"userCard-name"</span>&gt;&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">&lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.userCard</span>&#123;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">	<span class="selector-class">.userCard-name</span>&#123;</span><br><span class="line">		<span class="attribute">color</span>: block;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 编译后的 CSS</span></span><br><span class="line"><span class="selector-class">.userCard</span>&#123;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">100px</span>; &#125;</span><br><span class="line">	<span class="selector-class">.userCard-name</span>&#123;</span><br><span class="line">		<span class="attribute">color</span>: block; &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="amp-符号"><a href="#amp-符号" class="headerlink" title="&amp; 符号"></a>&amp; 符号</h3><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.userCard</span>&#123;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">	&amp;<span class="selector-class">.active</span>&#123;</span><br><span class="line">		<span class="attribute">background</span>: orange;</span><br><span class="line">	&#125;</span><br><span class="line">	&amp;-name&#123;</span><br><span class="line">		<span class="attribute">color</span>: block;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="嵌套属性"><a href="#嵌套属性" class="headerlink" title="嵌套属性"></a>嵌套属性</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.userCard</span>&#123;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">	<span class="attribute">font</span>: &#123;</span><br><span class="line">		size: <span class="number">20px</span>;</span><br><span class="line">		<span class="attribute">weight</span>: bold;</span><br><span class="line">		<span class="attribute">family</span>: <span class="string">'Courier New'</span>,Courier,monospace;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>CSS 只能 <code>/*单行注释*/</code>，SCSS 可以支持 <code>// 单行注释</code> 了<br>如果多行注释的第一个字母是 <code>!</code>，那么注释总是会被保留到输出的 CSS 中。</p>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>变量可以在多个选择器里引用同一个数值，方便批量修改。<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.userCard</span>&#123;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">	&amp;-name&#123;</span><br><span class="line">		<span class="variable">$width</span>: <span class="number">120px</span>;</span><br><span class="line">		<span class="attribute">width</span>: <span class="variable">$width</span>;</span><br><span class="line">		<span class="attribute">height</span>: <span class="variable">$width</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>变量是有作用域的。<br>可以使用 <code>!global</code> 强行变为全局变量（不推荐使用）<br>如果定义一个变量名为 <code>$main-width</code>，也可以使用 <code>$main_width</code>访问它。</p>
+<h2 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h2><ol>
+<li>SCSS 支持数字的加减乘除（除法特殊），取模运算（判断奇偶）<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span> + <span class="number">100px</span> + <span class="number">100px</span>; <span class="comment">// 加</span></span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span> * <span class="number">100</span>; <span class="comment">// 乘</span></span><br><span class="line">    <span class="attribute">width</span>: (<span class="number">100px</span>/<span class="number">2</span>); <span class="comment">// 除</span></span><br><span class="line">    <span class="attribute">width</span>: <span class="variable">$width</span>/<span class="number">2</span>; <span class="comment">// 除</span></span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>/<span class="number">2</span>-<span class="number">0</span>; <span class="comment">// 除</span></span><br><span class="line">    <span class="attribute">width</span>: <span class="number">101px</span> % <span class="number">2</span>; <span class="comment">// 取模运算，值为1，奇数</span></span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span> % <span class="number">2</span>; <span class="comment">// 取模运算，值为0，偶数</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>将 <code>/</code> 解析为除法的三种情况：</p>
+<ul>
+<li>如果该值，或值的任何部分，存储在一个变量中或通过函数返回。</li>
+<li>如果该值是由括号括起来的，除非这些括号是在一个列表（list）外部，并且值是括号内部。</li>
+<li>如果该值被用作另一个算术表达式的一部分。</li>
+</ul>
+<ol start="2">
+<li>颜色相关运算<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">    <span class="variable">$red</span>: <span class="number">#FF0000</span>;</span><br><span class="line">    <span class="attribute">color</span>: <span class="variable">$red</span> + <span class="number">#888888</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 运算之后的值为：</span></span><br><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">    <span class="attribute">color</span>:  <span class="number">#FF8888</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li>除此之外，SCSS 还提供了很多操作颜色的函数，可以对颜色进行任何操作，如：<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">	<span class="variable">$red</span>: <span class="number">#FF0000</span>;</span><br><span class="line">	<span class="attribute">background</span>: fade-out(<span class="variable">$red</span>, <span class="number">0.5</span>); <span class="comment">// 更改透明度</span></span><br><span class="line">	<span class="attribute">color</span>: change-color(<span class="variable">$color</span>:<span class="variable">$red</span>, <span class="variable">$green</span>:<span class="number">255</span>); <span class="comment">// 更改颜色</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol start="3">
+<li><p>字符串插值<br>SCSS 支持在代码里插入字符串或变量（<code>#{}</code>），如在某个元素的开头和结尾各加一个符号，并插入变量：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">	<span class="variable">$red</span>: <span class="number">#FF0000</span>;</span><br><span class="line">	&amp;::before&#123;</span><br><span class="line">		<span class="attribute">content</span>: <span class="string">'* #&#123;$red&#125;'</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	&amp;::after&#123;</span><br><span class="line">		<span class="attribute">content</span>: <span class="string">'?'</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>CSS 语法也支持运算：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="built_in">calc</span>(200px / 2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/前端探索/">前端探索</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/SCSS/">SCSS</a>
+  </div>
+
+</div>
+
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2019/11/05/SASS-指令之代码复用/" title="SASS 指令之代码复用">
+ <span>SASS 指令之代码复用
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+<div id="authorInfo">
+	
+		<div class="author-img"></div>		
+	
+	<div class="social-info">
+		
+		<a href="http://weibo.com/5174431150" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/Gangyuanyuan" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:gang.gy@qq.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+
+	</div>
+</div>
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">Categories</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/前端探索/" title="前端探索">前端探索<sup>46</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Vue/" title="Vue">Vue<sup>15</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JS/" title="JS">JS<sup>7</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Git/" title="Git">Git<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Webpack/" title="Webpack">Webpack<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CSS/" title="CSS">CSS<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/jQuery/" title="jQuery">jQuery<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JSON/" title="JSON">JSON<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/SASS/" title="SASS">SASS<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTTP/" title="HTTP">HTTP<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/HTML标签/" title="HTML标签">HTML标签<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/AJAX/" title="AJAX">AJAX<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/移动端/" title="移动端">移动端<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/SCSS/" title="SCSS">SCSS<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/算法/" title="算法">算法<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/命令行/" title="命令行">命令行<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JSONP/" title="JSONP">JSONP<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://github.com/Gangyuanyuan" target="_blank" title="My GitHub">My GitHub</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://www.jianshu.com/u/9f534f79952c" target="_blank" title="My JianShu">My JianShu</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer">
+		
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/hsihohuang/kiddochan" target="_blank" title="Kiddochan">Kiddochan</a> © 2019 
+		
+		<a href="/about" target="_blank" title="Gangyuanyuan">Gangyuanyuan</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
